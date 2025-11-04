@@ -14,8 +14,8 @@ const Home = () => {
             keywords="développeur web, dévellopeur backend, Java, React, développement web, portfolio, Modjo Victor, solutions digitales">
             <HeroSection/>
             <AboutMe/>
-            <MyStack />
             <ServicesSection/>
+            <MyStack />
             <MyExperience/>
         </Layout>
     );
