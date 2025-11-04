@@ -1,5 +1,5 @@
 import Layout from "@/components/layout/layout";
-import HeroSection from "@/components/home/hero-section";
+import HeroSection from "@/components/home/HeroSection.tsx";
 import AboutSection from "@/components/home/AboutSection.tsx";
 import ServicesSection from "@/components/home/ServicesSection.tsx";
 import AboutMe from "@/components/AboutMe.tsx";
