@@ -4,9 +4,8 @@ import { SiSpringboot, SiReact, SiCodewars } from "react-icons/si";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Download, Code, Palette, Globe, Database, Monitor } from "lucide-react";
 import { ScaleTextEffect, AppearOnScale } from "@/lib/ScrollEffect";
-import aboutBg from "@/assets/me2.jpg";
 
-const About = () => {
+const AboutMe = () => {
     const skills = [
         { icon: Database, name: "Backend Development", level: 80 },
         { icon: Code, name: "Frontend Development", level: 70 },
@@ -44,7 +43,7 @@ const About = () => {
                                         <div
                                             className="absolute inset-0 opacity-20"
                                             style={{
-                                                backgroundImage: `url(${aboutBg})`,
+                                                backgroundImage: `url(public/me.png)`,
                                                 backgroundSize: "cover",
                                                 backgroundPosition: "center",
                                             }}
@@ -54,14 +53,14 @@ const About = () => {
                                             <div className="text-center">
                                                 <div className="w-20 h-20 bg-gradient-primary rounded-full mx-auto mb-4 flex items-center justify-center">
                         <span className="text-2xl font-bold text-primary-foreground">
-                          MV
+                          WK
                         </span>
                                                 </div>
                                                 <p className="text-text-primary font-semibold">
-                                                    Modjo Victor
+                                                    Wistant Kode
                                                 </p>
                                                 <p className="text-text-secondary text-sm">
-                                                    Full Stack Developer
+                                                    Backend Developer
                                                 </p>
                                             </div>
                                         </div>
@@ -103,7 +102,7 @@ const About = () => {
                                     size="lg"
                                     className="bg-gradient-primary hover:opacity-90 border-0 shadow-primary hover:shadow-glow transition-smooth"
                                 >
-                                    <a href="mailto:yvankamsu88@gmail.com">
+                                    <a href="mailto:wistantkode@protonmail.com">
                                         <Mail className="mr-2 w-5 h-5" />
                                         Me Contacter
                                     </a>
@@ -115,7 +114,10 @@ const About = () => {
                                     asChild
                                     className="border-border-light hover:border-primary hover:bg-primary/10"
                                 >
-                                    <a href="/VICTOR-MODJO-CV.pdf" download>
+                                    <a
+                                        href="public/cv/cv%20-%20wistant.pdf"
+                                        download
+                                    >
                                         <Download className="mr-2 w-5 h-5" />
                                         Télécharger CV
                                     </a>
@@ -162,85 +164,6 @@ const About = () => {
                         </div>
                     </div>
 
-                    <div className="mb-20">
-                        <h3 className="text-3xl font-bold text-text-primary text-center mb-12 title3">
-                            Mon Parcours
-                        </h3>
-                        <div className="max-w-3xl mx-auto space-y-8">
-                            {/* Stage INAF – Développement Backend Spring Boot */}
-                            <Card className="bg-gradient-card border-border-light shadow-card">
-                                <CardContent className="p-6">
-                                    <div className="flex items-start gap-4">
-                                        <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
-                                            <SiSpringboot size={32} color="#6DB33F" />
-                                        </div>
-                                        <div>
-                                            <h4 className="text-xl font-semibold text-text-primary mb-2 title3">
-                                                INAF – Stage Développement Backend Spring Boot
-                                            </h4>
-                                            <p className="text-primary font-medium mb-2">
-                                                Juin 2025 - Septembre 2025
-                                            </p>
-                                            <p className="text-text-secondary title1">
-                                                Stage de développement backend avec Spring Boot. Création d’API performantes et sécurisées,
-                                                intégration avec React côté frontend, et gestion des
-                                                bases de données.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </CardContent>
-                            </Card>
-
-                            {/* Développement React (Autodidacte) */}
-                            <Card className="bg-gradient-card border-border-light shadow-card">
-                                <CardContent className="p-6">
-                                    <div className="flex items-start gap-4">
-                                        <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
-                                            <SiReact size={32} color="#61DAFB" />
-                                        </div>
-                                        <div>
-                                            <h4 className="text-xl font-semibold text-text-primary mb-2 title3">
-                                                Freecodecamp - Développement React
-                                            </h4>
-                                            <p className="text-primary font-medium mb-2">
-                                                Mai 2024 - Juin 2024
-                                            </p>
-                                            <p className="text-text-secondary title1">
-                                                Apprentissage autodidacte de React via FreeCodeCamp et
-                                                projets personnels. Développement d’applications web
-                                                interactives et responsives.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </CardContent>
-                            </Card>
-
-                            {/* Lycée Classique de Dschang – TI et Terminale TI */}
-                            <Card className="bg-gradient-card border-border-light shadow-card">
-                                <CardContent className="p-6">
-                                    <div className="flex items-start gap-4">
-                                        <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
-                                            <Monitor size={32} color="#0078D6" />
-                                        </div>
-                                        <div>
-                                            <h4 className="text-xl font-semibold text-text-primary mb-2 title3">
-                                                Lycée Classique de Dschang – TI et Terminale TI
-                                            </h4>
-                                            <p className="text-primary font-medium mb-2">
-                                                Septembre 2023 - Mai 2025
-                                            </p>
-                                            <p className="text-text-secondary title1">
-                                                Formation générale et scientifique solide, axée sur les
-                                                sciences et l’informatique, donnant les bases
-                                                nécessaires pour mon parcours en développement web et
-                                                backend.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        </div>
-                    </div>
 
                     {/* Contact CTA */}
                     <div className="text-center bg-gradient-card rounded-2xl p-12 border border-border-light shadow-card">
@@ -266,4 +189,4 @@ const About = () => {
     );
 };
 
-export default About;
+export default AboutMe;

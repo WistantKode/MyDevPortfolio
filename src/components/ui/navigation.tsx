@@ -29,7 +29,7 @@ const Navigation = () => {
               <span className="text-primary-foreground font-bold text-lg">MV</span>
             </div>
             <span className="font-bold text-xl text-text-primary hidden sm:block">
-              Modjo Victor
+              Wistant Kode
             </span>
           </Link>
 
