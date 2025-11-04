@@ -14,6 +14,7 @@ import {
     Globe,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import {AppearOnScroll} from "@/lib/ScrollEffect.tsx";
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -144,85 +145,95 @@ const ContactForm = () => {
                             </CardHeader>
 
                             <CardContent>
-                                <form onSubmit={handleSubmit} className="space-y-6">
-                                    <div className="grid md:grid-cols-2 gap-4">
-                                        <div>
-                                            <label className="block text-text-primary text-sm font-medium mb-2">
-                                                Nom complet *
-                                            </label>
-                                            <Input
-                                                name="name"
-                                                type="text"
-                                                required
-                                                value={formData.name}
-                                                onChange={handleChange}
-                                                placeholder="Votre nom"
-                                                className="bg-input border-border-light"
-                                            />
+                                <AppearOnScroll>
+                                    <form onSubmit={handleSubmit} className="space-y-6">
+                                        <div className="grid md:grid-cols-2 gap-4">
+                                            <AppearOnScroll>
+                                                <div>
+                                                    <label className="block text-text-primary text-sm font-medium mb-2">
+                                                        Nom complet *
+                                                    </label>
+                                                    <Input
+                                                        name="name"
+                                                        type="text"
+                                                        required
+                                                        value={formData.name}
+                                                        onChange={handleChange}
+                                                        placeholder="Votre nom"
+                                                        className="bg-input border-border-light"
+                                                    />
+                                                </div>
+                                            </AppearOnScroll>
+
+                                            <AppearOnScroll>
+                                                <div>
+                                                    <label className="block text-text-primary text-sm font-medium mb-2">
+                                                        Email *
+                                                    </label>
+                                                    <Input
+                                                        name="email"
+                                                        type="email"
+                                                        required
+                                                        value={formData.email}
+                                                        onChange={handleChange}
+                                                        placeholder="votre@email.com"
+                                                        className="bg-input border-border-light"
+                                                    />
+                                                </div>
+                                            </AppearOnScroll>
                                         </div>
 
-                                        <div>
-                                            <label className="block text-text-primary text-sm font-medium mb-2">
-                                                Email *
-                                            </label>
-                                            <Input
-                                                name="email"
-                                                type="email"
-                                                required
-                                                value={formData.email}
-                                                onChange={handleChange}
-                                                placeholder="votre@email.com"
-                                                className="bg-input border-border-light"
-                                            />
-                                        </div>
-                                    </div>
+                                        <AppearOnScroll>
+                                            <div>
+                                                <label className="block text-text-primary text-sm font-medium mb-2">
+                                                    Sujet *
+                                                </label>
+                                                <Input
+                                                    name="subject"
+                                                    type="text"
+                                                    required
+                                                    value={formData.subject}
+                                                    onChange={handleChange}
+                                                    placeholder="Sujet de votre message"
+                                                    className="bg-input border-border-light"
+                                                />
+                                            </div>
+                                        </AppearOnScroll>
 
-                                    <div>
-                                        <label className="block text-text-primary text-sm font-medium mb-2">
-                                            Sujet *
-                                        </label>
-                                        <Input
-                                            name="subject"
-                                            type="text"
-                                            required
-                                            value={formData.subject}
-                                            onChange={handleChange}
-                                            placeholder="Sujet de votre message"
-                                            className="bg-input border-border-light"
-                                        />
-                                    </div>
+                                       <AppearOnScroll>
+                                           <div>
+                                               <label className="block text-text-primary text-sm font-medium mb-2">
+                                                   Message *
+                                               </label>
+                                               <Textarea
+                                                   name="message"
+                                                   required
+                                                   value={formData.message}
+                                                   onChange={handleChange}
+                                                   placeholder="Décrivez votre projet ou votre demande..."
+                                                   rows={6}
+                                                   className="bg-input border-border-light"
+                                               />
+                                           </div>
+                                       </AppearOnScroll>
 
-                                    <div>
-                                        <label className="block text-text-primary text-sm font-medium mb-2">
-                                            Message *
-                                        </label>
-                                        <Textarea
-                                            name="message"
-                                            required
-                                            value={formData.message}
-                                            onChange={handleChange}
-                                            placeholder="Décrivez votre projet ou votre demande..."
-                                            rows={6}
-                                            className="bg-input border-border-light"
-                                        />
-                                    </div>
-
-                                    <Button
-                                        type="submit"
-                                        disabled={isSubmitting}
-                                        size="lg"
-                                        className="w-full bg-gradient-primary hover:opacity-90 border-0 shadow-primary hover:shadow-glow transition-smooth"
-                                    >
-                                        {isSubmitting ? (
-                                            "Envoi en cours..."
-                                        ) : (
-                                            <>
-                                                <Send className="mr-2 w-5 h-5" />
-                                                Envoyer le message
-                                            </>
-                                        )}
-                                    </Button>
-                                </form>
+                                        <Button
+                                            type="submit"
+                                            disabled={isSubmitting}
+                                            size="lg"
+                                            className="w-full bg-gradient-primary hover:opacity-90 border-0 shadow-primary hover:shadow-glow transition-smooth"
+                                        >
+                                            {isSubmitting ? (
+                                                "Envoi en cours..."
+                                            ) : (
+                                                <>
+                                                    <Send className="mr-2 w-5 h-5" />
+                                                    Envoyer le message
+                                                </>
+                                            )}
+                                        </Button>
+                                    </form>
+                                </AppearOnScroll>
                             </CardContent>
                         </Card>
 
@@ -238,141 +249,148 @@ const ContactForm = () => {
                                 </p>
                             </div>
 
-                            <div className="space-y-6">
-                                {contactInfo.map((info, index) => {
-                                    const Icon = info.icon;
-                                    return (
-                                        <Card
-                                            key={index}
-                                            className="bg-gradient-card border-border-light shadow-card hover:shadow-glow transition-smooth group"
-                                        >
-                                            <CardContent className="p-6">
-                                                <div className="flex items-center gap-4">
-                                                    <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform shadow-primary">
-                                                        <Icon className="w-6 h-6 text-primary-foreground" />
+                            <AppearOnScroll>
+                                <div className="space-y-6">
+                                    {contactInfo.map((info, index) => {
+                                        const Icon = info.icon;
+                                        return (
+                                            <Card
+                                                key={index}
+                                                className="bg-gradient-card border-border-light shadow-card hover:shadow-glow transition-smooth group"
+                                            >
+                                                <CardContent className="p-6">
+                                                    <div className="flex items-center gap-4">
+                                                        <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform shadow-primary">
+                                                            <Icon className="w-6 h-6 text-primary-foreground" />
+                                                        </div>
+                                                        <div>
+                                                            <h3 className="text-text-primary font-semibold mb-1">
+                                                                {info.title}
+                                                            </h3>
+                                                            {info.link ? (
+                                                                <a
+                                                                    href={info.link}
+                                                                    target={
+                                                                        info.link.startsWith("http")
+                                                                            ? "_blank"
+                                                                            : undefined
+                                                                    }
+                                                                    rel={
+                                                                        info.link.startsWith("http")
+                                                                            ? "noopener noreferrer"
+                                                                            : undefined
+                                                                    }
+                                                                    className="text-primary hover:text-primary-glow transition-smooth"
+                                                                >
+                                                                    {info.value}
+                                                                </a>
+                                                            ) : (
+                                                                <p className="text-text-secondary">
+                                                                    {info.value}
+                                                                </p>
+                                                            )}
+                                                        </div>
                                                     </div>
-                                                    <div>
-                                                        <h3 className="text-text-primary font-semibold mb-1">
-                                                            {info.title}
-                                                        </h3>
-                                                        {info.link ? (
-                                                            <a
-                                                                href={info.link}
-                                                                target={
-                                                                    info.link.startsWith("http")
-                                                                        ? "_blank"
-                                                                        : undefined
-                                                                }
-                                                                rel={
-                                                                    info.link.startsWith("http")
-                                                                        ? "noopener noreferrer"
-                                                                        : undefined
-                                                                }
-                                                                className="text-primary hover:text-primary-glow transition-smooth"
-                                                            >
-                                                                {info.value}
-                                                            </a>
-                                                        ) : (
-                                                            <p className="text-text-secondary">
-                                                                {info.value}
-                                                            </p>
-                                                        )}
-                                                    </div>
-                                                </div>
-                                            </CardContent>
-                                        </Card>
-                                    );
-                                })}
-                            </div>
+                                                </CardContent>
+                                            </Card>
+                                        );
+                                    })}
+                                </div>
+                            </AppearOnScroll>
+
 
                             {/* Quick Actions */}
-                            <div className="space-y-4">
-                                <h3 className="text-xl font-bold text-text-primary">
-                                    Actions Rapides
-                                </h3>
+                            <AppearOnScroll>
+                                <div className="space-y-4">
+                                    <h3 className="text-xl font-bold text-text-primary">
+                                        Actions Rapides
+                                    </h3>
 
-                                <div className="space-y-3">
-                                    <Button
-                                        asChild
-                                        variant="outline"
-                                        size="lg"
-                                        className="w-full justify-start border-border-light hover:border-primary hover:bg-primary/10"
-                                    >
-                                        <a
-                                            href="https://wa.me/+237697135341"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                    <div className="space-y-3">
+                                        <Button
+                                            asChild
+                                            variant="outline"
+                                            size="lg"
+                                            className="w-full justify-start border-border-light hover:border-primary hover:bg-primary/10"
                                         >
-                                            <MessageCircle className="mr-3 w-5 h-5" />
-                                            Discuter sur WhatsApp
-                                        </a>
-                                    </Button>
+                                            <a
+                                                href="https://wa.me/+237697135341"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                <MessageCircle className="mr-3 w-5 h-5" />
+                                                Discuter sur WhatsApp
+                                            </a>
+                                        </Button>
 
-                                    <Button
-                                        asChild
-                                        variant="outline"
-                                        size="lg"
-                                        className="w-full justify-start border-border-light hover:border-primary hover:bg-primary/10"
-                                    >
-                                        <a href="mailto:wistantkode@protonmail.com">
-                                            <Mail className="mr-3 w-5 h-5" />
-                                            Envoyer un email
-                                        </a>
-                                    </Button>
+                                        <Button
+                                            asChild
+                                            variant="outline"
+                                            size="lg"
+                                            className="w-full justify-start border-border-light hover:border-primary hover:bg-primary/10"
+                                        >
+                                            <a href="mailto:wistantkode@protonmail.com">
+                                                <Mail className="mr-3 w-5 h-5" />
+                                                Envoyer un email
+                                            </a>
+                                        </Button>
 
-                                    <Button
-                                        asChild
-                                        variant="outline"
-                                        size="lg"
-                                        className="w-full justify-start border-border-light hover:border-primary hover:bg-primary/10"
-                                    >
-                                        <a href="/services">
-                                            <Globe className="mr-3 w-5 h-5" />
-                                            Voir mes services
-                                        </a>
-                                    </Button>
+                                        <Button
+                                            asChild
+                                            variant="outline"
+                                            size="lg"
+                                            className="w-full justify-start border-border-light hover:border-primary hover:bg-primary/10"
+                                        >
+                                            <a href="/services">
+                                                <Globe className="mr-3 w-5 h-5" />
+                                                Voir mes services
+                                            </a>
+                                        </Button>
+                                    </div>
                                 </div>
-                            </div>
+                            </AppearOnScroll>
 
                             {/* FAQ Section */}
-                            <Card className="bg-gradient-card border-border-light shadow-card">
-                                <CardHeader>
-                                    <CardTitle className="text-xl text-text-primary title3">
-                                        Questions Fréquentes
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardContent className="space-y-4">
-                                    <div>
-                                        <h4 className="text-text-primary font-medium mb-1 title2">
-                                            Quel est votre délai de réponse ?
-                                        </h4>
-                                        <p className="text-text-secondary text-sm title1">
-                                            Je réponds généralement dans les 24 heures, souvent plus
-                                            rapidement.
-                                        </p>
-                                    </div>
+                            <AppearOnScroll>
+                                <Card className="bg-gradient-card border-border-light shadow-card">
+                                    <CardHeader>
+                                        <CardTitle className="text-xl text-text-primary title3">
+                                            Questions Fréquentes
+                                        </CardTitle>
+                                    </CardHeader>
+                                    <CardContent className="space-y-4">
+                                        <div>
+                                            <h4 className="text-text-primary font-medium mb-1 title2">
+                                                Quel est votre délai de réponse ?
+                                            </h4>
+                                            <p className="text-text-secondary text-sm title1">
+                                                Je réponds généralement dans les 24 heures, souvent plus
+                                                rapidement.
+                                            </p>
+                                        </div>
 
-                                    <div>
-                                        <h4 className="text-text-primary font-medium mb-1">
-                                            Proposez-vous des devis gratuits ?
-                                        </h4>
-                                        <p className="text-text-secondary text-sm">
-                                            Oui, je propose un devis gratuit après discussion de vos
-                                            besoins.
-                                        </p>
-                                    </div>
+                                        <div>
+                                            <h4 className="text-text-primary font-medium mb-1">
+                                                Proposez-vous des devis gratuits ?
+                                            </h4>
+                                            <p className="text-text-secondary text-sm">
+                                                Oui, je propose un devis gratuit après discussion de vos
+                                                besoins.
+                                            </p>
+                                        </div>
 
-                                    <div>
-                                        <h4 className="text-text-primary font-medium mb-1">
-                                            Travaillez-vous à distance ?
-                                        </h4>
-                                        <p className="text-text-secondary text-sm">
-                                            Oui, je travaille avec des clients du monde entier en
-                                            remote.
-                                        </p>
-                                    </div>
-                                </CardContent>
-                            </Card>
+                                        <div>
+                                            <h4 className="text-text-primary font-medium mb-1">
+                                                Travaillez-vous à distance ?
+                                            </h4>
+                                            <p className="text-text-secondary text-sm">
+                                                Oui, je travaille avec des clients du monde entier en
+                                                remote.
+                                            </p>
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            </AppearOnScroll>
                         </div>
                     </div>
                 </div>
