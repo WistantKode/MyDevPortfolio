@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {Button} from "@/components/ui/button.tsx";
 
-class Footer extends Component {
+class CallToAction extends Component {
     render() {
         return (
-            <section>
+            <section className={'py-20 bg-background'}>
                 <div>
                     <div className="text-center bg-gradient-card rounded-2xl p-12 border border-border-light shadow-card">
                         <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
@@ -45,4 +45,4 @@ class Footer extends Component {
     }
 }
 
-export default Footer;
+export default CallToAction;

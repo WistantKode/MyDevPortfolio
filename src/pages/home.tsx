@@ -5,6 +5,7 @@ import ServicesSection from "@/components/home/ServicesSection.tsx";
 import AboutMe from "@/components/AboutMe.tsx";
 import MyExperience from "@/components/MyExperience.tsx";
 import MyStack from "@/components/MyStack.tsx";
+// import {CallToAction} from "@/components/CallToAction.tsx";
 
 const Home = () => {
     return (
@@ -17,7 +18,11 @@ const Home = () => {
             <ServicesSection/>
             <MyStack />
             <MyExperience/>
+            {/*<div>*/}
+            {/*    <CallToAction/>*/}
+            {/*</div>*/}
         </Layout>
+
     );
 };
 
