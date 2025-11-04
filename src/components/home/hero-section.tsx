@@ -31,7 +31,7 @@ const HeroSection = () => {
                             Hello welcome I'm,
                         </p>
                         <h1 className="text-5xl md:text-7xl font-bold text-text-primary leading-tight title3">
-                            Modjo Victor.
+                            Wistant Kode
                         </h1>
                         <h2 className="text-2xl md:text-3xl text-text-secondary font-medium title1">
                             Développeur Web & Logiciel – Spécialisé Java Spring Boot & React
@@ -50,7 +50,7 @@ const HeroSection = () => {
                     {/* Social Links */}
                     <div className="flex space-x-4">
                         <a
-                            href="https://wa.me/237651727673"
+                            href="https://wa.me/+237697135341"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="w-12 h-12 bg-secondary hover:bg-primary rounded-full flex items-center justify-center transition-smooth shadow-card hover:shadow-glow"
@@ -58,7 +58,7 @@ const HeroSection = () => {
                             <FaWhatsapp className="w-5 h-5 animate-fade-in-up"/>
                         </a>
                         <a
-                            href="mailto:yvankamsu88@gmail.com"
+                            href="mailto:wistantkode@protonmail.com"
                             className="w-12 h-12 bg-secondary hover:bg-primary rounded-full flex items-center justify-center transition-smooth shadow-card hover:shadow-glow"
                         >
                             <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -67,7 +67,7 @@ const HeroSection = () => {
                             </svg>
                         </a>
                         <a
-                            href="https://github.com/Devmodjo"
+                            href="https://github.com/wistantkode"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="w-12 h-12 bg-secondary hover:bg-primary rounded-full flex items-center justify-center transition-smooth shadow-card hover:shadow-glow"
@@ -75,7 +75,7 @@ const HeroSection = () => {
                             <Github className="w-5 h-5"/>
                         </a>
                         <a
-                            href="https://gitlab.com/Devmodjo"
+                            href="https://gitlab.com/wistantkode"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="w-12 h-12 bg-secondary hover:bg-primary rounded-full flex items-center justify-center transition-smooth shadow-card hover:shadow-glow"
@@ -83,7 +83,7 @@ const HeroSection = () => {
                             <Gitlab className="w-5 h-5"/>
                         </a>
                         <a
-                            href="https://www.linkedin.com/in/victor-modjo-5933162a3"
+                            href="https://www.linkedin.com/in/wistantkode"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="w-12 h-12 bg-secondary hover:bg-primary rounded-full flex items-center justify-center transition-smooth shadow-card hover:shadow-glow"
@@ -100,7 +100,7 @@ const HeroSection = () => {
                             className="bg-gradient-primary hover:opacity-90 border-0 shadow-primary hover:shadow-glow transition-smooth group"
                         >
                             <a
-                                href="https://wa.me/237651727673"
+                                href="https://wa.me/+237697135341"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -115,7 +115,9 @@ const HeroSection = () => {
                             asChild
                             className="border-border-light hover:border-primary hover:bg-primary/10 group"
                         >
-                            <a href="/VICTOR-MODJO-CV.pdf" download>
+                            <a
+                                href="public/cv/cv%20-%20wistant.pdf"
+                                download>
                                 <Download className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform"/>
                                 See My CV
                             </a>
