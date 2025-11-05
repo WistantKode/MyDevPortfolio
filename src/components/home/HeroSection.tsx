@@ -1,33 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion, TargetAndTransition, Transition } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
 import { FaWhatsapp, FaReact, FaJava, FaGitAlt } from "react-icons/fa";
-import { SiSpringboot, SiTypescript, SiNextdotjs } from "react-icons/si";
-
-// --- Typewriter Effect Component --- //
-interface TypewriterEffectProps {
-    text: string;
-    delay?: number;
-    speed?: number;
-}
-
-const TypewriterEffect: React.FC<TypewriterEffectProps> = ({ text, delay = 0, speed = 50 }) => {
-    const [displayedText, setDisplayedText] = useState("");
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    useEffect(() => {
-        if (currentIndex < text.length) {
-            const timeout = setTimeout(() => {
-                setDisplayedText(prevText => prevText + text[currentIndex]);
-                setCurrentIndex(prevIndex => prevIndex + 1);
-            }, speed + delay); // Add delay to the first character
-            return () => clearTimeout(timeout);
-        }
-    }, [currentIndex, delay, speed, text]);
-
-    return <>{displayedText}</>;
-};
+import { SiSpringboot, SiTypescript, SiNextdotjs, SiJavascript } from "react-icons/si";
+import { TypeAnimation } from 'react-type-animation'; // Import the library
 
 // --- Data Configuration --- //
 interface SocialLink {
@@ -62,40 +39,53 @@ interface DynamicIcon {
     size: number;
     color: string;
     position: { top?: string; bottom?: string; left?: string; right?: string; };
-    animate: TargetAndTransition; // Explicitly type for framer-motion
-    transition: Transition; // Explicitly type for framer-motion
+    animate: TargetAndTransition; 
+    transition: Transition; 
+    whileHover?: TargetAndTransition; // Add whileHover to the interface
 }
 
 const dynamicIcons: DynamicIcon[] = [
     { 
-        icon: FaReact, size: 40, color: "#61DAFB", position: { top: "10%", left: "10%" }, 
-        animate: { y: [0, -15, 0], rotate: [0, 10, -10, 0] }, 
-        transition: { duration: 3, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.5 }
+        icon: FaReact, size: 40, color: "#61DAFB", position: { top: "15%", left: "15%" }, 
+        animate: { y: [0, -25, 0], rotate: [0, 15, -15, 0] }, 
+        transition: { duration: 2.5, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.5 },
+        whileHover: { scale: 1.3, rotate: 360, transition: { duration: 0.3, ease: "easeOut" } }
     },
     { 
-        icon: FaJava, size: 35, color: "#ED8B00", position: { bottom: "15%", right: "12%" }, 
-        animate: { y: [0, 10, 0], rotate: [0, -5, 5, 0] }, 
-        transition: { duration: 2.5, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1 }
+        icon: FaJava, size: 35, color: "#ED8B00", position: { bottom: "20%", right: "18%" }, 
+        animate: { y: [0, 20, 0], rotate: [0, -10, 10, 0] }, 
+        transition: { duration: 2.8, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1 },
+        whileHover: { scale: 1.3, rotate: 360, transition: { duration: 0.3, ease: "easeOut" } }
     },
     { 
-        icon: SiSpringboot, size: 45, color: "#6DB33F", position: { top: "20%", right: "20%" }, 
-        animate: { x: [0, 10, 0], rotate: [0, 15, -15, 0] }, 
-        transition: { duration: 3.5, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1.5 }
+        icon: SiSpringboot, size: 45, color: "#6DB33F", position: { top: "25%", right: "25%" }, 
+        animate: { x: [0, 20, 0], rotate: [0, 20, -20, 0] }, 
+        transition: { duration: 3.2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1.5 },
+        whileHover: { scale: 1.3, rotate: 360, transition: { duration: 0.3, ease: "easeOut" } }
     },
     { 
-        icon: SiTypescript, size: 30, color: "#3178C6", position: { bottom: "5%", left: "25%" }, 
-        animate: { y: [0, -10, 0], rotate: [0, 8, -8, 0] }, 
-        transition: { duration: 2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 2 }
+        icon: SiTypescript, size: 30, color: "#3178C6", position: { bottom: "10%", left: "20%" }, 
+        animate: { y: [0, -20, 0], rotate: [0, 12, -12, 0] }, 
+        transition: { duration: 2.2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 2 },
+        whileHover: { scale: 1.3, rotate: 360, transition: { duration: 0.3, ease: "easeOut" } }
     },
     { 
-        icon: FaGitAlt, size: 38, color: "#F05032", position: { top: "50%", left: "5%" }, 
-        animate: { x: [0, -10, 0], rotate: [0, 12, -12, 0] }, 
-        transition: { duration: 3.2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 2.5 }
+        icon: FaGitAlt, size: 38, color: "#F05032", position: { top: "55%", left: "10%" }, 
+        animate: { x: [0, -20, 0], rotate: [0, 15, -15, 0] }, 
+        transition: { duration: 3.0, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 2.5 },
+        whileHover: { scale: 1.3, rotate: 360, transition: { duration: 0.3, ease: "easeOut" } }
+    },
+    {
+        icon: SiJavascript, size: 32, color: "#F7DF1E", position: { bottom: "35%", right: "10%" },
+        animate: { y: [0, 25, 0], rotate: [0, -15, 15, 0] },
+        transition: { duration: 2.7, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 3 },
+        whileHover: { scale: 1.3, rotate: 360, transition: { duration: 0.3, ease: "easeOut" } }
     },
     { 
-        icon: SiNextdotjs, size: 32, color: "#FFFFFF", position: { bottom: "30%", right: "5%" }, 
-        animate: { y: [0, 15, 0], rotate: [0, -10, 10, 0] }, 
-        transition: { duration: 2.8, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 3 }
+        icon: SiNextdotjs, size: 32, color: "#FFFFFF", position: { top: "65%", right: "20%" }, 
+        animate: { x: [0, 20, 0], rotate: [0, -10, 10, 0] }, 
+        transition: { duration: 2.9, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 3.5 },
+        whileHover: { scale: 1.3, rotate: 360, transition: { duration: 0.3, ease: "easeOut" } }
     },
 ];
 
@@ -132,6 +122,7 @@ const HeroSection = () => {
                             style={item.position}
                             animate={item.animate}
                             transition={item.transition}
+                            whileHover={item.whileHover}
                         >
                             <IconComponent size={item.size} style={{ color: item.color }} />
                         </motion.div>
@@ -151,7 +142,23 @@ const HeroSection = () => {
                     </motion.p>
 
                     <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl lg:text-7xl font-bold text-text-primary leading-tight tracking-tighter mb-6 title3">
-                        <TypewriterEffect text="DevSecOps Practicer & Software Engineer" delay={500} speed={70} />
+                        <TypeAnimation
+                            sequence={[
+                                'DevSecOps Practicer',
+                                1500, // wait 1.5s
+                                'Software Engineer',
+                                1500,
+                                'Cloud & Automation Expert',
+                                1500,
+                                'Cybersecurity Enthusiast',
+                                1500,
+                            ]}
+                            wrapper="span"
+                            speed={50}
+                            repeat={Infinity}
+                            cursor={true}
+                            deletionSpeed={70}
+                        />
                     </motion.h1>
 
                     <motion.p variants={itemVariants} className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-10 title2">
