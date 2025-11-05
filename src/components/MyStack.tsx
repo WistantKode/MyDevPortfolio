@@ -5,12 +5,10 @@ import {Progress} from "@/components/ui/progress";
 import {
     SiGit,
     SiGithub,
-    SiJavascript,
     SiMicrogenetics,
     SiNestjs,
     SiPostgresql,
     SiReact,
-    SiSpringboot,
     SiTrello,
     SiTypescript,
 } from "react-icons/si";
@@ -30,36 +28,20 @@ interface Technology {
 
 const technologies: Technology[] = [
     {
-        name: "Spring Boot", icon: SiSpringboot, color: "#6DB33F", proficiency: 90, size: 'large',
-        animate: {y: [0, -10, 0], rotate: [0, 5, -5, 0]},
-        transition: {duration: 3.5, repeat: Infinity, repeatType: "reverse", ease: "easeInOut"},
-        whileHover: {scale: 1.15, rotate: 10}
-    },
-    {
         name: "React",
         icon: SiReact,
         color: "#61DAFB",
-        proficiency: 85,
+        proficiency: 60,
         size: 'large',
         animate: {y: [0, 10, 0], rotate: [0, -5, 5, 0]},
         transition: {duration: 3.2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.2},
         whileHover: {scale: 1.15, rotate: -10}
     },
     {
-        name: "Java",
-        icon: SiJavascript,
-        color: "#ED8B00",
-        proficiency: 95,
-        size: 'medium',
-        animate: {x: [0, -10, 0], rotate: [0, 8, -8, 0]},
-        transition: {duration: 3.8, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.4},
-        whileHover: {scale: 1.15, rotate: 12}
-    },
-    {
         name: "Next.js",
         icon: RiNextjsFill,
         color: "#FFFFFF",
-        proficiency: 80,
+        proficiency: 50,
         size: 'medium',
         animate: {x: [0, 10, 0], rotate: [0, -8, 8, 0]},
         transition: {duration: 3.4, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.6},
@@ -69,7 +51,7 @@ const technologies: Technology[] = [
         name: "TypeScript",
         icon: SiTypescript,
         color: "#3178C6",
-        proficiency: 88,
+        proficiency: 50,
         animate: {y: [0, -8, 0], rotate: [0, 4, -4, 0]},
         transition: {duration: 3.0, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.8},
         whileHover: {scale: 1.15, rotate: 8}
@@ -78,7 +60,7 @@ const technologies: Technology[] = [
         name: "Git",
         icon: SiGit,
         color: "#F05032",
-        proficiency: 92,
+        proficiency: 95,
         animate: {y: [0, 8, 0], rotate: [0, -4, 4, 0]},
         transition: {duration: 3.6, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1.0},
         whileHover: {scale: 1.15, rotate: -8}
@@ -96,7 +78,7 @@ const technologies: Technology[] = [
         name: "NestJS",
         icon: SiNestjs,
         color: "#E0234E",
-        proficiency: 75,
+        proficiency: 80,
         animate: {x: [0, 8, 0], rotate: [0, -6, 6, 0]},
         transition: {duration: 3.7, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1.4},
         whileHover: {scale: 1.15, rotate: -10}
@@ -105,7 +87,7 @@ const technologies: Technology[] = [
         name: "Microservices",
         icon: SiMicrogenetics,
         color: "#FF6B6B",
-        proficiency: 85,
+        proficiency: 40,
         animate: {y: [0, -12, 0], rotate: [0, 7, -7, 0]},
         transition: {duration: 3.0, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1.6},
         whileHover: {scale: 1.15, rotate: 11}
@@ -114,7 +96,7 @@ const technologies: Technology[] = [
         name: "PostgreSQL",
         icon: SiPostgresql,
         color: "#336791",
-        proficiency: 80,
+        proficiency: 50,
         animate: {y: [0, 12, 0], rotate: [0, -7, 7, 0]},
         transition: {duration: 3.3, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1.8},
         whileHover: {scale: 1.15, rotate: -11}
@@ -123,7 +105,7 @@ const technologies: Technology[] = [
         name: "Trello",
         icon: SiTrello,
         color: "#0079BF",
-        proficiency: 70,
+        proficiency: 100,
         animate: {x: [0, -12, 0], rotate: [0, 9, -9, 0]},
         transition: {duration: 2.9, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 2.0},
         whileHover: {scale: 1.15, rotate: 13}
