@@ -37,6 +37,21 @@ export const projectsData: Project[] = [
         imageUrl: `${PROJECT_IMAGE_BASE_PATH}nestjs-auth.png`,
     },
     {
+        id: "proj-plantex",
+        title: "Plantex - Modern Plant Showcase Website",
+        description: "Developed a visually appealing showcase website for plants, designed to be fully responsive and easily customizable. Includes sections for products, FAQs, contact information, and social links, featuring a minimalist design with Google Fonts (Outfit) and Remix Icons.",
+        category: "web",
+        tech: [
+            {name: "HTML5", icon: SiHtml5},
+            {name: "JavaScript", icon: SiJavascript},
+            {name: "Tailwind CSS", icon: SiTailwindcss},
+            {name: "CSS3", icon: SiCss3},
+        ],
+        repoGit: "https://github.com/wistantkode/Plantex-Website", // Placeholder
+        liveUrl: "#", // Placeholder
+        imageUrl: `${PROJECT_IMAGE_BASE_PATH}plantex.png`,
+    },
+    {
         id: "proj-chickfood-v2",
         title: "Chick Food - Responsive Restaurant Frontend (V2)",
         description: "An enhanced responsive frontend for a fictional fried chicken restaurant, delivering an engaging user experience with smooth animations and a clean, modern design. A robust portfolio piece demonstrating advanced HTML, CSS, and JavaScript skills.",
@@ -109,20 +124,6 @@ export const projectsData: Project[] = [
         liveUrl: "#", // Placeholder
         imageUrl: `${PROJECT_IMAGE_BASE_PATH}portfolio-img.png`,
     },
-    {
-        id: "proj-plantex",
-        title: "Plantex - Modern Plant Showcase Website",
-        description: "Developed a visually appealing showcase website for plants, designed to be fully responsive and easily customizable. Includes sections for products, FAQs, contact information, and social links, featuring a minimalist design with Google Fonts (Outfit) and Remix Icons.",
-        category: "web",
-        tech: [
-            {name: "HTML5", icon: SiHtml5},
-            {name: "JavaScript", icon: SiJavascript},
-            {name: "Tailwind CSS", icon: SiTailwindcss},
-            {name: "CSS3", icon: SiCss3},
-        ],
-        repoGit: "https://github.com/wistantkode/Plantex-Website", // Placeholder
-        liveUrl: "#", // Placeholder
-        imageUrl: `${PROJECT_IMAGE_BASE_PATH}plantex.png`,
-    },
+
 
 ];
