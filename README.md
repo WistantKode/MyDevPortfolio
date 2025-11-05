@@ -18,14 +18,14 @@ I design and build reliable, scalable backend systems and full‑stack web appli
 ---
 
 ## Badges
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black) ![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black) ![Next.js](https://img.shields.io/badge/Next.js-000000?logo=next.js&logoColor=white) ![Node.js](https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white) ![Java](https://img.shields.io/badge/Java-007396?logo=java&logoColor=white) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?logo=spring&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?logo=postgresql&logoColor=white) ![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white) ![Linux](https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black) ![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black) ![Next.js](https://img.shields.io/badge/Next.js-000000?logo=next.js&logoColor=white) ![Node.js](https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white) ![NextJS](https://img.shields.io/badge/nestjs-007396?logo=nestjs&logoColor=white) ![TypeScript](https://img.shields.io/badge/typescrip-6DB33F?logo=typescript&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?logo=postgresql&logoColor=white) ![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white) ![Linux](https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=black)
 
 ---
 
 ## Core Expertise
-- Backend architecture, API design, microservices (Java / Spring Boot, NestJS, Node.js)
+- Backend architecture, API design, microservices (NestJS, Node.js)
 - Frontend development (React, Next.js, TypeScript, Tailwind CSS)
-- Databases and data modeling (PostgreSQL, MySQL)
+- Databases and data modeling (PostgreSQL, Prisma ORM)
 - DevOps basics: Docker, Git, CI/CD practices, Linux
 - Security-conscious development and automation concepts
 
@@ -33,7 +33,7 @@ I design and build reliable, scalable backend systems and full‑stack web appli
 
 ## Quick Start (Local)
 1. Clone the repo  
-   `git clone https://github.com/WistantKode/<repo>.git`
+   `git clone https://github.com/wistantkode/my-dev-portdolio.git`
 2. Install dependencies  
    `npm install`
 3. Run development server  
@@ -41,14 +41,11 @@ I design and build reliable, scalable backend systems and full‑stack web appli
 4. Build for production  
    `npm run build`
 
-(Replace `<repo>` with the actual repository name.)
-
 ---
 
 ## Projects & Assets
 - Resume: `/cv/cv%20-%20wistant.pdf` (downloadable)
-- Portfolio pages (React / Next.js) with focus on backend architecture and case studies
-- Example integrations: authentication, REST/GraphQL APIs, containerized deployments
+- Portfolio pages (React / Vite) with focus on backend architecture and case studies
 
 ---
 
