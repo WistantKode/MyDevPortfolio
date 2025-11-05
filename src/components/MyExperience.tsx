@@ -11,34 +11,52 @@ interface ExperienceItem {
 
 const professionalExperiences: ExperienceItem[] = [
     {
-        title: "Stage Développement Backend",
-        institution: "INAF",
-        date: "Juin 2025 - Sept. 2025",
-        description: "Création d’API performantes et sécurisées avec Spring Boot, intégration avec React et gestion de bases de données.",
+        title: "Frontend Development Internship",
+        institution: "Devia Tech",
+        date: "June 2025 - Sept. 2025",
+        description: "Engineered scalable and robust web interfaces with a strong focus on SEO performance and user experience.",
     },
+    // {
+    //     title: "Backend Development Internship",
+    //     institution: "INAF",
+    //     date: "June 2025 - Sept. 2025",
+    //     description: "Developed high-performance and secure RESTful APIs using Spring Boot, integrated with React frontend, and managed database systems.",
+    // },
 ];
 
 const academicBackground: ExperienceItem[] = [
     {
-        title: "Licence I - Biologie & Informatique",
-        institution: "Université de Yaoundé 1",
-        date: "2023 - 2025",
-        description: "Formation générale et scientifique solide, axée sur les sciences et l’informatique, donnant les bases nécessaires pour mon parcours.",
+        title: "DUT - Software Engineering",
+        institution: "Institut Universitaire de Douala",
+        date: "2025 - 2026",
+        description: "Comprehensive and rigorous scientific and technical training, focused on software engineering principles and practices.",
     },
     {
-        title: "Développement React (Autodidacte)",
-        institution: "FreeCodeCamp & Projets Personnels",
-        date: "2024",
-        description: "Apprentissage de React pour le développement d’applications web interactives et responsives.",
+        title: "First Year DUT - Computer Science",
+        institution: "Institut Universitaire de Douala",
+        date: "2024 - 2025",
+        description: "Foundational studies in computer science, covering core programming concepts, algorithms, and data structures.",
+    },
+    {
+        title: "Bachelor's Degree - Computer Science (Year 1)",
+        institution: "University of Yaoundé 1",
+        date: "2023 - 2024",
+        description: "Solid general and scientific foundation, with an emphasis on computer science fundamentals, preparing for advanced studies.",
+    },
+    {
+        title: "Baccalaureate in Mathematical Sciences",
+        institution: "Lycée Classique et Moderne de Bafoussam",
+        date: "2023",
+        description: "Intensive study in mathematics, biology, and business processes, fostering analytical and problem-solving skills.",
     },
 ];
 
 const TimelineItem = ({item, isLast}: { item: ExperienceItem; isLast: boolean }) => (
     <div className="relative pl-10 group">
-        {/* Le point sur la timeline avec une animation subtile */}
+        {/* The timeline dot with a subtle animation */}
         <div
             className="absolute left-0 top-1 w-4 h-4 bg-primary rounded-full border-4 border-background transition-transform group-hover:scale-125"></div>
-        {/* La ligne verticale */}
+        {/* The vertical line */}
         {!isLast && <div className="absolute left-[7px] top-5 h-full w-px bg-border"></div>}
 
         <div className="mb-10 transition-transform group-hover:translate-x-1">
@@ -57,27 +75,26 @@ const MyExperience = () => {
                 <div className="text-center mb-16">
                     <AppearOnScroll>
                         <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4 title3">
-                            Mon Parcours
+                            My Professional Journey
                         </h2>
                     </AppearOnScroll>
                     <AppearOnScroll>
                         <p className="text-text-secondary text-lg title1 max-w-3xl mx-auto">
-                            Un aperçu de mon cheminement académique et de mes expériences professionnelles dans le monde
-                            du développement.
+                            A comprehensive overview of my academic milestones and professional engagements in the
+                            software engineering domain.
                         </p>
                     </AppearOnScroll>
                 </div>
 
-                {/* Conteneur principal pour centrer et limiter la largeur */}
+                {/* Main container to center and limit width */}
                 <div className="max-w-4xl mx-auto">
                     <div className="grid md:grid-cols-2 gap-x-16 gap-y-12">
-                        {/* Colonne des Expériences Professionnelles */}
+                        {/* Professional Experience Column */}
                         <div>
                             <AppearOnScroll>
                                 <div className="flex items-center gap-4 mb-8">
                                     <Briefcase className="w-8 h-8 text-primary"/>
-                                    <h3 className="text-2xl font-bold text-text-primary">Expériences
-                                        Professionnelles</h3>
+                                    <h3 className="text-2xl font-bold text-text-primary">Professional Experience</h3>
                                 </div>
                             </AppearOnScroll>
                             <div className="relative">
@@ -90,12 +107,12 @@ const MyExperience = () => {
                             </div>
                         </div>
 
-                        {/* Colonne du Parcours Scolaire */}
+                        {/* Academic Background Column */}
                         <div>
                             <AppearOnScroll>
                                 <div className="flex items-center gap-4 mb-8">
                                     <GraduationCap className="w-8 h-8 text-primary"/>
-                                    <h3 className="text-2xl font-bold text-text-primary">Parcours Scolaire</h3>
+                                    <h3 className="text-2xl font-bold text-text-primary">Academic Background</h3>
                                 </div>
                             </AppearOnScroll>
                             <div className="relative">
