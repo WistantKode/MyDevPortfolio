@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from "framer-motion";
+import { motion, TargetAndTransition, Transition } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
 import { FaWhatsapp, FaReact, FaJava, FaGitAlt } from "react-icons/fa";
@@ -62,20 +62,44 @@ interface DynamicIcon {
     size: number;
     color: string;
     position: { top?: string; bottom?: string; left?: string; right?: string; };
-    animate: any; // framer-motion animation properties
-    delay: number;
+    animate: TargetAndTransition; // Explicitly type for framer-motion
+    transition: Transition; // Explicitly type for framer-motion
 }
 
 const dynamicIcons: DynamicIcon[] = [
-    { icon: FaReact, size: 40, color: "#61DAFB", position: { top: "10%", left: "10%" }, animate: { y: [0, -15, 0], rotate: [0, 10, -10, 0] }, delay: 0.5 },
-    { icon: FaJava, size: 35, color: "#ED8B00", position: { bottom: "15%", right: "12%" }, animate: { y: [0, 10, 0], rotate: [0, -5, 5, 0] }, delay: 1 },
-    { icon: SiSpringboot, size: 45, color: "#6DB33F", position: { top: "20%", right: "20%" }, animate: { x: [0, 10, 0], rotate: [0, 15, -15, 0] }, delay: 1.5 },
-    { icon: SiTypescript, size: 30, color: "#3178C6", position: { bottom: "5%", left: "25%" }, animate: { y: [0, -10, 0], rotate: [0, 8, -8, 0] }, delay: 2 },
-    { icon: FaGitAlt, size: 38, color: "#F05032", position: { top: "50%", left: "5%" }, animate: { x: [0, -10, 0], rotate: [0, 12, -12, 0] }, delay: 2.5 },
-    { icon: SiNextdotjs, size: 32, color: "#FFFFFF", position: { bottom: "30%", right: "5%" }, animate: { y: [0, 15, 0], rotate: [0, -10, 10, 0] }, delay: 3 },
+    { 
+        icon: FaReact, size: 40, color: "#61DAFB", position: { top: "10%", left: "10%" }, 
+        animate: { y: [0, -15, 0], rotate: [0, 10, -10, 0] }, 
+        transition: { duration: 3, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.5 }
+    },
+    { 
+        icon: FaJava, size: 35, color: "#ED8B00", position: { bottom: "15%", right: "12%" }, 
+        animate: { y: [0, 10, 0], rotate: [0, -5, 5, 0] }, 
+        transition: { duration: 2.5, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1 }
+    },
+    { 
+        icon: SiSpringboot, size: 45, color: "#6DB33F", position: { top: "20%", right: "20%" }, 
+        animate: { x: [0, 10, 0], rotate: [0, 15, -15, 0] }, 
+        transition: { duration: 3.5, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1.5 }
+    },
+    { 
+        icon: SiTypescript, size: 30, color: "#3178C6", position: { bottom: "5%", left: "25%" }, 
+        animate: { y: [0, -10, 0], rotate: [0, 8, -8, 0] }, 
+        transition: { duration: 2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 2 }
+    },
+    { 
+        icon: FaGitAlt, size: 38, color: "#F05032", position: { top: "50%", left: "5%" }, 
+        animate: { x: [0, -10, 0], rotate: [0, 12, -12, 0] }, 
+        transition: { duration: 3.2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 2.5 }
+    },
+    { 
+        icon: SiNextdotjs, size: 32, color: "#FFFFFF", position: { bottom: "30%", right: "5%" }, 
+        animate: { y: [0, 15, 0], rotate: [0, -10, 10, 0] }, 
+        transition: { duration: 2.8, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 3 }
+    },
 ];
 
-// --- Animation Variants --- //
+// --- Animation Variants for main content --- //
 const containerVariants = {
     hidden: { opacity: 0 },
     visible: { 
@@ -106,18 +130,8 @@ const HeroSection = () => {
                             key={index}
                             className="absolute z-0 opacity-50"
                             style={item.position}
-                            animate={{ 
-                                y: item.animate.y || 0,
-                                x: item.animate.x || 0,
-                                rotate: item.animate.rotate || 0,
-                                transition: { 
-                                    duration: 8 + index * 2, // Longer, varied duration
-                                    repeat: Infinity, 
-                                    repeatType: "reverse", 
-                                    ease: "easeInOut",
-                                    delay: item.delay
-                                }
-                            }}
+                            animate={item.animate}
+                            transition={item.transition}
                         >
                             <IconComponent size={item.size} style={{ color: item.color }} />
                         </motion.div>
