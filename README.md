@@ -33,7 +33,7 @@ I design and build reliable, scalable backend systems and full‑stack web appli
 
 ## Quick Start (Local)
 1. Clone the repo  
-   `git clone https://github.com/wistantkode/my-dev-portdolio.git`
+   `git clone https://github.com/wistantkode/my-dev-portfolio.git`
 2. Install dependencies  
    `npm install`
 3. Run development server  
