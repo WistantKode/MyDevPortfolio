@@ -30,7 +30,7 @@ const App = () => (
                     <Route path="/blog" element={<Blog/>}/>
                     <Route path="/blog/:id" element={<BlogPostDetail/>}/> {/* Add new route for blog post detail */}
                     <Route path="/contact" element={<Contact/>}/>
-                    <Route path="/admin" element={<Dashboard/>}/>
+                    <Route path="/admin-portfolio" element={<Dashboard/>}/>
                     <Route path="/projects" element={<Projects/>}/>
                     {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                     <Route path="*" element={<NotFound />} />
