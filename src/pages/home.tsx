@@ -5,19 +5,17 @@ import AboutMe from "@/components/AboutMe.tsx";
 import MyExperience from "@/components/MyExperience.tsx";
 import MyStack from "@/components/MyStack.tsx";
 import ContactForm from "@/components/ContactForm.tsx";
-import {SkillsRadar} from "@/components/skills/skills-section.tsx";
 
 const Home = () => {
     return (
         <Layout
-            title="Wistant Kode | Porfolio | Software Engineering Student"
+            title="Wistant - Software Engineering Student"
             description="Wistant Kode's portfolio: a passionate Software Engineering Student and DevSecOps Practicer. Specializing in Java/Spring Boot, React/Next.js, Cloud, Automation, and Cybersecurity. Building innovative and scalable digital solutions."
             keywords="Wistant Kode, DevSecOps, Software Engineer, Java, Spring Boot, React, Next.js, Cloud, Automation, Cybersecurity, Portfolio, Web Development, Backend Development, Africa Tech"
             lang="en"
         >
             <HeroSection/>
             <AboutMe/>
-            <SkillsRadar/>
             <ServicesSection/>
             <MyStack />
             <MyExperience/>
