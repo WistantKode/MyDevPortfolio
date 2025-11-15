@@ -116,7 +116,7 @@ export const technologies: Technology[] = [
         color: "#FF6B6B",
         proficiency: 30,
         animate: {
-            x: [150, 50, -50, 50],
+            x: [50, 50, -50, 50],
             y: [150, 50, -50, 50],
             rotate: [0, -22, 22, 0]
         },
@@ -129,7 +129,7 @@ export const technologies: Technology[] = [
         color: "#336791",
         proficiency: 40,
         animate: {
-            x: [150, 50, -50, 50],
+            x: [50, 50, -50, 50],
             y: [150, 50, -50, 50],
             rotate: [0, -22, 22, 0]
         },
@@ -142,7 +142,7 @@ export const technologies: Technology[] = [
         color: "#0079BF",
         proficiency: 100,
         animate: {
-            x: [150, 50, -50, 50],
+            x: [0, 50, -50, 50],
             y: [150, 50, -50, 50],
             rotate: [0, -22, 22, 0]
         },
