@@ -1,7 +1,7 @@
-import { ReactNode, useEffect } from "react";
+import {ReactNode, useEffect} from "react";
 import Navigation from "@/components/ui/navigation";
-import { ThemeProvider } from "./ThemeProvider";
-import { ThemeToggleButton } from "../ThemeToggleButton";
+import {ThemeProvider} from "../ThemeProvider.tsx";
+import {ThemeToggleButton} from "../ThemeToggleButton";
 
 interface LayoutProps {
   children: ReactNode;
