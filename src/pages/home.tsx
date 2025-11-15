@@ -5,6 +5,7 @@ import AboutMe from "@/components/AboutMe.tsx";
 import MyExperience from "@/components/MyExperience.tsx";
 import MyStack from "@/components/MyStack.tsx";
 import ContactForm from "@/components/ContactForm.tsx";
+import {SkillsRadar} from "@/components/skills/skills-section.tsx";
 
 const Home = () => {
     return (
@@ -16,6 +17,7 @@ const Home = () => {
         >
             <HeroSection/>
             <AboutMe/>
+            <SkillsRadar/>
             <ServicesSection/>
             <MyStack />
             <MyExperience/>
