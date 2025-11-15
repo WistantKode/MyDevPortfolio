@@ -1,8 +1,8 @@
-import { Button } from "@/components/ui/button";
-import { Mail } from "lucide-react";
+import {Button} from "@/components/ui/button";
+import {Mail} from "lucide-react";
 import aboutBg from "@/assets/about-bg.jpg";
 import heroAbout from "/me.png";
-import {AppearOnSrollToLeft, AppearOnSrollToRight} from "@/lib/ScrollEffect"
+import {AppearOnSrollToLeft, AppearOnSrollToRight} from "@/components/ScrollEffect.tsx"
 
 const AboutSection = () => {
   return (

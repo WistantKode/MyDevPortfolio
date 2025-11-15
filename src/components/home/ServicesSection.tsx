@@ -1,19 +1,6 @@
-import { Card, CardContent } from "@/components/ui/card";
-import {
-    Code,
-    Palette,
-    Megaphone,
-    Monitor,
-    Smartphone,
-    Globe,
-    Database, Heart,
-} from "lucide-react";
-import {
-  AppearOnSrollToLeft,
-  AppearOnSrollToRight,
-  ScaleTextEffect,
-  AppearOnScroll,
-} from "@/lib/ScrollEffect";
+import {Card, CardContent} from "@/components/ui/card";
+import {Code, Database, Globe, Monitor, Palette, Smartphone,} from "lucide-react";
+import {AppearOnScroll, ScaleTextEffect,} from "@/components/ScrollEffect.tsx";
 
 const ServicesSection = () => {
   const services = [

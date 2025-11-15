@@ -1,9 +1,9 @@
 import Layout from "@/components/layout/layout";
-import { Button } from "@/components/ui/button";
-import { SiSpringboot, SiReact, SiCodewars } from "react-icons/si";
-import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Download, Code, Palette, Globe, Database, Monitor } from "lucide-react";
-import { ScaleTextEffect, AppearOnScale } from "@/lib/ScrollEffect";
+import {Button} from "@/components/ui/button";
+import {SiReact, SiSpringboot} from "react-icons/si";
+import {Card, CardContent} from "@/components/ui/card";
+import {Code, Database, Download, Globe, Mail, Monitor, Palette} from "lucide-react";
+import {AppearOnScale, ScaleTextEffect} from "@/components/ScrollEffect.tsx";
 import aboutBg from "@/assets/me2.jpg";
 
 const About = () => {

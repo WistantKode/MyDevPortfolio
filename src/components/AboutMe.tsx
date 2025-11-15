@@ -1,8 +1,8 @@
 import Layout from "@/components/layout/layout";
-import { Button } from "@/components/ui/button";
+import {Button} from "@/components/ui/button";
 
-import {Mail, Download, Code, Palette, Globe, Database, Monitor, Heart} from "lucide-react";
-import { ScaleTextEffect, AppearOnScale, AppearOnSrollToLeft, AppearOnSrollToRight, AppearOnScroll, } from "@/lib/ScrollEffect";
+import {Code, Database, Download, Globe, Heart, Mail, Palette} from "lucide-react";
+import {AppearOnScroll, AppearOnSrollToLeft, ScaleTextEffect,} from "@/components/ScrollEffect.tsx";
 
 
 const AboutMe = () => {

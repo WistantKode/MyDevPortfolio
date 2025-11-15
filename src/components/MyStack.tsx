@@ -184,7 +184,6 @@ const MyStack = () => {
                                 <p className="text-text-primary text-sm font-medium whitespace-nowrap mb-2">
                                     {tech.name}
                                 </p>
-                                {/* @ts-expect-error Progress component accepts numeric value */}
                                 <div className="w-full bg-gray-700 rounded-full h-2.5 mb-1">
                                     <Progress value={tech.proficiency} className="h-2.5" indicatorColor="bg-primary"/>
                                 </div>

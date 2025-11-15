@@ -1,20 +1,12 @@
-import { useState } from "react";
+import {useState} from "react";
 import Layout from "@/components/layout/layout";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import {
-    Mail,
-    Phone,
-    MapPin,
-    Send,
-    MessageCircle,
-    Clock,
-    Globe,
-} from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
-import {AppearOnScroll} from "@/lib/ScrollEffect.tsx";
+import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
+import {Button} from "@/components/ui/button";
+import {Input} from "@/components/ui/input";
+import {Textarea} from "@/components/ui/textarea";
+import {Clock, Globe, Mail, MapPin, MessageCircle, Phone, Send,} from "lucide-react";
+import {useToast} from "@/hooks/use-toast";
+import {AppearOnScroll} from "@/components/ScrollEffect.tsx";
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({

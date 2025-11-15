@@ -1,6 +1,6 @@
 import React from 'react';
 import {Briefcase, GraduationCap} from "lucide-react";
-import {AppearOnScroll} from "@/lib/ScrollEffect.tsx";
+import {AppearOnScroll} from "@/components/ScrollEffect.tsx";
 
 interface ExperienceItem {
     title: string;

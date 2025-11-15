@@ -1,19 +1,9 @@
 import Layout from "@/components/layout/layout";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {Button} from "@/components/ui/button";
-import {
-    Code,
-    Palette,
-    Megaphone,
-    Smartphone,
-    Monitor,
-    Globe,
-    Database,
-    CheckCircle,
-    ArrowRight,
-} from "lucide-react";
+import {ArrowRight, CheckCircle, Code, Database, Globe, Monitor, Smartphone,} from "lucide-react";
 import MyStack from "@/components/MyStack.tsx";
-import {AppearOnScroll} from "@/lib/ScrollEffect.tsx";
+import {AppearOnScroll} from "@/components/ScrollEffect.tsx";
 
 
 // Interface pour typer les technologies
