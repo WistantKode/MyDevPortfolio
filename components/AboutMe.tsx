@@ -1,10 +1,10 @@
 "use client";
 
-import Layout from "@/components/layout/layout";
 import {Button} from "@/components/ui/button";
-
+import Image from "next/image";
 import {Code, Database, Download, Globe, Heart, Mail, Palette} from "lucide-react";
 import {AppearOnScroll, AppearOnSrollToLeft, ScaleTextEffect,} from "@/components/ScrollEffect";
+import heroAbout from "/public/me.png";
 
 
 const AboutMe = () => {
@@ -17,11 +17,7 @@ const AboutMe = () => {
     ];
 
     return (
-        <Layout
-            title="Wistant Kode | Portfolio |  Backend System Architect & IT Student"
-            description="Discover Wistant's journey, skills, and passion for engineering robust backend systems and modern digital solutions based in Yaoundé, Cameroon."
-            keywords="about, Wistant, software architecture, backend specialist, web developer, IT student, professional experience, Yaoundé, Cameroon"
-        >
+        <>
             <AppearOnScroll>
                 <section className="py-20 bg-background min-h-screen">
                     <div className="container mx-auto px-4">
@@ -44,32 +40,8 @@ const AboutMe = () => {
                                 <AppearOnSrollToLeft>
                                     <div className="flex justify-center">
                                         <div className="relative">
-                                            <div className="w-80 h-96  rounded-2xl shadow-card border border-border-light overflow-hidden">
-                                                <div
-                                                    className="absolute inset-0 opacity-20"
-                                                    style={{
-                                                        backgroundImage: `url(public/me.png)`,
-                                                        backgroundSize: "cover",
-                                                        backgroundPosition: "center",
-                                                    }}
-                                                />
-                                                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary-glow/10" />
-                                                <div className="flex items-center justify-center h-full">
-                                                    <div className="text-center">
-                                                        <div className="w-20 h-20 bg-gradient-primary rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <span className="text-2xl font-bold text-primary-foreground">
-                          WK
-                        </span>
-                                                        </div>
-                                                        <p className="text-text-primary font-semibold">
-                                                            Wistant Kode
-                                                        </p>
-                                                        <p className="text-text-secondary text-sm">
-                                                            Backend System Architect
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <Image src={heroAbout} alt="Wistant Kode"
+                                                   className="w-80 h-96 rounded-2xl shadow-card border border-border-light overflow-hidden"/>
                                         </div>
                                     </div>
                                 </AppearOnSrollToLeft>
@@ -108,8 +80,7 @@ const AboutMe = () => {
                                                 Initiate Contact
                                             </a>
                                         </Button>
-                                    </AppearOnScroll>
-
+                                    </AgressBar>
                                     <AppearOnScroll>
                                         <Button
                                             variant="outline"
@@ -159,7 +130,7 @@ const AboutMe = () => {
                     </div>
                 </section>
             </AppearOnScroll>
-        </Layout>
+        </>
     );
 };
 

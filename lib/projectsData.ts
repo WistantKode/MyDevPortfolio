@@ -3,8 +3,16 @@ import {FaReact} from "react-icons/fa";
 import {SiCss3, SiFramework, SiHtml5, SiJavascript, SiNestjs, SiTailwindcss, SiTypescript} from "react-icons/si";
 import {RiNextjsFill, RiRemixiconFill} from "react-icons/ri";
 
-// Define the base path for project images
-const PROJECT_IMAGE_BASE_PATH = "/projects img/";
+import shopdoImg from "/public/projects img/shopdo.png";
+import nestjsAuthImg from "/public/projects img/nestjs-auth.png";
+import plantexImg from "/public/projects img/plantex.png";
+import carRentalImg from "/public/projects img/car-rental.png";
+import chickfoodImg from "/public/projects img/chickfood.png";
+import structoImg from "/public/projects img/structo.png";
+import elysianDriveImg from "/public/projects img/elysindrive.png";
+import boomsoundImg from "/public/projects img/boomsound.png";
+import portfolioImg from "/public/projects img/portfolio-img.png";
+
 
 export const projectsData: Project[] = [
     {
@@ -20,7 +28,7 @@ export const projectsData: Project[] = [
         ],
         repoGit: "https://github.com/WistantKode/nextjs-15-fullstack-e-commerce-web-app",
         liveUrl: "#", // Placeholder
-        imageUrl: `${PROJECT_IMAGE_BASE_PATH}shopdo.png`,
+        imageUrl: shopdoImg,
     },
     {
         id: "proj-nestjs-auth",
@@ -34,7 +42,7 @@ export const projectsData: Project[] = [
         ],
         repoGit: "https://github.com/WistantKode/nestjs-nextjs-authentication-side",
         liveUrl: "#", // Placeholder
-        imageUrl: `${PROJECT_IMAGE_BASE_PATH}nestjs-auth.png`,
+        imageUrl: nestjsAuthImg,
     },
     {
         id: "proj-plantex",
@@ -49,7 +57,7 @@ export const projectsData: Project[] = [
         ],
         repoGit: "https://github.com/WistantKode/responsivewebsite-plantex",
         liveUrl: "https://plantex-wistant.vercel.app/",
-        imageUrl: `${PROJECT_IMAGE_BASE_PATH}plantex.png`,
+        imageUrl: plantexImg,
     },
     {
         id: "proj-car-rental",
@@ -64,7 +72,7 @@ export const projectsData: Project[] = [
         ],
         repoGit: "https://github.com/WistantKode/javascript-html-css-car-rental-website",
         liveUrl: "https://javascript-html-css-car-rental-webs.vercel.app/",
-        imageUrl: `${PROJECT_IMAGE_BASE_PATH}car-rental.png`,
+        imageUrl: carRentalImg,
     },
     {
         id: "proj-chickfood-v2",
@@ -79,7 +87,7 @@ export const projectsData: Project[] = [
         ],
         repoGit: "https://github.com/WistantKode/Responsivewebsite-chickfood",
         liveUrl: "https://chickfood-wistant.netlify.app/",
-        imageUrl: `${PROJECT_IMAGE_BASE_PATH}chickfood.png`,
+        imageUrl: chickfoodImg,
     },
     {
         id: "proj-structo",
@@ -95,7 +103,7 @@ export const projectsData: Project[] = [
         ],
         repoGit: "https://github.com/WistantKode/responsive-construction-company-website",
         liveUrl: "https://construction-wistant.vercel.app/",
-        imageUrl: `${PROJECT_IMAGE_BASE_PATH}structo.png`,
+        imageUrl: structoImg,
     },
     {
         id: "proj-elysian-drive",
@@ -109,7 +117,7 @@ export const projectsData: Project[] = [
         ],
         repoGit: "https://github.com/WistantKode/responsive-car-website",
         liveUrl: "https://elsyandrive-wistant.netlify.app/",
-        imageUrl: `${PROJECT_IMAGE_BASE_PATH}elysindrive.png`,
+        imageUrl: elysianDriveImg,
     },
     {
         id: "proj-boomsound",
@@ -123,7 +131,7 @@ export const projectsData: Project[] = [
         ],
         repoGit: "https://github.com/WistantKode/Responsivewebsite-boomsound",
         liveUrl: "https://wistant-html-css-js-headphones-website.vercel.app/",
-        imageUrl: `${PROJECT_IMAGE_BASE_PATH}boomsound.png`,
+        imageUrl: boomsoundImg,
     },
     {
         id: "proj-portfolio",
@@ -137,6 +145,6 @@ export const projectsData: Project[] = [
         ],
         repoGit: "https://github.com/wistantkode/my-dev-portfolio.git",
         liveUrl: "#", // Placeholder
-        imageUrl: `${PROJECT_IMAGE_BASE_PATH}portfolio-img.png`,
+        imageUrl: portfolioImg,
     },
 ];

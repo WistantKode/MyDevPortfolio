@@ -1,13 +1,8 @@
-import Layout from "@/components/layout/layout";
-import { Button } from "@/components/ui/button";
+import {Button} from "@/components/ui/button";
 
 const CTA = () => {
   return (
-    <Layout
-      title="Services - Développement Web & IT student | Modjo Victor"
-      description="Découvrez mes services de développement web, applications mobiles, Desktop et solutions digitales personnalisées."
-      keywords="services, développement web, developpement Backend, applications mobiles, application desktop, backend, API, branding, SEO, Modjo Victor"
-    >
+      <>
       <section className="pb-1 bg-background">
         <div className="container mx-auto px-4">
 
@@ -47,7 +42,7 @@ const CTA = () => {
           </div>
         </div>
       </section>
-    </Layout>
+      </>
   );
 };
 

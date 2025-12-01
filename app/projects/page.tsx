@@ -2,7 +2,7 @@
 
 import {useMemo, useState} from "react";
 import {motion} from "framer-motion";
-import Layout from "@/components/layout/layout";
+import {Metadata} from 'next';
 import {ProjectCategory} from "@/lib/projet";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {Button} from "@/components/ui/button";
@@ -10,6 +10,7 @@ import {Input} from "@/components/ui/input";
 import {ArrowRight, Code, Eye, Globe, Search, Server, Smartphone} from "lucide-react";
 import {projectsData} from "@/lib/projectsData";
 import {IconType} from "react-icons";
+import Image from "next/image";
 import {
     Pagination,
     PaginationContent,
@@ -21,12 +22,19 @@ import {
 } from "@/components/ui/pagination";
 import {ImageLightbox} from "@/components/ui/ImageLightbox"; // Import the lightbox
 
+// --- STATIC METADATA ---
+export const metadata: Metadata = {
+    title: "Projets - Wistant Kode | Praticien DevSecOps & Ingénieur Logiciel",
+    description: "Explorez une sélection de projets de Wistant Kode, démontrant une expertise en développement web, systèmes backend et solutions logicielles robustes. Spécialisé en Java/Spring Boot, React/Next.js, Cloud, Automatisation et Cybersécurité.",
+    keywords: ["Wistant Kode", "projets", "développement web", "développement backend", "Java", "React", "Next.js", "Spring Boot", "Cloud", "Automatisation", "Cybersécurité", "portfolio", "ingénierie logicielle", "DevSecOps"],
+};
+
 // Filter configuration
 const filterConfig: { name: string; category: ProjectCategory; icon: IconType }[] = [
-  { name: "All", category: "all", icon: Code },
-  { name: "Web Development", category: "web", icon: Globe },
-  { name: "Backend Systems", category: "backend", icon: Server },
-  { name: "Mobile Applications", category: "mobile", icon: Smartphone },
+    {name: "Tous", category: "all", icon: Code},
+    {name: "Développement Web", category: "web", icon: Globe},
+    {name: "Systèmes Backend", category: "backend", icon: Server},
+    {name: "Applications Mobiles", category: "mobile", icon: Smartphone},
 ];
 
 const PROJECTS_PER_PAGE = 6; // Define how many projects per page
@@ -99,19 +107,16 @@ export default function Projects() {
   };
 
   return (
-    <Layout
-      title="Projects - Wistant Kode - DevSecOps Practicer | Software Engineer"
-      description="Explore a curated selection of Wistant Kode's projects, showcasing expertise in web development, backend systems, and robust software solutions. Specializing in Java/Spring Boot, React/Next.js, Cloud, Automation, and Cybersecurity."
-      keywords="Wistant Kode, projects, web development, backend development, Java, React, Next.js, Spring Boot, Cloud, Automation, Cybersecurity, portfolio, software engineering, DevSecOps"
-    >
+      <>
       <div className="max-w-7xl mx-auto px-6 py-12">
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-bold text-text-primary mb-6 title3">
-            My Projects
+              Mes Projets
           </h1>
           <p className="text-text-secondary text-lg max-w-2xl mx-auto title1">
-            Explore a curated selection of my work, ranging from interactive web applications to robust backend systems, engineered with a focus on performance, security, and scalability.
+              Explorez une sélection de mes travaux, allant des applications web interactives aux systèmes backend
+              robustes, conçus avec un accent sur la performance, la sécurité et la scalabilité.
           </p>
         </div>
 
@@ -122,7 +127,7 @@ export default function Projects() {
             <div className="relative flex-1 w-full md:max-w-md">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-text-muted w-4 h-4" />
               <Input
-                placeholder="Search by title or description..."
+                  placeholder="Rechercher par titre ou description..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="pl-10 bg-input border-border-light w-full"
@@ -165,12 +170,13 @@ export default function Projects() {
                     {project.imageUrl && (
                         <div
                             className="w-full h-40 rounded-xl overflow-hidden mb-4 group-hover:scale-[1.02] transition-transform shadow-primary cursor-pointer"
-                            onClick={() => setLightboxImage(project.imageUrl || null)}
+                            onClick={() => setLightboxImage(project.imageUrl.src || null)}
                         >
-                        <img
+                            <Image
                           src={project.imageUrl}
                           alt={project.title}
                           className="w-full h-full object-cover"
+                          placeholder="blur"
                         />
                       </div>
                     )}
@@ -210,7 +216,7 @@ export default function Projects() {
                             variant="outline"
                             className="w-full group/btn border-border-light hover:border-primary hover:bg-primary/10"
                           >
-                            View Live
+                              Voir le site
                             <Eye className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
                           </Button>
                         </motion.a>
@@ -225,7 +231,7 @@ export default function Projects() {
                             variant="outline"
                             className="w-full group/btn border-border-light hover:border-primary hover:bg-primary/10"
                           >
-                            View Code
+                              Voir le code
                             <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
                           </Button>
                         </motion.a>
@@ -238,7 +244,7 @@ export default function Projects() {
           </div>
         ) : (
           <div className="text-center py-16">
-            <p className="text-text-muted text-lg">No projects found matching your criteria.</p>
+              <p className="text-text-muted text-lg">Aucun projet ne correspond à vos critères.</p>
           </div>
         )}
 
@@ -269,6 +275,6 @@ export default function Projects() {
                 onClose={() => setLightboxImage(null)}
             />
         )}
-    </Layout>
+      </>
   );
 }

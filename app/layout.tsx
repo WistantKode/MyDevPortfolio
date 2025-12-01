@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
+import type {Metadata} from "next";
+import {Outfit} from "next/font/google";
 import "./globals.css";
-import { Providers } from "./providers";
+import {Providers} from "./providers";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -9,37 +9,91 @@ const outfit = Outfit({
   variable: "--font-outfit",
 });
 
+// --- SEO METADATA ---
+// Source: https://nextjs.org/docs/app/building-your-application/optimizing/metadata
+const siteConfig = {
+    title: "Wistant - Développeur Fullstack Expert",
+    description: "Je suis Wistant, développeur fullstack freelance spécialisé dans la création d'applications web performantes avec TypeScript, Next.js et NestJS. Construisons quelque chose d'incroyable ensemble.",
+    author: "Wistant (Kali)",
+    url: "https://votre-domaine.com", // !important: Remplacez par votre nom de domaine
+    ogImage: "/og-image.png",
+};
+
 export const metadata: Metadata = {
-  title: "Wistant — Fullstack Developer (TypeScript • Next.js • NestJS • React)",
-  description: "Wistant — Fullstack developer building production-grade apps with TypeScript, Next.js (frontend), NestJS (backend) and React. Portfolio, projects, and engineering notes.",
-  authors: [{ name: "Wistant (Kali)" }],
-  keywords: ["Wistant", "Kali", "Fullstack Developer", "TypeScript", "Next.js", "NestJS", "React", "portfolio", "backend", "frontend", "web developer"],
-  
-  // Open Graph
+    // --- Métadonnées de base ---
+    metadataBase: new URL(siteConfig.url),
+    title: {
+        default: siteConfig.title,
+        template: `%s | Wistant`, // Pour les pages enfants, ex: "Projets | Wistant"
+    },
+    description: siteConfig.description,
+    authors: [{name: siteConfig.author, url: siteConfig.url}],
+    creator: siteConfig.author,
+    keywords: [
+        "Développeur Fullstack",
+        "Développeur Freelance",
+        "Développeur Web",
+        "TypeScript",
+        "Next.js",
+        "NestJS",
+        "React",
+        "Node.js",
+        "Développement d'applications web",
+        "Développement d'API",
+        "Développeur Backend",
+        "Développeur Frontend",
+        "Portfolio",
+        "Wistant",
+        "Kali",
+    ],
+
+    // --- Open Graph (pour le partage sur les réseaux sociaux) ---
   openGraph: {
-    title: "Wistant — Fullstack Developer (TypeScript • Next.js • NestJS • React)",
-    description: "Portfolio of Wistant (Kali). I build fast, maintainable web apps using TypeScript, Next.js, NestJS and React.",
     type: "website",
-    images: ["/photo-pro-vert.png"],
+      locale: "fr_FR",
+      url: siteConfig.url,
+      title: siteConfig.title,
+      description: siteConfig.description,
+      siteName: siteConfig.title,
+      images: [
+          {
+              url: siteConfig.ogImage,
+              width: 1200,
+              height: 630,
+              alt: siteConfig.title,
+          },
+      ],
   },
-  
-  // Twitter
+
+    // --- Carte Twitter ---
   twitter: {
     card: "summary_large_image",
-    title: "Wistant — Fullstack Developer (TypeScript • Next.js • NestJS • React)",
-    description: "Portfolio of Wistant (Kali) — building fast, resilient web apps with TypeScript, Next.js, NestJS and React.",
-    images: ["/photo-pro-vert.png"],
+      title: siteConfig.title,
+      description: siteConfig.description,
+      images: [siteConfig.ogImage],
+      creator: "@votre_handle_twitter", // !important: Remplacez ou supprimez
   },
-  
-  // Icons
+
+    // --- Icônes et Manifeste ---
   icons: {
-    icon: "/lg.ico",
-    shortcut: "/lg.ico",
+      icon: "/favicon.ico",
+      shortcut: "/favicon-16x16.png",
+      apple: "/apple-touch-icon.png",
   },
-  
-  // Verification
+    manifest: `${siteConfig.url}/site.webmanifest`,
+
+    // --- Thème et Vérification ---
+    themeColor: [
+        {media: "(prefers-color-scheme: light)", color: "white"},
+        {media: "(prefers-color-scheme: dark)", color: "black"},
+    ],
   verification: {
-    google: "N9STXKZhKO7NZofAlprylu4REI9ihRKNw84QvqUASEc",
+      google: "N9STXKZhKO7NZofAlprylu4REI9ihRKNw84QvqUASEc", // Conservé l'original
+  },
+
+    // --- URL Canonique ---
+    alternates: {
+        canonical: "/",
   },
 };
 
@@ -49,7 +103,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+      <html lang="fr" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

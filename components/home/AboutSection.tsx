@@ -4,7 +4,7 @@ import Image from "next/image";
 import {Button} from "@/components/ui/button";
 import {Mail} from "lucide-react";
 import aboutBg from "@/assets/about-bg.jpg";
-import heroAbout from "/me.png";
+import heroAbout from "/public/me.png";
 import {AppearOnSrollToLeft, AppearOnSrollToRight} from "@/components/ScrollEffect"
 
 const AboutSection = () => {
@@ -14,7 +14,7 @@ const AboutSection = () => {
       <div 
         className="absolute inset-0 opacity-5"
         style={{
-          backgroundImage: `url(${aboutBg})`,
+            backgroundImage: `url(${aboutBg.src})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

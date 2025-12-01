@@ -1,7 +1,6 @@
 "use client";
 
 import {useState} from "react";
-import Layout from "@/components/layout/layout";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {Button} from "@/components/ui/button";
 import {Input} from "@/components/ui/input";
@@ -108,11 +107,7 @@ const ContactForm = () => {
     ];
 
     return (
-        <Layout
-            title="Contact - Wistant | Backend System Specialist & Web Architect"
-            description="Engage Wistant for robust web development, system architecture, and UI/UX design projects. Let's discuss your requirements and engineer your vision into reality."
-            keywords="contact, Wistant, web developer, Backend, system architecture, project inquiry, quote, Yaoundé, Cameroon"
-        >
+        <>
             <section className="py-20 bg-background min-h-screen">
                 <div className="container mx-auto px-4">
                     {/* Hero Section - Confident Tone */}
@@ -384,7 +379,7 @@ const ContactForm = () => {
                     </div>
                 </div>
             </section>
-        </Layout>
+        </>
     );
 };
 

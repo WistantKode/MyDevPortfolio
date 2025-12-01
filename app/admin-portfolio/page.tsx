@@ -1,28 +1,20 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Badge } from "@/components/ui/badge";
-import {
-  Plus,
-  Edit,
-  Trash2,
-  X,
-  Save,
-  User,
-  BarChart3,
-  Eye,
-} from "lucide-react";
-import { useToast } from "@/components/ui/use-toast";
-import Layout from "@/components/layout/layout";
+import React, {useEffect, useState} from "react";
+import {Metadata} from 'next';
+import {Card, CardContent, CardHeader, CardTitle,} from "@/components/ui/card";
+import {Button} from "@/components/ui/button";
+import {Input} from "@/components/ui/input";
+import {Textarea} from "@/components/ui/textarea";
+import {Badge} from "@/components/ui/badge";
+import {BarChart3, Edit, Eye, Plus, Save, Trash2, User, X,} from "lucide-react";
+import {useToast} from "@/components/ui/use-toast";
+
+// --- STATIC METADATA ---
+export const metadata: Metadata = {
+    title: "Admin Dashboard",
+    description: "Gestion de contenu du portfolio.",
+};
 
 // Clés pour le localStorage
 const STORAGE_KEYS = {
@@ -357,243 +349,241 @@ const Dashboard: React.FC = () => {
      UI
   --------------------------- */
   return (
-    <Layout title="Admin Dashboard" description="Gestion de contenu">
       <section className="py-10 px-4 bg-background min-h-screen">
-        <div className="max-w-6xl mx-auto space-y-10">
-          {/* Header */}
-          <header className="flex items-center justify-between flex-wrap gap-4">
-            <div>
-              <h1 className="text-3xl font-bold text-text-primary">Dashboard</h1>
-              <p className="text-text-secondary">Gérez vos articles et vos projets facilement</p>
-            </div>
-            <div className="flex gap-2">
-              <Button onClick={handleCreatePost}>
-                <Plus className="w-4 h-4 mr-1" /> Nouvel Article
-              </Button>
-              <Button onClick={handleCreateProject} variant="outline">
-                <Plus className="w-4 h-4 mr-1" /> Nouveau Projet
-              </Button>
-            </div>
-          </header>
-
-          {/* Statistiques */}
-          <div className="grid md:grid-cols-3 gap-4">
-            <Card>
-              <CardContent className="p-5 flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-muted-foreground">Articles publiés</p>
-                  <h2 className="text-2xl font-semibold">{stats.published}</h2>
-                </div>
-                <Eye className="w-6 h-6 text-primary" />
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="p-5 flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-muted-foreground">Projets</p>
-                  <h2 className="text-2xl font-semibold">{stats.projects}</h2>
-                </div>
-                <BarChart3 className="w-6 h-6 text-primary" />
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="p-5 flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-muted-foreground">Total Articles</p>
-                  <h2 className="text-2xl font-semibold">{stats.totalPosts}</h2>
-                </div>
-                <User className="w-6 h-6 text-primary" />
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Articles */}
-          <div>
-            <h2 className="text-xl font-semibold mb-4">Articles</h2>
-            {showPostForm && (
-              <Card className="mb-6">
-                <CardHeader className="flex flex-row justify-between items-center">
-                  <CardTitle>
-                    {editingPost ? "Modifier l'article" : "Nouvel article"}
-                  </CardTitle>
-                  <Button variant="ghost" size="sm" onClick={() => setShowPostForm(false)}>
-                    <X className="w-4 h-4" />
-                  </Button>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <Input
-                    placeholder="Titre"
-                    value={formData.title}
-                    onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                  />
-                  <Input
-                    placeholder="Extrait"
-                    value={formData.excerpt}
-                    onChange={(e) => setFormData({ ...formData, excerpt: e.target.value })}
-                  />
-                  <Textarea
-                    placeholder="Contenu"
-                    value={formData.content}
-                    onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-                  />
-                  <Input
-                    placeholder="Catégorie"
-                    value={formData.category}
-                    onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                  />
-                  <Input
-                    placeholder="Tags (séparés par des virgules)"
-                    value={formData.tags}
-                    onChange={(e) => setFormData({ ...formData, tags: e.target.value })}
-                  />
-                  <div className="flex gap-2">
-                    <Button onClick={handleSavePost}>
-                      <Save className="w-4 h-4 mr-1" /> Sauvegarder
-                    </Button>
-                    <Button variant="outline" onClick={() => setShowPostForm(false)}>
-                      Annuler
-                    </Button>
+          <div className="max-w-6xl mx-auto space-y-10">
+              {/* Header */}
+              <header className="flex items-center justify-between flex-wrap gap-4">
+                  <div>
+                      <h1 className="text-3xl font-bold text-text-primary">Dashboard</h1>
+                      <p className="text-text-secondary">Gérez vos articles et vos projets facilement</p>
                   </div>
-                </CardContent>
-              </Card>
-            )}
-            <div className="grid md:grid-cols-2 gap-4">
-              {posts.map((post) => (
-                <Card key={post.id}>
-                  <CardContent className="p-5">
-                    <div className="flex justify-between">
-                      <h3 className="font-semibold">{post.title}</h3>
-                      <div className="flex gap-2">
-                        <Button variant="outline" size="sm" onClick={() => handleEditPost(post)}>
-                          <Edit className="w-4 h-4" />
-                        </Button>
-                        <Button variant="outline" size="sm" onClick={() => handleDeletePost(post.id)}>
-                          <Trash2 className="w-4 h-4" />
-                        </Button>
-                      </div>
-                    </div>
-                    <p className="text-sm mt-2 text-muted-foreground">{post.excerpt}</p>
-                    <Badge className="mt-2">{post.category}</Badge>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-
-          {/* Projets */}
-          <div>
-            <h2 className="text-xl font-semibold mb-4">Projets</h2>
-            {showProjectForm && (
-              <Card className="mb-6">
-                <CardHeader className="flex flex-row justify-between items-center">
-                  <CardTitle>
-                    {editingProject ? "Modifier le projet" : "Nouveau projet"}
-                  </CardTitle>
-                  <Button variant="ghost" size="sm" onClick={() => setShowProjectForm(false)}>
-                    <X className="w-4 h-4" />
-                  </Button>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <Input
-                    placeholder="Titre du projet"
-                    value={projectForm.title}
-                    onChange={(e) => setProjectForm({ ...projectForm, title: e.target.value })}
-                  />
-                  <Textarea
-                    placeholder="Description du projet"
-                    value={projectForm.description}
-                    onChange={(e) => setProjectForm({ ...projectForm, description: e.target.value })}
-                    rows={4}
-                  />
-                  <Input
-                    placeholder="Catégorie (ex: frontend, backend, fullstack)"
-                    value={projectForm.category}
-                    onChange={(e) => setProjectForm({ ...projectForm, category: e.target.value })}
-                  />
-                  <Input
-                    placeholder="Technologies (séparées par des virgules)"
-                    value={projectForm.techString}
-                    onChange={(e) => setProjectForm({ ...projectForm, techString: e.target.value })}
-                  />
-                  <Input
-                    placeholder="URL du repository GitHub"
-                    value={projectForm.repoGit}
-                    onChange={(e) => setProjectForm({ ...projectForm, repoGit: e.target.value })}
-                  />
-                  <Input
-                    placeholder="URL du site en ligne (optionnel)"
-                    value={projectForm.liveUrl}
-                    onChange={(e) => setProjectForm({ ...projectForm, liveUrl: e.target.value })}
-                  />
-                  <Input
-                    placeholder="URL de l'image (optionnel)"
-                    value={projectForm.imageUrl}
-                    onChange={(e) => setProjectForm({ ...projectForm, imageUrl: e.target.value })}
-                  />
                   <div className="flex gap-2">
-                    <Button onClick={handleSaveProject}>
-                      <Save className="w-4 h-4 mr-1" /> Sauvegarder
-                    </Button>
-                    <Button variant="outline" onClick={() => setShowProjectForm(false)}>
-                      Annuler
-                    </Button>
+                      <Button onClick={handleCreatePost}>
+                          <Plus className="w-4 h-4 mr-1"/> Nouvel Article
+                      </Button>
+                      <Button onClick={handleCreateProject} variant="outline">
+                          <Plus className="w-4 h-4 mr-1"/> Nouveau Projet
+                      </Button>
                   </div>
-                </CardContent>
-              </Card>
-            )}
-            <div className="grid md:grid-cols-2 gap-4">
-              {projects.map((project) => (
-                <Card key={project.id}>
-                  <CardContent className="p-5">
-                    <div className="flex justify-between items-start mb-2">
-                      <div className="flex-1">
-                        <h3 className="font-semibold">{project.title}</h3>
-                        {project.category && (
-                          <Badge variant="secondary" className="mt-1">
-                            {project.category}
-                          </Badge>
-                        )}
-                      </div>
-                      <div className="flex gap-2">
-                        <Button 
-                          variant="outline" 
-                          size="sm" 
-                          onClick={() => handleEditProject(project)}
-                        >
-                          <Edit className="w-4 h-4" />
-                        </Button>
-                        <Button 
-                          variant="outline" 
-                          size="sm" 
-                          onClick={() => handleDeleteProject(project.id)}
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </Button>
-                      </div>
-                    </div>
-                    <p className="text-sm mt-2 text-muted-foreground line-clamp-2">
-                      {project.description}
-                    </p>
-                    <div className="flex gap-2 mt-3 flex-wrap">
-                      {project.tech.map((tech, index) => (
-                        <Badge key={index} variant="outline">
-                          {tech.name}
-                        </Badge>
+              </header>
+
+              {/* Statistiques */}
+              <div className="grid md:grid-cols-3 gap-4">
+                  <Card>
+                      <CardContent className="p-5 flex items-center justify-between">
+                          <div>
+                              <p className="text-sm text-muted-foreground">Articles publiés</p>
+                              <h2 className="text-2xl font-semibold">{stats.published}</h2>
+                          </div>
+                          <Eye className="w-6 h-6 text-primary"/>
+                      </CardContent>
+                  </Card>
+                  <Card>
+                      <CardContent className="p-5 flex items-center justify-between">
+                          <div>
+                              <p className="text-sm text-muted-foreground">Projets</p>
+                              <h2 className="text-2xl font-semibold">{stats.projects}</h2>
+                          </div>
+                          <BarChart3 className="w-6 h-6 text-primary"/>
+                      </CardContent>
+                  </Card>
+                  <Card>
+                      <CardContent className="p-5 flex items-center justify-between">
+                          <div>
+                              <p className="text-sm text-muted-foreground">Total Articles</p>
+                              <h2 className="text-2xl font-semibold">{stats.totalPosts}</h2>
+                          </div>
+                          <User className="w-6 h-6 text-primary"/>
+                      </CardContent>
+                  </Card>
+              </div>
+
+              {/* Articles */}
+              <div>
+                  <h2 className="text-xl font-semibold mb-4">Articles</h2>
+                  {showPostForm && (
+                      <Card className="mb-6">
+                          <CardHeader className="flex flex-row justify-between items-center">
+                              <CardTitle>
+                                  {editingPost ? "Modifier l'article" : "Nouvel article"}
+                              </CardTitle>
+                              <Button variant="ghost" size="sm" onClick={() => setShowPostForm(false)}>
+                                  <X className="w-4 h-4"/>
+                              </Button>
+                          </CardHeader>
+                          <CardContent className="space-y-3">
+                              <Input
+                                  placeholder="Titre"
+                                  value={formData.title}
+                                  onChange={(e) => setFormData({...formData, title: e.target.value})}
+                              />
+                              <Input
+                                  placeholder="Extrait"
+                                  value={formData.excerpt}
+                                  onChange={(e) => setFormData({...formData, excerpt: e.target.value})}
+                              />
+                              <Textarea
+                                  placeholder="Contenu"
+                                  value={formData.content}
+                                  onChange={(e) => setFormData({...formData, content: e.target.value})}
+                              />
+                              <Input
+                                  placeholder="Catégorie"
+                                  value={formData.category}
+                                  onChange={(e) => setFormData({...formData, category: e.target.value})}
+                              />
+                              <Input
+                                  placeholder="Tags (séparés par des virgules)"
+                                  value={formData.tags}
+                                  onChange={(e) => setFormData({...formData, tags: e.target.value})}
+                              />
+                              <div className="flex gap-2">
+                                  <Button onClick={handleSavePost}>
+                                      <Save className="w-4 h-4 mr-1"/> Sauvegarder
+                                  </Button>
+                                  <Button variant="outline" onClick={() => setShowPostForm(false)}>
+                                      Annuler
+                                  </Button>
+                              </div>
+                          </CardContent>
+                      </Card>
+                  )}
+                  <div className="grid md:grid-cols-2 gap-4">
+                      {posts.map((post) => (
+                          <Card key={post.id}>
+                              <CardContent className="p-5">
+                                  <div className="flex justify-between">
+                                      <h3 className="font-semibold">{post.title}</h3>
+                                      <div className="flex gap-2">
+                                          <Button variant="outline" size="sm" onClick={() => handleEditPost(post)}>
+                                              <Edit className="w-4 h-4"/>
+                                          </Button>
+                                          <Button variant="outline" size="sm" onClick={() => handleDeletePost(post.id)}>
+                                              <Trash2 className="w-4 h-4"/>
+                                          </Button>
+                                      </div>
+                                  </div>
+                                  <p className="text-sm mt-2 text-muted-foreground">{post.excerpt}</p>
+                                  <Badge className="mt-2">{post.category}</Badge>
+                              </CardContent>
+                          </Card>
                       ))}
-                    </div>
-                    {project.repoGit && (
-                      <div className="mt-3 text-xs text-muted-foreground truncate">
-                        Repo: {project.repoGit}
-                      </div>
-                    )}
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+                  </div>
+              </div>
+
+              {/* Projets */}
+              <div>
+                  <h2 className="text-xl font-semibold mb-4">Projets</h2>
+                  {showProjectForm && (
+                      <Card className="mb-6">
+                          <CardHeader className="flex flex-row justify-between items-center">
+                              <CardTitle>
+                                  {editingProject ? "Modifier le projet" : "Nouveau projet"}
+                              </CardTitle>
+                              <Button variant="ghost" size="sm" onClick={() => setShowProjectForm(false)}>
+                                  <X className="w-4 h-4"/>
+                              </Button>
+                          </CardHeader>
+                          <CardContent className="space-y-3">
+                              <Input
+                                  placeholder="Titre du projet"
+                                  value={projectForm.title}
+                                  onChange={(e) => setProjectForm({...projectForm, title: e.target.value})}
+                              />
+                              <Textarea
+                                  placeholder="Description du projet"
+                                  value={projectForm.description}
+                                  onChange={(e) => setProjectForm({...projectForm, description: e.target.value})}
+                                  rows={4}
+                              />
+                              <Input
+                                  placeholder="Catégorie (ex: frontend, backend, fullstack)"
+                                  value={projectForm.category}
+                                  onChange={(e) => setProjectForm({...projectForm, category: e.target.value})}
+                              />
+                              <Input
+                                  placeholder="Technologies (séparées par des virgules)"
+                                  value={projectForm.techString}
+                                  onChange={(e) => setProjectForm({...projectForm, techString: e.target.value})}
+                              />
+                              <Input
+                                  placeholder="URL du repository GitHub"
+                                  value={projectForm.repoGit}
+                                  onChange={(e) => setProjectForm({...projectForm, repoGit: e.target.value})}
+                              />
+                              <Input
+                                  placeholder="URL du site en ligne (optionnel)"
+                                  value={projectForm.liveUrl}
+                                  onChange={(e) => setProjectForm({...projectForm, liveUrl: e.target.value})}
+                              />
+                              <Input
+                                  placeholder="URL de l'image (optionnel)"
+                                  value={projectForm.imageUrl}
+                                  onChange={(e) => setProjectForm({...projectForm, imageUrl: e.target.value})}
+                              />
+                              <div className="flex gap-2">
+                                  <Button onClick={handleSaveProject}>
+                                      <Save className="w-4 h-4 mr-1"/> Sauvegarder
+                                  </Button>
+                                  <Button variant="outline" onClick={() => setShowProjectForm(false)}>
+                                      Annuler
+                                  </Button>
+                              </div>
+                          </CardContent>
+                      </Card>
+                  )}
+                  <div className="grid md:grid-cols-2 gap-4">
+                      {projects.map((project) => (
+                          <Card key={project.id}>
+                              <CardContent className="p-5">
+                                  <div className="flex justify-between items-start mb-2">
+                                      <div className="flex-1">
+                                          <h3 className="font-semibold">{project.title}</h3>
+                                          {project.category && (
+                                              <Badge variant="secondary" className="mt-1">
+                                                  {project.category}
+                                              </Badge>
+                                          )}
+                                      </div>
+                                      <div className="flex gap-2">
+                                          <Button
+                                              variant="outline"
+                                              size="sm"
+                                              onClick={() => handleEditProject(project)}
+                                          >
+                                              <Edit className="w-4 h-4"/>
+                                          </Button>
+                                          <Button
+                                              variant="outline"
+                                              size="sm"
+                                              onClick={() => handleDeleteProject(project.id)}
+                                          >
+                                              <Trash2 className="w-4 h-4"/>
+                                          </Button>
+                                      </div>
+                                  </div>
+                                  <p className="text-sm mt-2 text-muted-foreground line-clamp-2">
+                                      {project.description}
+                                  </p>
+                                  <div className="flex gap-2 mt-3 flex-wrap">
+                                      {project.tech.map((tech, index) => (
+                                          <Badge key={index} variant="outline">
+                                              {tech.name}
+                                          </Badge>
+                                      ))}
+                                  </div>
+                                  {project.repoGit && (
+                                      <div className="mt-3 text-xs text-muted-foreground truncate">
+                                          Repo: {project.repoGit}
+                                      </div>
+                                  )}
+                              </CardContent>
+                          </Card>
+                      ))}
+                  </div>
+              </div>
           </div>
-        </div>
       </section>
-    </Layout>
   );
 };
 
