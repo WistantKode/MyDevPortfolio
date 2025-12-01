@@ -2,7 +2,7 @@
 import React from 'react';
 import {motion} from 'framer-motion';
 import {Progress} from '@/components/ui/progress';
-import {technologies} from '@/lib/skillsdata.ts';
+import {technologies} from '@/lib/skillsdata';
 
 const containerVariants = {
     hidden: { opacity: 0 },
