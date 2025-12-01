@@ -1,6 +1,6 @@
-import Layout from "@/components/layout/layout";
 "use client";
 
+import Layout from "@/components/layout/layout";
 import {Button} from "@/components/ui/button";
 
 import {Code, Database, Download, Globe, Heart, Mail, Palette} from "lucide-react";

@@ -92,7 +92,7 @@ type AppearOnScrollProps = {
 };
 
 export function AppearOnScroll({ children, threshold = 0.3 }: AppearOnScrollProps) {
-  const [ref, inView] = useInView({
+  const [ref, inView] = useInViewFromReactIntersectionObserver({
     triggerOnce: false, // l'animation ce joue un seule fois
     threshold: threshold, // l'animation se declenche a {threshold} de la hauteur de l'element
   });
@@ -109,7 +109,7 @@ export function AppearOnScroll({ children, threshold = 0.3 }: AppearOnScrollProp
   );
 }
 export function AppearOnScale({ children, threshold = 0.3 }: AppearOnScrollProps) {
-  const [ref, inView] = useInView({
+  const [ref, inView] = useInViewFromReactIntersectionObserver({
     triggerOnce: false, // l'animation ce joue un seule fois
     threshold: threshold, // l'animation se declenche a {threshold} de la hauteur de l'element
   });
@@ -128,7 +128,7 @@ export function AppearOnScale({ children, threshold = 0.3 }: AppearOnScrollProps
 
 export function AppearOnSrollToLeft({ children, threshold = 0.3 } : AppearOnScrollProps){
 
-  const [ref, inView] = useInView({
+  const [ref, inView] = useInViewFromReactIntersectionObserver({
     triggerOnce: false,
     threshold: threshold,
   });
@@ -145,7 +145,7 @@ export function AppearOnSrollToLeft({ children, threshold = 0.3 } : AppearOnScro
   );
 }
 export function AppearOnSrollToRight({ children, threshold = 0.3 }: AppearOnScrollProps) {
-  const [ref, inView] = useInView({
+  const [ref, inView] = useInViewFromReactIntersectionObserver({
     triggerOnce: false, // Changé à true pour éviter les répétitions
     threshold: threshold,
   });
