@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Card, CardContent } from "@/components/ui/card";
+import { technologies } from "@/lib/skillsdata";
 
 
 class MySkills extends Component {
