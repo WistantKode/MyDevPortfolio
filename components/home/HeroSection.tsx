@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, TargetAndTransition, Transition } from "framer-motion";
+import { motion, TargetAndTransition, Transition, Variants } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
 import { FaWhatsapp, FaReact, FaJava, FaGitAlt } from "react-icons/fa";
@@ -90,7 +90,7 @@ const dynamicIcons: DynamicIcon[] = [
 ];
 
 // --- Animation Variants for main content --- //
-const containerVariants = {
+const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: { 
         opacity: 1,
@@ -98,7 +98,7 @@ const containerVariants = {
     }
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100 } }
 };
