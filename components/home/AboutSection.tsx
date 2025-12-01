@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {Button} from "@/components/ui/button";
 import {Mail} from "lucide-react";
 import aboutBg from "@/assets/about-bg.jpg";
@@ -37,7 +38,7 @@ const AboutSection = () => {
             </div>
           </div> */}
           <AppearOnSrollToLeft>
-            <img src={heroAbout} className="rounded-xl" alt="Modjo victor dévellopeur" loading="lazy" />
+            <Image src={heroAbout} className="rounded-xl" alt="Modjo victor dévellopeur" placeholder="blur" />
           </AppearOnSrollToLeft>
           
           
