@@ -1,18 +1,29 @@
-# Logs
-logs
+# Dependencies
+node_modules/
+
+# Build outputs
+.next/
+out/
+build/
+*.tsbuildinfo
+
+# Next.js
+next-env.d.ts
+
+# pnpm
+pnpm-lock.yaml
+
+# Environment variables
+.env*.local
+.env
+
+# Testing
+coverage/
+
+# Misc
+.DS_Store
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
+.idea/
 .vscode/*
 !.vscode/extensions.json
 .idea

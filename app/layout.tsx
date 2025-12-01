@@ -1,0 +1,116 @@
+import type {Metadata} from "next";
+import {Outfit} from "next/font/google";
+import "./globals.css";
+import {Providers} from "./providers";
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-outfit",
+});
+
+// --- SEO METADATA ---
+// Source: https://nextjs.org/docs/app/building-your-application/optimizing/metadata
+const siteConfig = {
+    title: "Wistant - Développeur Fullstack Expert",
+    description: "Je suis Wistant, développeur fullstack freelance spécialisé dans la création d'applications web performantes avec TypeScript, Next.js et NestJS. Construisons quelque chose d'incroyable ensemble.",
+    author: "Wistant (Kali)",
+    url: "https://votre-domaine.com", // !important: Remplacez par votre nom de domaine
+    ogImage: "/og-image.png",
+};
+
+export const metadata: Metadata = {
+    // --- Métadonnées de base ---
+    metadataBase: new URL(siteConfig.url),
+    title: {
+        default: siteConfig.title,
+        template: `%s | Wistant`, // Pour les pages enfants, ex: "Projets | Wistant"
+    },
+    description: siteConfig.description,
+    authors: [{name: siteConfig.author, url: siteConfig.url}],
+    creator: siteConfig.author,
+    keywords: [
+        "Développeur Fullstack",
+        "Développeur Freelance",
+        "Développeur Web",
+        "TypeScript",
+        "Next.js",
+        "NestJS",
+        "React",
+        "Node.js",
+        "Développement d'applications web",
+        "Développement d'API",
+        "Développeur Backend",
+        "Développeur Frontend",
+        "Portfolio",
+        "Wistant",
+        "Kali",
+    ],
+
+    // --- Open Graph (pour le partage sur les réseaux sociaux) ---
+  openGraph: {
+    type: "website",
+      locale: "fr_FR",
+      url: siteConfig.url,
+      title: siteConfig.title,
+      description: siteConfig.description,
+      siteName: siteConfig.title,
+      images: [
+          {
+              url: siteConfig.ogImage,
+              width: 1200,
+              height: 630,
+              alt: siteConfig.title,
+          },
+      ],
+  },
+
+    // --- Carte Twitter ---
+  twitter: {
+    card: "summary_large_image",
+      title: siteConfig.title,
+      description: siteConfig.description,
+      images: [siteConfig.ogImage],
+      creator: "@votre_handle_twitter", // !important: Remplacez ou supprimez
+  },
+
+    // --- Icônes et Manifeste ---
+  icons: {
+      icon: "/favicon.ico",
+      shortcut: "/favicon-16x16.png",
+      apple: "/apple-touch-icon.png",
+  },
+    manifest: `${siteConfig.url}/site.webmanifest`,
+
+    // --- Thème et Vérification ---
+    themeColor: [
+        {media: "(prefers-color-scheme: light)", color: "white"},
+        {media: "(prefers-color-scheme: dark)", color: "black"},
+    ],
+  verification: {
+      google: "N9STXKZhKO7NZofAlprylu4REI9ihRKNw84QvqUASEc", // Conservé l'original
+  },
+
+    // --- URL Canonique ---
+    alternates: {
+        canonical: "/",
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+      <html lang="fr" suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
+      <body className={`${outfit.variable} font-sans antialiased`}>
+        <Providers>{children}</Providers>
+      </body>
+    </html>
+  );
+}
