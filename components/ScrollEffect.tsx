@@ -1,5 +1,7 @@
-import {motion} from "framer-motion";
-import {useInView} from "react-intersection-observer";
+"use client";
+
+import {motion, useInView, useAnimation} from "framer-motion";
+import {useInView as useInViewFromReactIntersectionObserver} from "react-intersection-observer"; // Renamed to avoid conflict
 
 import React from "react";
 

@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import { motion, TargetAndTransition, Transition, Variants } from "framer-motion";
 import { Button } from "@/components/ui/button";

@@ -1,4 +1,6 @@
 import React from 'react';
+"use client";
+
 import {Briefcase, GraduationCap} from "lucide-react";
 import {AppearOnScroll} from "@/components/ScrollEffect";
 
