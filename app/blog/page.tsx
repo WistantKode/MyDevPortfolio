@@ -1,31 +1,18 @@
-import {Metadata} from 'next';
+import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
-import {Button} from "@/components/ui/button";
-import {Badge} from "@/components/ui/badge";
-import {ArrowRight, Calendar, User} from "lucide-react";
-import {mockPosts} from '@/lib/blogData';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { ArrowRight, Calendar, User } from "lucide-react";
+import { mockPosts } from '@/lib/blogData';
 
-// --- IMAGES ---
-import blogPost1 from '/public/blog-post-1.jpg';
-import blogPost2 from '/public/blog-post-2.jpg';
-import blogPost3 from '/public/blog-post-3.jpg';
-
-const postImages: { [key: string]: any } = {
-    '/blog-post-1.jpg': blogPost1,
-    '/blog-post-2.jpg': blogPost2,
-    '/blog-post-3.jpg': blogPost3,
-};
-
-// --- STATIC METADATA ---
 export const metadata: Metadata = {
     title: "Blog - Wistant Kode | Ingénierie Logicielle & DevSecOps",
     description: "Explorez les derniers articles de Wistant Kode sur l'ingénierie logicielle, les pratiques DevSecOps, l'architecture cloud et les technologies modernes.",
     keywords: ["blog", "ingénierie logicielle", "DevSecOps", "architecture cloud", "articles techniques", "tutoriels", "Wistant Kode", "Java", "React", "Next.js", "Spring Boot", "Cybersécurité", "Automatisation"],
 };
 
-// --- PAGE COMPONENT ---
 const BlogPage = () => {
   const formatDate = (dateString: string) => {
       return new Date(dateString).toLocaleDateString('fr-FR', {
@@ -48,31 +35,19 @@ const BlogPage = () => {
                   </p>
               </div>
 
-              {/* Note: Filters are removed for this static example. For dynamic filtering, you would use client components. */}
-
               {mockPosts.length > 0 ? (
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                       {mockPosts.map((post) => (
                           <Card key={post.id}
                                 className="bg-gradient-card border-border-light hover:border-primary/50 transition-smooth shadow-card hover:shadow-glow group overflow-hidden">
                               <div className="aspect-video relative">
-                                  {post.image && postImages[post.image] ? (
+                                  {post.image && (
                                       <Image
-                                          src={postImages[post.image]}
+                                          src={post.image}
                                           alt={post.title}
-                                          layout="fill"
-                                          objectFit="cover"
+                                          fill
+                                          className="object-cover"
                                       />
-                                  ) : (
-                                      <div
-                                          className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary-glow/10">
-                      <div className="text-center">
-                        <div className="w-12 h-12 bg-gradient-primary rounded-full mx-auto mb-2 flex items-center justify-center">
-                          <span className="text-primary-foreground font-bold text-lg">WK</span>
-                        </div>
-                          <p className="text-text-muted text-sm">Image à venir</p>
-                      </div>
-                                      </div>
                                   )}
                               </div>
 

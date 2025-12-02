@@ -3,48 +3,24 @@
 import Image from "next/image";
 import {Button} from "@/components/ui/button";
 import {Mail} from "lucide-react";
-import aboutBg from "@/assets/about-bg.jpg";
-import heroAbout from "/public/me.png";
 import {AppearOnSrollToLeft, AppearOnSrollToRight} from "@/components/ScrollEffect"
 
 const AboutSection = () => {
   return (
     <section className="py-20 bg-background-alt relative overflow-hidden">
-      {/* Background image */}
-      <div 
-        className="absolute inset-0 opacity-5"
-        style={{
-            backgroundImage: `url(${aboutBg.src})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      />
-      
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left - Image placeholder */}
-          {/* <div className="flex justify-center">
-            <div className="relative">
-              <div className="w-80 h-96 bg-gradient-card rounded-2xl shadow-card border border-border-light overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary-glow/10" />
-                <div className="flex items-center justify-center h-full">
-                  <div className="text-center">
-                    <div className="w-20 h-20 bg-gradient-primary rounded-full mx-auto mb-4 flex items-center justify-center">
-                      <span className="text-2xl font-bold text-primary-foreground">MV</span>
-                    </div>
-                    <p className="text-text-primary font-semibold">About Me</p>
-                    <p className="text-text-secondary text-sm">Illustration</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> */}
           <AppearOnSrollToLeft>
-            <Image src={heroAbout} className="rounded-xl" alt="Modjo victor dévellopeur" placeholder="blur" />
+            <div className="relative w-full h-96">
+              <Image 
+                src="/me.png" 
+                className="rounded-xl object-cover" 
+                alt="Modjo victor dévellopeur" 
+                fill
+              />
+            </div>
           </AppearOnSrollToLeft>
           
-          
-          {/* Right - Content */}
           <div className="space-y-8">
             <AppearOnSrollToRight>
             <div>
@@ -80,7 +56,6 @@ const AboutSection = () => {
               </Button>
             </div>
             
-            {/* Stats */}
             <div className="grid grid-cols-2 gap-8 pt-8 border-t border-border title1">
               <div>
                 <h3 className="text-3xl font-bold text-primary">10+</h3>

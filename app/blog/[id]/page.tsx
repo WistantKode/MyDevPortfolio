@@ -8,20 +8,6 @@ import {Badge} from '@/components/ui/badge';
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {mockPosts} from '@/lib/blogData';
 
-// --- IMAGES ---
-// Statically import images for Next.js optimization
-import blogPost1 from '/public/blog-post-1.jpg';
-import blogPost2 from '/public/blog-post-2.jpg';
-import blogPost3 from '/public/blog-post-3.jpg';
-import authorAvatar from '/public/path/to/wistant-avatar.jpg'; // !important: Mettez le bon chemin
-
-const postImages: { [key: string]: any } = {
-    '/blog-post-1.jpg': blogPost1,
-    '/blog-post-2.jpg': blogPost2,
-    '/blog-post-3.jpg': blogPost3,
-};
-
-// --- DYNAMIC METADATA ---
 type Props = {
     params: { id: string };
 };
@@ -73,7 +59,6 @@ export async function generateMetadata({params}: Props, parent: ResolvingMetadat
     };
 }
 
-// --- PAGE COMPONENT ---
 const BlogPostPage = ({params}: Props) => {
     const post = mockPosts.find(p => p.id === Number(params.id));
 
@@ -89,11 +74,10 @@ const BlogPostPage = ({params}: Props) => {
     });
   };
 
-    const siteUrl = 'https://votre-domaine.com'; // !important: Remplacez par votre nom de domaine
+    const siteUrl = 'https://votre-domaine.com';
     const postUrl = `${siteUrl}/blog/${post.id}`;
     const imageUrl = post.image ? `${siteUrl}${post.image}` : `${siteUrl}/og-image.png`;
 
-    // --- JSON-LD STRUCTURED DATA ---
     const jsonLd: object = {
         '@context': 'https://schema.org',
         '@type': 'BlogPosting',
@@ -137,13 +121,13 @@ const BlogPostPage = ({params}: Props) => {
                   Retour au blog
               </Link>
 
-                {post.image && postImages[post.image] && (
+                {post.image && (
                     <div className="w-full h-80 overflow-hidden rounded-lg mb-8 shadow-lg relative">
                         <Image
-                            src={postImages[post.image]}
+                            src={post.image}
                             alt={post.title}
-                            layout="fill"
-                            objectFit="cover"
+                            fill
+                            className="object-cover"
                             priority
                         />
                 </div>
@@ -179,7 +163,7 @@ const BlogPostPage = ({params}: Props) => {
                       de l'auteur</CardTitle></CardHeader>
                 <CardContent className="p-0 flex items-center">
                     <div className="w-16 h-16 rounded-full mr-4 border-2 border-primary relative overflow-hidden">
-                        <Image src={authorAvatar} alt="Avatar de Wistant Kode" layout="fill" objectFit="cover"/>
+                        <Image src="/path/to/wistant-avatar.jpg" alt="Avatar de Wistant Kode" fill className="object-cover"/>
                     </div>
                   <div>
                     <p className="font-semibold text-text-primary">Wistant Kode</p>

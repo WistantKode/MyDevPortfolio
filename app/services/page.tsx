@@ -188,7 +188,7 @@ const ServicesPage = () => {
                         </Button>
                         <Button variant="outline" size="lg" asChild
                                 className="border-border-light hover:border-primary hover:bg-primary/10">
-                            <a href="https://wa.me/237651727673" target="_blank" rel="noopener noreferrer">Contacter sur
+                            <a href="https://wa.me/237697135341" target="_blank" rel="noopener noreferrer">Contacter sur
                                 WhatsApp</a>
                         </Button>
                     </div>
