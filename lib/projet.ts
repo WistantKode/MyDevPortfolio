@@ -15,6 +15,7 @@ export interface Project {
   category: ProjectCategory;
   repoGit?: string; // Renamed for clarity and consistency
   liveUrl?: string;
+  docsUrl?: string; // Link to project documentation/specs
   tech: Tech[];
   imageUrl?: string;
   
@@ -53,4 +54,3 @@ export interface Project {
     avatar?: string;
   }[];
 }
-```
