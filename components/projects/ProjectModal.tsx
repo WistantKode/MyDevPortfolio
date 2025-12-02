@@ -25,7 +25,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-[95vw] w-full h-[90vh] p-0 gap-0 overflow-hidden bg-background/95 backdrop-blur-xl border-border/50 shadow-2xl sm:rounded-2xl duration-200">
+      <DialogContent className="max-w-5xl w-full h-[80vh] p-0 gap-0 overflow-hidden bg-background/95 backdrop-blur-xl border-border/50 shadow-2xl rounded-2xl duration-200">
         <div className="grid lg:grid-cols-12 h-full">
           
           {/* LEFT: Gallery Section (7 cols) */}
