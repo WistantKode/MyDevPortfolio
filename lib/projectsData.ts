@@ -27,6 +27,11 @@ export const projectsData: Project[] = [
         role: "Lead Full Stack Developer",
         timeline: "4 mois",
         team: "Projet Solo",
+        gallery: [
+            `${PROJECT_IMAGE_BASE_PATH}shopdo.png`,
+            `${PROJECT_IMAGE_BASE_PATH}nestjs-auth.png`, // Placeholder for demo
+            `${PROJECT_IMAGE_BASE_PATH}car-rental.png`   // Placeholder for demo
+        ],
         detailedDescription: {
             overview: "ShopDO est une plateforme e-commerce complète conçue pour démontrer la puissance de l'architecture Next.js 15 App Router. L'objectif était de créer une expérience d'achat fluide, rapide et sécurisée, rivalisant avec les standards de l'industrie.",
             features: [
