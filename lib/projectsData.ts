@@ -24,16 +24,31 @@ export const projectsData: Project[] = [
         featured: true,
         completionDate: "2024",
         clientType: "personal",
+        role: "Lead Full Stack Developer",
+        timeline: "4 mois",
+        team: "Projet Solo",
         detailedDescription: {
-            overview: "Développement complet d'une plateforme e-commerce fullstack avec Next.js 15, incluant gestion des produits, panier, authentification et paiement.",
+            overview: "ShopDO est une plateforme e-commerce complète conçue pour démontrer la puissance de l'architecture Next.js 15 App Router. L'objectif était de créer une expérience d'achat fluide, rapide et sécurisée, rivalisant avec les standards de l'industrie.",
             features: [
-                "Authentification sécurisée avec JWT",
-                "Gestion complète du catalogue produits",
-                "Panier d'achat dynamique avec persistance",
-                "Interface d'administration moderne",
-                "API RESTful optimisée"
+                "Authentification sécurisée (JWT + NextAuth)",
+                "Catalogue produits avec filtres dynamiques",
+                "Panier d'achat persistant (Local Storage + DB)",
+                "Dashboard administrateur complet",
+                "Paiement intégré (Stripe)",
+                "Optimisation SEO et Performance (Core Web Vitals)"
             ],
-            challenges: "Mise en place d'un système d'authentification robuste et gestion optimale du state avec React Server Components."
+            challenges: "La gestion de l'état global entre les composants serveur (RSC) et client a été le défi principal. L'implémentation d'un panier synchronisé en temps réel tout en maintenant le rendu côté serveur pour le SEO a nécessité une architecture hybride soignée.",
+            process: [
+                { title: "Planification & Design", description: "Création des maquettes Figma et définition du schéma de base de données PostgreSQL." },
+                { title: "Développement Backend", description: "Mise en place de l'API avec Next.js API Routes et Prisma ORM." },
+                { title: "Frontend & UI", description: "Intégration des composants avec Tailwind CSS et Framer Motion pour les interactions." },
+                { title: "Optimisation", description: "Audit Lighthouse et mise en place du caching pour réduire le TTFB." }
+            ],
+            keyTakeaways: [
+                "Maîtrise approfondie des Server Actions de Next.js 15",
+                "Importance de la validation des données avec Zod à tous les niveaux",
+                "Gestion complexe des formulaires avec React Hook Form"
+            ]
         }
     },
     {

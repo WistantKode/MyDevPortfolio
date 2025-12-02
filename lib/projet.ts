@@ -23,14 +23,33 @@ export interface Project {
   featured?: boolean; // Featured projects get larger cards
   completionDate?: string;
   clientType?: 'personal' | 'professional' | 'open-source';
+  
+  // Case Study Data
+  role?: string; // e.g., "Full Stack Developer"
+  timeline?: string; // e.g., "3 months"
+  team?: string; // e.g., "Solo Project" or "Team of 3"
+  
   metrics?: {
     githubStars?: number;
     contributors?: number;
+    downloads?: number;
+    views?: number;
   };
+  
   gallery?: string[]; // Array of images for modal gallery
+  
   detailedDescription?: {
     overview?: string;
     features?: string[];
     challenges?: string;
+    process?: { title: string; description: string }[]; // Development process steps
+    keyTakeaways?: string[]; // What was learned
   };
+  
+  testimonials?: {
+    name: string;
+    role: string;
+    content: string;
+    avatar?: string;
+  }[];
 }
