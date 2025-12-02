@@ -53,3 +53,4 @@ export interface Project {
     avatar?: string;
   }[];
 }
+```

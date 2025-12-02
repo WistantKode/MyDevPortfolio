@@ -27,6 +27,7 @@ export const projectsData: Project[] = [
         role: "Lead Full Stack Developer",
         timeline: "4 mois",
         team: "Projet Solo",
+        docsUrl: "/docs/shopdo-specs.pdf", // Placeholder
         gallery: [
             `${PROJECT_IMAGE_BASE_PATH}shopdo.png`,
             `${PROJECT_IMAGE_BASE_PATH}nestjs-auth.png`, // Placeholder for demo
@@ -35,17 +36,14 @@ export const projectsData: Project[] = [
         detailedDescription: {
             overview: "ShopDO est une plateforme e-commerce complète conçue pour démontrer la puissance de l'architecture Next.js 15 App Router. L'objectif était de créer une expérience d'achat fluide, rapide et sécurisée, rivalisant avec les standards de l'industrie.",
             features: [
-                "Authentification sécurisée (JWT + NextAuth)",
-                "Catalogue produits avec filtres dynamiques",
-                "Panier d'achat persistant (Local Storage + DB)",
-                "Dashboard administrateur complet",
-                "Paiement intégré (Stripe)",
-                "Optimisation SEO et Performance (Core Web Vitals)"
+                "Authentification sécurisée (NextAuth.js)",
+                "Panier et Checkout (Stripe)",
+                "Dashboard Admin complet",
+                "Recherche et Filtrage avancés",
+                "Optimisation SEO & Performance"
             ],
             challenges: "La gestion de l'état global entre les composants serveur (RSC) et client a été le défi principal. L'implémentation d'un panier synchronisé en temps réel tout en maintenant le rendu côté serveur pour le SEO a nécessité une architecture hybride soignée.",
             process: [
-                { title: "Planification & Design", description: "Création des maquettes Figma et définition du schéma de base de données PostgreSQL." },
-                { title: "Développement Backend", description: "Mise en place de l'API avec Next.js API Routes et Prisma ORM." },
                 { title: "Frontend & UI", description: "Intégration des composants avec Tailwind CSS et Framer Motion pour les interactions." },
                 { title: "Optimisation", description: "Audit Lighthouse et mise en place du caching pour réduire le TTFB." }
             ],
