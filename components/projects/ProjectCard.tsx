@@ -46,12 +46,12 @@ export function ProjectCard({
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               {/* Le "Fondu" - Gradient Overlay fading into content */}
-              <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent opacity-90" />
+              <div className="absolute inset-0 bg-gradient-to-t from-card via-card/60 to-transparent" />
             </>
           )}
           
           {/* Content overlaid on the bottom of the image/gradient */}
-          <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
+          <div className="absolute bottom-0 left-0 right-0 p-5 z-10 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
             {/* Status Badge */}
             {project.status && (
               <Badge 
