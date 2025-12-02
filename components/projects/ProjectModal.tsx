@@ -31,9 +31,9 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
           {/* LEFT: Gallery Section (7 cols) */}
           <div className="lg:col-span-7 bg-muted/10 h-full overflow-y-auto p-4 lg:p-6 scrollbar-hide">
             <div className="grid grid-cols-1 gap-4 h-full content-start">
-              {/* Main Large Image */}
+              {/* Main Large Image - Reduced Height */}
               {galleryImages[0] && (
-                <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg border border-border/50 group">
+                <div className="relative w-full h-64 lg:h-80 rounded-xl overflow-hidden shadow-lg border border-border/50 group">
                   <Image
                     src={galleryImages[0]}
                     alt={`${project.title} - Main View`}
@@ -44,10 +44,10 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                 </div>
               )}
               
-              {/* Secondary Images Grid */}
+              {/* Secondary Images Grid - Reduced Height */}
               <div className="grid grid-cols-2 gap-4">
                 {galleryImages.slice(1, 3).map((img, idx) => (
-                  <div key={idx} className="relative w-full aspect-video rounded-xl overflow-hidden shadow-md border border-border/50 group">
+                  <div key={idx} className="relative w-full h-32 lg:h-40 rounded-xl overflow-hidden shadow-md border border-border/50 group">
                     <Image
                       src={img}
                       alt={`${project.title} - Detail View ${idx + 1}`}
