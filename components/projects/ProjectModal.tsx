@@ -4,7 +4,7 @@ import { Project } from "@/lib/projet";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Eye, Code2, X, CheckCircle2, Clock, Users, Briefcase, ArrowRight, Sparkles } from "lucide-react";
+import { Eye, Code2, X, CheckCircle2, Calendar, Users, Briefcase, ArrowRight, Sparkles, Clock, Activity } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -18,167 +18,240 @@ interface ProjectModalProps {
 export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
   if (!project) return null;
 
-  // Use gallery if available, otherwise fallback to single image repeated or just single
+  // Use gallery if available, otherwise fallback to single image
   const galleryImages = project.gallery && project.gallery.length > 0 
     ? project.gallery.slice(0, 3) 
-    : [project.imageUrl, project.imageUrl, project.imageUrl].filter(Boolean) as string[];
+    : [project.imageUrl].filter(Boolean) as string[];
+
+  const renderGallery = () => {
+    const count = galleryImages.length;
+
+    if (count === 1) {
+      return (
+        <div className="relative w-full h-full min-h-[300px] lg:min-h-full group overflow-hidden">
+          <Image
+            src={galleryImages[0]}
+            alt={project.title}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+        </div>
+      );
+    }
+
+    if (count === 2) {
+      return (
+        <div className="grid grid-rows-2 gap-2 h-full min-h-[400px] lg:min-h-full p-2 bg-muted/10">
+          {galleryImages.map((img, idx) => (
+            <div key={idx} className="relative w-full h-full rounded-lg overflow-hidden border border-border/50 group shadow-sm">
+              <Image
+                src={img}
+                alt={`${project.title} view ${idx + 1}`}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+          ))}
+        </div>
+      );
+    }
+
+    // 3 or more images
+    return (
+      <div className="grid grid-rows-2 gap-2 h-full min-h-[400px] lg:min-h-full p-2 bg-muted/10">
+        {/* Top: Main Image */}
+        <div className="relative w-full h-full rounded-lg overflow-hidden border border-border/50 group shadow-sm">
+          <Image
+            src={galleryImages[0]}
+            alt={project.title}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            priority
+          />
+        </div>
+        {/* Bottom: 2 Smaller Images */}
+        <div className="grid grid-cols-2 gap-2 h-full">
+          {galleryImages.slice(1, 3).map((img, idx) => (
+            <div key={idx} className="relative w-full h-full rounded-lg overflow-hidden border border-border/50 group shadow-sm">
+              <Image
+                src={img}
+                alt={`${project.title} detail ${idx + 1}`}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  };
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-5xl w-full h-[80vh] p-0 gap-0 overflow-hidden bg-background/95 backdrop-blur-xl border-border/50 shadow-2xl rounded-2xl duration-200">
+      <DialogContent className="max-w-5xl w-full h-[85vh] p-0 gap-0 overflow-hidden bg-background/95 backdrop-blur-xl border-border/50 shadow-2xl rounded-2xl duration-200">
         <div className="grid lg:grid-cols-12 h-full">
           
-          {/* LEFT: Gallery Section (7 cols) */}
-          <div className="lg:col-span-7 bg-muted/10 h-full overflow-y-auto p-4 lg:p-6 scrollbar-hide">
-            <div className="grid grid-cols-1 gap-4 h-full content-start">
-              {/* Main Large Image - Reduced Height */}
-              {galleryImages[0] && (
-                <div className="relative w-full h-64 lg:h-80 rounded-xl overflow-hidden shadow-lg border border-border/50 group">
-                  <Image
-                    src={galleryImages[0]}
-                    alt={`${project.title} - Main View`}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    priority
-                  />
-                </div>
-              )}
-              
-              {/* Secondary Images Grid - Reduced Height */}
-              <div className="grid grid-cols-2 gap-4">
-                {galleryImages.slice(1, 3).map((img, idx) => (
-                  <div key={idx} className="relative w-full h-32 lg:h-40 rounded-xl overflow-hidden shadow-md border border-border/50 group">
-                    <Image
-                      src={img}
-                      alt={`${project.title} - Detail View ${idx + 1}`}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                  </div>
-                ))}
-              </div>
-
-              {/* Mobile Close Button (Absolute) */}
-              <button
+          {/* LEFT: Dynamic Gallery Section (5 cols) */}
+          <div className="lg:col-span-5 h-64 lg:h-full bg-muted/5 border-r border-border/50 relative">
+             {renderGallery()}
+             
+             {/* Mobile Close Button */}
+             <button
                 onClick={onClose}
-                className="absolute top-6 right-6 w-10 h-10 rounded-full bg-background/80 backdrop-blur-md flex lg:hidden items-center justify-center border border-border shadow-lg z-50"
+                className="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/50 backdrop-blur-md flex lg:hidden items-center justify-center text-white border border-white/10 z-50"
               >
-                <X className="w-5 h-5" />
+                <X className="w-4 h-4" />
               </button>
-            </div>
           </div>
 
-          {/* RIGHT: Content Section (5 cols) */}
-          <div className="lg:col-span-5 flex flex-col h-full bg-background border-l border-border/50 relative">
+          {/* RIGHT: Content Section (7 cols) */}
+          <div className="lg:col-span-7 flex flex-col h-full bg-background relative overflow-hidden">
             
             {/* Desktop Close Button */}
             <div className="absolute top-4 right-4 z-20 hidden lg:block">
               <button
                 onClick={onClose}
-                className="w-10 h-10 rounded-full bg-muted/50 hover:bg-muted flex items-center justify-center transition-colors"
+                className="w-8 h-8 rounded-full bg-muted/50 hover:bg-muted flex items-center justify-center transition-colors"
               >
-                <X className="w-5 h-5 text-muted-foreground" />
+                <X className="w-4 h-4 text-muted-foreground" />
               </button>
             </div>
 
-            <div className="flex-1 overflow-y-auto p-6 lg:p-10 scrollbar-hide">
-              {/* Header */}
-              <div className="mb-8 pr-12">
-                <div className="flex items-center gap-3 mb-4 flex-wrap">
-                  {project.clientType && (
-                    <Badge variant="secondary" className="rounded-full px-3 font-normal bg-primary/10 text-primary hover:bg-primary/20 border-0">
-                      {project.clientType}
-                    </Badge>
-                  )}
-                  {project.status && (
-                    <Badge variant="outline" className="rounded-full px-3 font-normal capitalize">
-                      {project.status.replace('-', ' ')}
-                    </Badge>
-                  )}
+            <div className="flex-1 overflow-y-auto scrollbar-hide">
+              <div className="p-6 lg:p-8">
+                
+                {/* Header Info */}
+                <div className="mb-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    {project.status && (
+                      <Badge variant={project.status === 'live' ? 'default' : 'secondary'} className="rounded-full px-2.5 py-0.5 text-xs font-medium capitalize">
+                        {project.status === 'in-progress' ? (
+                          <span className="flex items-center gap-1.5">
+                            <span className="relative flex h-2 w-2">
+                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+                              <span className="relative inline-flex rounded-full h-2 w-2 bg-yellow-500"></span>
+                            </span>
+                            In Progress
+                          </span>
+                        ) : (
+                          <span className="flex items-center gap-1.5">
+                            <span className="relative flex h-2 w-2">
+                              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                            </span>
+                            Live
+                          </span>
+                        )}
+                      </Badge>
+                    )}
+                    {project.clientType && (
+                      <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider border border-border px-2 py-0.5 rounded-full">
+                        {project.clientType}
+                      </span>
+                    )}
+                  </div>
+                  
+                  <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-2 tracking-tight">
+                    {project.title}
+                  </h2>
+                  <p className="text-base text-muted-foreground leading-relaxed">
+                    {project.detailedDescription?.overview || project.description}
+                  </p>
                 </div>
-                
-                <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4 tracking-tight leading-tight">
-                  {project.title}
-                </h2>
-                
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  {project.detailedDescription?.overview || project.description}
-                </p>
-              </div>
 
-              {/* Metadata Grid */}
-              <div className="grid grid-cols-2 gap-4 mb-10 p-5 bg-muted/30 rounded-2xl border border-border/50">
-                {project.role && (
+                {/* Rich Metadata Grid */}
+                <div className="grid grid-cols-2 gap-4 mb-8 p-4 bg-muted/30 rounded-xl border border-border/50">
+                  {/* Timeline / Dates */}
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground uppercase tracking-wider font-semibold">
+                      <Calendar className="w-3.5 h-3.5" /> Timeline
+                    </div>
+                    <div className="text-sm font-medium">
+                      {project.timeline || "N/A"}
+                    </div>
+                    {project.completionDate && (
+                      <div className="text-xs text-muted-foreground">
+                        Completed: {project.completionDate}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Role */}
                   <div className="space-y-1">
                     <div className="flex items-center gap-2 text-xs text-muted-foreground uppercase tracking-wider font-semibold">
                       <Briefcase className="w-3.5 h-3.5" /> Role
                     </div>
-                    <div className="font-medium">{project.role}</div>
-                  </div>
-                )}
-                {project.timeline && (
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-2 text-xs text-muted-foreground uppercase tracking-wider font-semibold">
-                      <Clock className="w-3.5 h-3.5" /> Timeline
+                    <div className="text-sm font-medium">
+                      {project.role || "Developer"}
                     </div>
-                    <div className="font-medium">{project.timeline}</div>
                   </div>
-                )}
-                {project.team && (
+
+                  {/* Team / Collaborators */}
                   <div className="space-y-1">
                     <div className="flex items-center gap-2 text-xs text-muted-foreground uppercase tracking-wider font-semibold">
                       <Users className="w-3.5 h-3.5" /> Team
                     </div>
-                    <div className="font-medium">{project.team}</div>
+                    <div className="text-sm font-medium">
+                      {project.team || "Solo"}
+                    </div>
                   </div>
-                )}
-                <div className="space-y-1">
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground uppercase tracking-wider font-semibold">
-                    <Sparkles className="w-3.5 h-3.5" /> Tech
-                  </div>
-                  <div className="flex flex-wrap gap-1">
-                    {project.tech.slice(0, 3).map(t => t.name).join(', ')}
-                    {project.tech.length > 3 && ` +${project.tech.length - 3}`}
+
+                  {/* Status / Activity */}
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground uppercase tracking-wider font-semibold">
+                      <Activity className="w-3.5 h-3.5" /> Status
+                    </div>
+                    <div className="text-sm font-medium capitalize">
+                      {project.status?.replace('-', ' ') || "Completed"}
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Content Sections */}
-              <div className="space-y-10">
-                {/* Key Features */}
+                {/* Tech Stack */}
+                <div className="mb-8">
+                  <h3 className="text-sm font-semibold mb-3 flex items-center gap-2">
+                    <Sparkles className="w-4 h-4 text-primary" /> Technologies
+                  </h3>
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.tech.map((tech, idx) => {
+                      const Icon = tech.icon;
+                      return (
+                        <div
+                          key={idx}
+                          className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-secondary/50 border border-border/50 text-xs font-medium text-secondary-foreground hover:bg-secondary transition-colors"
+                        >
+                          <Icon className="w-3.5 h-3.5" />
+                          <span>{tech.name}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Key Features List */}
                 {project.detailedDescription?.features && (
-                  <section>
-                    <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                      Key Features
-                    </h3>
-                    <ul className="space-y-3">
+                  <div className="mb-8">
+                    <h3 className="text-sm font-semibold mb-3">Key Features</h3>
+                    <ul className="grid gap-2">
                       {project.detailedDescription.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start gap-3 text-muted-foreground">
-                          <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                          <span className="text-sm leading-relaxed">{feature}</span>
+                        <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
+                          <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                          <span>{feature}</span>
                         </li>
                       ))}
                     </ul>
-                  </section>
+                  </div>
                 )}
 
-                {/* Challenges */}
-                {project.detailedDescription?.challenges && (
-                  <section className="bg-card p-6 rounded-xl border border-border shadow-sm">
-                    <h3 className="text-lg font-bold mb-3">Challenges & Solutions</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {project.detailedDescription.challenges}
-                    </p>
-                  </section>
-                )}
               </div>
             </div>
 
             {/* Footer Actions */}
-            <div className="p-6 border-t border-border bg-background/80 backdrop-blur-md sticky bottom-0 z-10">
+            <div className="p-5 border-t border-border bg-background/80 backdrop-blur-md sticky bottom-0 z-10">
               <div className="flex gap-3">
                 {project.liveUrl && project.liveUrl !== "#" && (
-                  <Button asChild size="lg" className="flex-1 font-semibold bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/20">
+                  <Button asChild className="flex-1 font-semibold shadow-lg shadow-primary/20">
                     <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                       <Eye className="w-4 h-4 mr-2" />
                       View Live
@@ -186,7 +259,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                   </Button>
                 )}
                 {project.repoGit && (
-                  <Button asChild variant="outline" size="lg" className="flex-1 bg-background hover:bg-muted">
+                  <Button asChild variant="outline" className="flex-1">
                     <a href={project.repoGit} target="_blank" rel="noopener noreferrer">
                       <Code2 className="w-4 h-4 mr-2" />
                       Source Code
