@@ -6,13 +6,90 @@
 
 @layer base {
   :root {
-    /* Dark theme base colors */
+    /* Light theme base colors */
+    --background: 0 0% 100%;
+    --background-alt: 0 0% 98%;
+    --background-card: 0 0% 99%;
+    --foreground: 240 10% 3.9%;
+
+    /* Brand colors - Green gradient theme (same for both themes) */
+    --primary: 145 65% 45%; /* Vert vif */
+    --primary-glow: 150 70% 50%; /* Vert clair lumineux */
+    --primary-dark: 140 60% 35%; /* Vert foncé */
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary colors */
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    /* Accent colors */
+    --accent: 145 65% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Text colors */
+    --text-primary: 240 10% 3.9%;
+    --text-secondary: 240 3.8% 46.1%;
+    --text-muted: 240 3.8% 46.1%;
+
+    /* UI Elements */
+    --border: 240 5.9% 90%;
+    --border-light: 240 5.9% 85%;
+    --input: 240 5.9% 90%;
+    --ring: 145 65% 45%;
+
+    /* Card styling */
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    /* Popover styling */
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    /* Muted styling */
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    /* Destructive styling */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(var(--primary)),
+      hsl(var(--primary-glow))
+    );
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(var(--background)) 0%,
+      hsl(240 10% 96%) 50%,
+      hsl(var(--background)) 100%
+    );
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(240 5% 98%));
+
+    /* Shadows */
+    --shadow-primary: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.2);
+    --shadow-card: 0 8px 25px -5px hsl(0 0% 0% / 0.1);
+
+    /* Border radius */
+    --radius: 0.75rem;
+    --radius-sm: 0.5rem;
+    --radius-lg: 1rem;
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    /* Dark theme base colors - TON THEME ACTUEL (identique) */
     --background: 240 10% 6%;
     --background-alt: 240 8% 10%;
     --background-card: 240 10% 8%;
     --foreground: 0 0% 98%;
 
-    /* Brand colors - Green gradient theme */
+    /* Brand colors - Green gradient theme (same as light) */
     --primary: 145 65% 45%; /* Vert vif */
     --primary-glow: 150 70% 50%; /* Vert clair lumineux */
     --primary-dark: 140 60% 35%; /* Vert foncé */
