@@ -88,22 +88,22 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-6xl w-full h-[90vh] p-0 gap-0 overflow-hidden bg-background/95 backdrop-blur-xl border-border/50 shadow-2xl rounded-2xl duration-200">
-        <div className="grid lg:grid-cols-12 h-full">
+      <DialogContent className="max-w-6xl w-full h-[90vh] p-0 gap-0 bg-background/95 backdrop-blur-xl border-border/50 shadow-2xl rounded-2xl duration-200 flex flex-col overflow-hidden">
+        <div className="grid lg:grid-cols-12 h-full overflow-hidden">
           
-          {/* LEFT: Gallery & Metadata (5 cols) */}
+          {/* LEFT: Gallery & Metadata (5 cols) - Scrollable */}
           <div className="lg:col-span-5 h-full bg-muted/5 border-r border-border/50 relative flex flex-col overflow-hidden">
              <div className="flex-1 overflow-y-auto scrollbar-hide p-5 lg:p-6">
                
                {/* Gallery Section */}
-               <div className="mb-8">
+               <div className="mb-6">
                  <h3 className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-3 flex items-center gap-2">
                    <Layers className="w-3.5 h-3.5" /> Gallery
                  </h3>
                  {renderGallery()}
                </div>
 
-               {/* Download Docs Button (New) */}
+               {/* Download Docs Button */}
                {project.docsUrl && (
                  <div className="mb-8">
                    <Button variant="outline" className="w-full h-12 border-dashed border-primary/30 hover:border-primary/60 hover:bg-primary/5 text-primary gap-2 group">
@@ -178,7 +178,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
               </button>
           </div>
 
-          {/* RIGHT: Content & Story (7 cols) */}
+          {/* RIGHT: Content & Story (7 cols) - Scrollable */}
           <div className="lg:col-span-7 flex flex-col h-full bg-background relative overflow-hidden">
             
             {/* Desktop Close Button */}
@@ -217,8 +217,51 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                   </p>
                 </div>
 
-                {/* Tech Stack (Moved to Right for Visual Richness) */}
-                <div className="mb-10">
+                {/* Key Features Grid (Top Priority) */}
+                {project.detailedDescription?.features && (
+                  <div className="mb-10">
+                    <h3 className="text-lg font-semibold mb-4">Key Features</h3>
+                    <div className="grid sm:grid-cols-2 gap-3">
+                      {project.detailedDescription.features.map((feature, idx) => (
+                        <div key={idx} className="flex items-start gap-3 p-3 rounded-lg bg-muted/30 border border-border/50 hover:bg-muted/50 transition-colors">
+                          <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                          <span className="text-sm text-muted-foreground leading-relaxed">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Challenges (Middle) */}
+                {project.detailedDescription?.challenges && (
+                   <div className="mb-10">
+                    <h3 className="text-lg font-semibold mb-4">Challenges & Solutions</h3>
+                    <div className="p-5 rounded-xl bg-card border border-border/50 shadow-sm">
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {project.detailedDescription.challenges}
+                      </p>
+                    </div>
+                   </div>
+                )}
+
+                {/* Development Journey (Bottom) */}
+                {project.detailedDescription?.process && (
+                  <div className="mb-10">
+                     <h3 className="text-lg font-semibold mb-6">Development Journey</h3>
+                     <div className="relative border-l border-border/50 ml-3 space-y-8">
+                        {project.detailedDescription.process.map((step, idx) => (
+                          <div key={idx} className="relative pl-8">
+                            <div className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-primary ring-4 ring-background" />
+                            <h4 className="text-base font-medium mb-1">{step.title}</h4>
+                            <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+                          </div>
+                        ))}
+                     </div>
+                  </div>
+                )}
+
+                {/* Tech Stack (Bottom) */}
+                <div className="mb-8">
                   <h3 className="text-sm font-semibold mb-4 flex items-center gap-2">
                     <Sparkles className="w-4 h-4 text-primary" /> Technologies Used
                   </h3>
@@ -238,54 +281,11 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                   </div>
                 </div>
 
-                {/* Key Features Grid */}
-                {project.detailedDescription?.features && (
-                  <div className="mb-10">
-                    <h3 className="text-lg font-semibold mb-4">Key Features</h3>
-                    <div className="grid sm:grid-cols-2 gap-3">
-                      {project.detailedDescription.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-start gap-3 p-3 rounded-lg bg-muted/30 border border-border/50 hover:bg-muted/50 transition-colors">
-                          <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                          <span className="text-sm text-muted-foreground leading-relaxed">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Development Process (New Visual Section) */}
-                {project.detailedDescription?.process && (
-                  <div className="mb-10">
-                     <h3 className="text-lg font-semibold mb-6">Development Journey</h3>
-                     <div className="relative border-l border-border/50 ml-3 space-y-8">
-                        {project.detailedDescription.process.map((step, idx) => (
-                          <div key={idx} className="relative pl-8">
-                            <div className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-primary ring-4 ring-background" />
-                            <h4 className="text-base font-medium mb-1">{step.title}</h4>
-                            <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
-                          </div>
-                        ))}
-                     </div>
-                  </div>
-                )}
-
-                {/* Challenges */}
-                {project.detailedDescription?.challenges && (
-                   <div className="mb-8">
-                    <h3 className="text-lg font-semibold mb-4">Challenges & Solutions</h3>
-                    <div className="p-5 rounded-xl bg-card border border-border/50 shadow-sm">
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        {project.detailedDescription.challenges}
-                      </p>
-                    </div>
-                   </div>
-                )}
-
               </div>
             </div>
 
-            {/* Footer Actions */}
-            <div className="p-6 border-t border-border bg-background/80 backdrop-blur-md sticky bottom-0 z-10">
+            {/* Footer Actions - FIXED */}
+            <div className="p-6 border-t border-border bg-background/80 backdrop-blur-md sticky bottom-0 z-10 w-full">
               <div className="flex gap-4">
                 {project.liveUrl && project.liveUrl !== "#" && (
                   <Button asChild size="lg" className="flex-1 font-semibold shadow-lg shadow-primary/20 h-12 text-base">
