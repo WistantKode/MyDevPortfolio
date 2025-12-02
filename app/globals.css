@@ -188,6 +188,14 @@
 /* Removed custom font-face rules for Poppins, Lato, Montserrat */
 /* Removed specific font-family applications for nav, title1, title2, title3 */
 
+/* Gradient text utility */
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 /* Custom animations */
 @keyframes fadeInUp {
   from {
