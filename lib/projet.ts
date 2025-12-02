@@ -17,4 +17,20 @@ export interface Project {
   liveUrl?: string;
   tech: Tech[];
   imageUrl?: string;
+  
+  // New enriched fields for advanced UI
+  status?: 'live' | 'in-progress' | 'archived';
+  featured?: boolean; // Featured projects get larger cards
+  completionDate?: string;
+  clientType?: 'personal' | 'professional' | 'open-source';
+  metrics?: {
+    githubStars?: number;
+    contributors?: number;
+  };
+  gallery?: string[]; // Array of images for modal gallery
+  detailedDescription?: {
+    overview?: string;
+    features?: string[];
+    challenges?: string;
+  };
 }

@@ -3,16 +3,7 @@ import {FaReact} from "react-icons/fa";
 import {SiCss3, SiFramework, SiHtml5, SiJavascript, SiNestjs, SiTailwindcss, SiTypescript} from "react-icons/si";
 import {RiNextjsFill, RiRemixiconFill} from "react-icons/ri";
 
-import shopdoImg from "/public/projects img/shopdo.png";
-import nestjsAuthImg from "/public/projects img/nestjs-auth.png";
-import plantexImg from "/public/projects img/plantex.png";
-import carRentalImg from "/public/projects img/car-rental.png";
-import chickfoodImg from "/public/projects img/chickfood.png";
-import structoImg from "/public/projects img/structo.png";
-import elysianDriveImg from "/public/projects img/elysindrive.png";
-import boomsoundImg from "/public/projects img/boomsound.png";
-import portfolioImg from "/public/projects img/portfolio-img.png";
-
+const PROJECT_IMAGE_BASE_PATH = "/projects img/";
 
 export const projectsData: Project[] = [
     {
@@ -21,14 +12,29 @@ export const projectsData: Project[] = [
         description: "Developed a robust and scalable backend for an e-commerce platform, focusing on secure API design and efficient data management. Implemented core functionalities for product catalog, user authentication, and order processing.",
         category: "backend",
         tech: [
-            {name: "React", icon: FaReact}, // Assuming React is used for frontend part of this project
+            {name: "React", icon: FaReact},
             {name: "TypeScript", icon: SiTypescript},
             {name: "JavaScript", icon: SiJavascript},
-            {name: "Next.js", icon: RiNextjsFill}, // Assuming Next.js is used for frontend part of this project
+            {name: "Next.js", icon: RiNextjsFill},
         ],
         repoGit: "https://github.com/WistantKode/nextjs-15-fullstack-e-commerce-web-app",
-        liveUrl: "#", // Placeholder
-        imageUrl: shopdoImg,
+        liveUrl: "#",
+        imageUrl: `${PROJECT_IMAGE_BASE_PATH}shopdo.png`,
+        status: "in-progress",
+        featured: true,
+        completionDate: "2024",
+        clientType: "personal",
+        detailedDescription: {
+            overview: "Développement complet d'une plateforme e-commerce fullstack avec Next.js 15, incluant gestion des produits, panier, authentification et paiement.",
+            features: [
+                "Authentification sécurisée avec JWT",
+                "Gestion complète du catalogue produits",
+                "Panier d'achat dynamique avec persistance",
+                "Interface d'administration moderne",
+                "API RESTful optimisée"
+            ],
+            challenges: "Mise en place d'un système d'authentification robuste et gestion optimale du state avec React Server Components."
+        }
     },
     {
         id: "proj-nestjs-auth",
@@ -41,8 +47,21 @@ export const projectsData: Project[] = [
             {name: "JavaScript", icon: SiJavascript},
         ],
         repoGit: "https://github.com/WistantKode/nestjs-nextjs-authentication-side",
-        liveUrl: "#", // Placeholder
-        imageUrl: nestjsAuthImg,
+        liveUrl: "#",
+        imageUrl: `${PROJECT_IMAGE_BASE_PATH}nestjs-auth.png`,
+        status: "live",
+        completionDate: "2024",
+        clientType: "open-source",
+        detailedDescription: {
+            overview: "Microservice d'authentification sécurisé utilisant NestJS et JWT, conçu pour une intégration facile dans des architectures modernes.",
+            features: [
+                "Authentification JWT avec refresh tokens",
+                "Sécurité renforcée avec bcrypt",
+                "Guards et decorators personnalisés",
+                "Documentation API Swagger",
+                "Architecture modulaire et scalable"
+            ]
+        }
     },
     {
         id: "proj-plantex",
@@ -57,7 +76,7 @@ export const projectsData: Project[] = [
         ],
         repoGit: "https://github.com/WistantKode/responsivewebsite-plantex",
         liveUrl: "https://plantex-wistant.vercel.app/",
-        imageUrl: plantexImg,
+        imageUrl: `${PROJECT_IMAGE_BASE_PATH}plantex.png`,
     },
     {
         id: "proj-car-rental",
@@ -72,7 +91,9 @@ export const projectsData: Project[] = [
         ],
         repoGit: "https://github.com/WistantKode/javascript-html-css-car-rental-website",
         liveUrl: "https://javascript-html-css-car-rental-webs.vercel.app/",
-        imageUrl: carRentalImg,
+        imageUrl: `${PROJECT_IMAGE_BASE_PATH}car-rental.png`,
+        status: "live",
+        clientType: "personal",
     },
     {
         id: "proj-chickfood-v2",
@@ -87,7 +108,7 @@ export const projectsData: Project[] = [
         ],
         repoGit: "https://github.com/WistantKode/Responsivewebsite-chickfood",
         liveUrl: "https://chickfood-wistant.netlify.app/",
-        imageUrl: chickfoodImg,
+        imageUrl: `${PROJECT_IMAGE_BASE_PATH}chickfood.png`,
     },
     {
         id: "proj-structo",
@@ -98,12 +119,12 @@ export const projectsData: Project[] = [
             {name: "HTML", icon: SiHtml5},
             {name: "CSS3", icon: SiCss3},
             {name: "JavaScript", icon: SiJavascript},
-            {name: "ScrollJS", icon: SiFramework}, // Assuming SiFramework is for ScrollJS
+            {name: "ScrollJS", icon: SiFramework},
             {name: "RemixIcon", icon: RiRemixiconFill},
         ],
         repoGit: "https://github.com/WistantKode/responsive-construction-company-website",
         liveUrl: "https://construction-wistant.vercel.app/",
-        imageUrl: structoImg,
+        imageUrl: `${PROJECT_IMAGE_BASE_PATH}structo.png`,
     },
     {
         id: "proj-elysian-drive",
@@ -117,7 +138,7 @@ export const projectsData: Project[] = [
         ],
         repoGit: "https://github.com/WistantKode/responsive-car-website",
         liveUrl: "https://elsyandrive-wistant.netlify.app/",
-        imageUrl: elysianDriveImg,
+        imageUrl: `${PROJECT_IMAGE_BASE_PATH}elysindrive.png`,
     },
     {
         id: "proj-boomsound",
@@ -131,7 +152,7 @@ export const projectsData: Project[] = [
         ],
         repoGit: "https://github.com/WistantKode/Responsivewebsite-boomsound",
         liveUrl: "https://wistant-html-css-js-headphones-website.vercel.app/",
-        imageUrl: boomsoundImg,
+        imageUrl: `${PROJECT_IMAGE_BASE_PATH}boomsound.png`,
     },
     {
         id: "proj-portfolio",
@@ -144,7 +165,9 @@ export const projectsData: Project[] = [
             {name: "Tailwind CSS", icon: SiTailwindcss},
         ],
         repoGit: "https://github.com/wistantkode/my-dev-portfolio.git",
-        liveUrl: "#", // Placeholder
-        imageUrl: portfolioImg,
+        liveUrl: "#",
+        imageUrl: `${PROJECT_IMAGE_BASE_PATH}portfolio-img.png`,
+        status: "in-progress",
+        clientType: "personal",
     },
 ];
