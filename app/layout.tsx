@@ -1,8 +1,9 @@
-import type { Metadata, Viewport } from "next";
-import { Outfit } from "next/font/google";
+import type {Metadata, Viewport} from "next";
+import {Outfit} from "next/font/google";
 import "./globals.css";
-import { Providers } from "./providers";
-import Navigation from "@/components/ui/navigation"; // Import de votre composant Navigation
+import {Providers} from "./providers";
+import Navigation from "@/components/home/navigation";
+import React from "react"; // Import de votre composant Navigation
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -11,10 +12,10 @@ const outfit = Outfit({
 });
 
 const siteConfig = {
-  title: "Wistant - Développeur Fullstack Expert",
+    title: "Wistant - Fullstack Developer",
   description: "Je suis Wistant, développeur fullstack freelance spécialisé dans la création d'applications web performantes avec TypeScript, Next.js et NestJS. Construisons quelque chose d'incroyable ensemble.",
-  author: "Wistant (Kali)",
-  url: "https://votre-domaine.com",
+    author: "Wistant (Kode)",
+    url: "https://wistantkode.com",
   ogImage: "/og-image.png",
 };
 
@@ -78,10 +79,11 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <title></title>
       </head>
       <body className={`${outfit.variable} font-sans antialiased`}>
         <Providers>
-          <Navigation /> {/* Utilisation de votre composant Navigation */}
+            <Navigation/>
           <main>{children}</main>
         </Providers>
       </body>

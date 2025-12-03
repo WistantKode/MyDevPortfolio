@@ -25,7 +25,7 @@ export const projectsData: Project[] = [
         completionDate: "2024",
         clientType: "personal",
         role: "Lead Full Stack Developer",
-        timeline: "4 mois",
+        timeline: "2 mois",
         team: "Projet Solo",
         docsUrl: "/docs/shopdo-specs.pdf", // Placeholder
         gallery: [

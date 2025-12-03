@@ -1,104 +1,16 @@
 import {Metadata} from 'next';
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {Button} from "@/components/ui/button";
-import {ArrowRight, CheckCircle, Code, Database, Globe, Monitor, Smartphone} from "lucide-react";
+import {ArrowRight, CheckCircle} from "lucide-react";
 import MyStack from "@/components/MyStack";
 import {AppearOnScroll} from "@/components/ScrollEffect";
+import {MetaServices} from "@/lib/metaData";
+import {processSteps, services} from "@/lib/servicesData";
 
 // --- STATIC METADATA ---
-export const metadata: Metadata = {
-    title: "Services - Wistant | Développement Backend & Architecture Système",
-    description: "Explorez mes services en développement de systèmes backend robustes, API sur mesure, applications mobiles/desktop, et solutions numériques complètes.",
-    keywords: ["services", "développement backend", "architecture système", "API sur mesure", "NestJS", "microservices", "applications mobiles", "logiciels desktop", "performance web", "Wistant"],
-};
+export const metadata: Metadata = MetaServices
 
 const ServicesPage = () => {
-    const services = [
-        {
-            icon: Database,
-            title: "Systèmes Backend & APIs",
-            description: "Implémentation de systèmes robustes et scalables avec NestJS et des architectures microservices résilientes.",
-            features: [
-                "APIs REST/GraphQL sécurisées",
-                "Authentification & Gestion des utilisateurs (JWT, OAuth)",
-                "Déploiement de microservices",
-                "Architecture système scalable",
-            ],
-            price: "Solutions sur mesure adaptées aux besoins de l'entreprise",
-        },
-        {
-            icon: Code,
-            title: "Développement Web Full-Stack",
-            description: "Création d'applications web modernes et performantes avec des technologies de pointe.",
-            features: [
-                "Plateformes web responsives",
-                "Progressive Web Apps (PWAs)",
-                "Solutions E-commerce",
-                "Intégration & orchestration d'APIs",
-                "Tableaux de bord administratifs",
-            ],
-            price: "Tarification adaptée à la portée – Devis gratuit fourni",
-        },
-        {
-            icon: Smartphone,
-            title: "Applications Mobiles Multiplateformes",
-            description: "Développement d'applications mobiles multiplateformes offrant une expérience quasi-native avec React Native.",
-            features: [
-                "Développement d'applications iOS/Android",
-                "Interface optimisée quasi-native",
-                "Optimisation des performances et des ressources",
-            ],
-            price: "Tarification adaptée à la portée",
-        },
-        {
-            icon: Globe,
-            title: "Optimisation & Performance",
-            description: "Amélioration de la performance, de la stabilité et du classement des sites web dans les moteurs de recherche.",
-            features: [
-                "Optimisation SEO technique",
-                "Métriques de performance web (Core Web Vitals)",
-                "Implémentation & reporting d'analytics",
-                "Maintenance & surveillance continues",
-            ],
-            price: "",
-        },
-        {
-            icon: Monitor,
-            title: "Applications de Bureau sur Mesure",
-            description: "Développement de solutions logicielles de bureau sur mesure avec JavaFX et une intégration de base de données robuste.",
-            features: [
-                "Interfaces modernes et intuitives",
-                "Connectivité de base de données sécurisée",
-                "Fonctionnalités de gestion de données et de reporting",
-                "Solutions conçues pour les PME",
-            ],
-            price: "Chaque projet est chiffré en fonction de sa complexité technique",
-        },
-    ];
-
-    const processSteps = [
-        {
-            step: "01",
-            title: "Consultation & Cadrage",
-            description: "Définition des besoins et des objectifs du projet pour établir une feuille de route claire."
-        },
-        {
-            step: "02",
-            title: "Architecture & Conception",
-            description: "Création des plans, des wireframes et planification de l'architecture technique du système."
-        },
-        {
-            step: "03",
-            title: "Développement & Tests",
-            description: "Implémentation du système avec un codage structuré et des points de validation réguliers."
-        },
-        {
-            step: "04",
-            title: "Déploiement & Support",
-            description: "Déploiement final, formation nécessaire et support de maintenance post-lancement."
-        },
-    ];
-
     return (
         <section className="py-20 bg-background">
             <div className="container mx-auto px-4">
@@ -182,14 +94,22 @@ const ServicesPage = () => {
                     <p className="text-text-secondary text-lg mb-8 max-w-2xl mx-auto">Discutons de vos besoins système
                         et élaborons la solution qui concrétisera vos idées.</p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button asChild size="lg"
-                                className="bg-gradient-primary hover:opacity-90 border-0 shadow-primary hover:shadow-glow transition-smooth">
+                        <Button
+                            asChild
+                            size="lg"
+                            className="bg-gradient-primary hover:opacity-90 border-0 shadow-primary hover:shadow-glow transition-smooth"
+                        >
                             <a href="/contact">Démarrer un Projet</a>
                         </Button>
-                        <Button variant="outline" size="lg" asChild
-                                className="border-border-light hover:border-primary hover:bg-primary/10">
-                            <a href="https://wa.me/237697135341" target="_blank" rel="noopener noreferrer">Contacter sur
-                                WhatsApp</a>
+                        <Button
+                            variant="outline"
+                            size="lg"
+                            asChild
+                            className="border-border-light hover:border-primary hover:bg-primary/10"
+                        >
+                            <a href="https://wa.me/237697135341" target="_blank" rel="noopener noreferrer">
+                                Contacter sur WhatsApp
+                            </a>
                         </Button>
                     </div>
                 </div>
