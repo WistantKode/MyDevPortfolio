@@ -111,6 +111,9 @@ const HeroSection = () => {
         <section className="relative min-h-screen flex items-center justify-center bg-background overflow-hidden">
             {/* Modern Decorative Background */}
             <div className="absolute inset-0 z-0">
+                {/* Grid Background for consistency */}
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] opacity-50"></div>
+                
                 <div className="absolute top-0 left-0 w-1/3 h-2/3 bg-primary/5 blur-3xl rounded-full animate-pulse-glow"></div>
                 <div className="absolute bottom-0 right-0 w-1/4 h-1/2 bg-primary-glow/5 blur-3xl rounded-full animate-float"></div>
 
@@ -131,6 +134,9 @@ const HeroSection = () => {
                     );
                 })}
             </div>
+            
+            {/* Bottom Fade Transition */}
+            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background via-background/50 to-transparent z-10 pointer-events-none"></div>
 
             <div className="container mx-auto px-4 z-10">
                 <motion.div 
