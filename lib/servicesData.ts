@@ -1,4 +1,4 @@
-import {Code, Database, Globe, Monitor, Smartphone} from "lucide-react";
+import {Code, Database, Globe, Monitor, Palette, Smartphone} from "lucide-react";
 
 export const services = [
     {
@@ -85,3 +85,49 @@ export const processSteps = [
         description: "Déploiement final, formation nécessaire et support de maintenance post-lancement."
     },
 ];
+
+
+export const ServicesSectionData = () => {
+  const services = [
+    {
+      icon: Database,
+      title: "Backend Solutions",
+      description:
+        "Robust backend architecture design and implementation to support your applications with reliable data management.",
+    },
+    {
+      icon: Code,
+      title: "Coding",
+      description:
+        "I develop custom solutions with clean, efficient, and optimized code to deliver reliable and high-performance results.",
+    },
+    {
+      icon: Globe,
+      title: "Web Development",
+      description:
+        "Full-stack web development using cutting-edge technologies to build scalable and maintainable applications.",
+    },
+    {
+      icon: Monitor,
+      title: "Desktop Development",
+      description:
+        "I build powerful and reliable desktop applications tailored to user needs, with a focus on performance, security, and seamless experience.",
+    },
+    {
+      icon: Smartphone,
+      title: "Mobile Development",
+      description:
+        "Creating responsive mobile applications with modern frameworks, ensuring optimal performance across all devices.",
+    },
+    {
+      icon: Palette,
+      title: "UI/UX Design",
+      description: "I create intuitive and aesthetically pleasing interfaces, providing a smooth and engaging user experience for your projects."
+    },
+    //   {
+    //       icon: Heart,
+    //       title: "SEO & search",
+    //       description: "Globe",
+    //   },
+  ]
+}
