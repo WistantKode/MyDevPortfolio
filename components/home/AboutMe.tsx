@@ -106,7 +106,7 @@ const AboutMe = () => {
                     <div className="flex items-center gap-4 mb-8">
                         <h3 className="text-2xl font-bold flex items-center gap-2">
                             <Terminal className="w-6 h-6 text-primary"/>
-                            Mes Forces
+                            My Strengh
                         </h3>
                         <div className="h-px flex-1 bg-border/50"></div>
                     </div>
