@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Clock, Mail, MapPin, Phone, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { AppearOnScroll } from "@/components/ScrollEffect";
+import GridBackground from "@/components/ui/GridBackground";
 
 const ContactClient = () => {
     const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
@@ -60,7 +61,9 @@ const ContactClient = () => {
     ];
 
     return (
-        <section className="py-20 bg-background min-h-screen">
+        <section className="py-20 bg-background min-h-screen relative overflow-hidden">
+            {/* Grid Background - Default variant */}
+            <GridBackground variant="default" withFade={true} />
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
                     <h1 className="text-4xl md:text-6xl font-bold text-text-primary mb-6">Initier le Contact</h1>

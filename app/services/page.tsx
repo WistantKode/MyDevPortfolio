@@ -6,13 +6,16 @@ import MyStack from "@/components/MyStack";
 import {AppearOnScroll} from "@/components/ScrollEffect";
 import {MetaServices} from "@/lib/metaData";
 import {processSteps, services} from "@/lib/servicesData";
+import GridBackground from "@/components/ui/GridBackground";
 
 // --- STATIC METADATA ---
 export const metadata: Metadata = MetaServices
 
 const ServicesPage = () => {
     return (
-        <section className="py-20 bg-background">
+        <section className="py-20 bg-background relative overflow-hidden">
+            {/* Grid Background - Subtle variant */}
+            <GridBackground variant="subtle" withFade={true} />
             <div className="container mx-auto px-4">
                 <MyStack/>
                 <AppearOnScroll>

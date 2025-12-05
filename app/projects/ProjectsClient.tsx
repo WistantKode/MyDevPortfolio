@@ -14,6 +14,7 @@ import { ProjectModal } from "@/components/projects/ProjectModal";
 import { ProjectStats } from "@/components/projects/ProjectStats";
 import { ImageLightbox } from "@/components/ui/ImageLightbox";
 import { Project } from "@/lib/projet";
+import GridBackground from "@/components/ui/GridBackground";
 
 const filterConfig: { name: string; category: ProjectCategory; icon: IconType }[] = [
   { name: "Tous", category: "all", icon: Code },
@@ -80,7 +81,9 @@ export default function ProjectsClient() {
 
   return (
     <>
-      <div className="min-h-screen bg-gradient-hero">
+      <div className="min-h-screen bg-gradient-hero relative overflow-hidden">
+        {/* Grid Background - Prominent variant for visual depth */}
+        <GridBackground variant="prominent" withFade={true} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
           {/* Hero Section */}
           <div className="text-center mb-12 md:mb-16">

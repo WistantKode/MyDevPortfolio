@@ -154,13 +154,13 @@ const HeroSection = () => {
                         <TypeAnimation
                             sequence={[
                                 'Backend Developer',
-                                1000, // wait 1.5s
+                                800, // wait 1.5s
                                 'Software Engineer Student',
-                                1000,
+                                800,
                                 'DevSecOps practicer',
-                                1500,
+                                1200,
                                 'Cybersecurity Enthusiast',
-                                1500,
+                                1200,
                             ]}
                             wrapper="span"
                             speed={50}
