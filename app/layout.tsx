@@ -1,15 +1,15 @@
 import type {Metadata, Viewport} from "next";
-import {Outfit} from "next/font/google";
+// import {Outfit} from "next/font/google";
 import "./globals.css";
 import {Providers} from "./providers";
 import Navigation from "@/components/home/navigation";
 import React from "react"; // Import de votre composant Navigation
 
-const outfit = Outfit({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-outfit",
-});
+// const outfit = Outfit({
+//   subsets: ["latin"],
+//   display: "swap",
+//   variable: "--font-outfit",
+// });
 
 const siteConfig = {
     title: "Wistant - Fullstack Developer",
@@ -81,7 +81,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
           <title></title>
       </head>
-      <body className={`${outfit.variable} font-sans antialiased`}>
+      <body className={`font-sans antialiased`}>
         <Providers>
             <Navigation/>
           <main>{children}</main>

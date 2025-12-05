@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Portfolio Design System - Inspired by Jumael Kamga's design */
+/* Portfolio Design System */
 
 @layer base {
   :root {
@@ -12,10 +12,10 @@
     --background-card: 0 0% 99%;
     --foreground: 240 10% 3.9%;
 
-    /* Brand colors - Green gradient theme (same for both themes) */
-    --primary: 145 65% 45%; /* Vert vif */
-    --primary-glow: 150 70% 50%; /* Vert clair lumineux */
-    --primary-dark: 140 60% 35%; /* Vert foncé */
+    /* Brand colors */
+    --primary: 145 65% 45%;
+    --primary-glow: 150 70% 50%;
+    --primary-dark: 140 60% 35%;
     --primary-foreground: 0 0% 100%;
 
     /* Secondary colors */
@@ -83,16 +83,16 @@
   }
 
   .dark {
-    /* Dark theme base colors - TON THEME ACTUEL (identique) */
+    /* Dark theme base colors */
     --background: 240 10% 6%;
     --background-alt: 240 8% 10%;
     --background-card: 240 10% 8%;
     --foreground: 0 0% 98%;
 
-    /* Brand colors - Green gradient theme (same as light) */
-    --primary: 145 65% 45%; /* Vert vif */
-    --primary-glow: 150 70% 50%; /* Vert clair lumineux */
-    --primary-dark: 140 60% 35%; /* Vert foncé */
+    /* Brand colors */
+    --primary: 145 65% 45%;
+    --primary-glow: 150 70% 50%;
+    --primary-dark: 140 60% 35%;
     --primary-foreground: 0 0% 100%;
 
     /* Secondary colors */
@@ -164,6 +164,7 @@
   }
 }
 
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -183,10 +184,6 @@
 ::-webkit-scrollbar-thumb:hover {
   background-color: green;
 }
-
-/*custom police font*/
-/* Removed custom font-face rules for Poppins, Lato, Montserrat */
-/* Removed specific font-family applications for nav, title1, title2, title3 */
 
 /* Gradient text utility */
 .gradient-text {
@@ -275,11 +272,12 @@
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
 
   body {
-    @apply bg-background text-foreground font-sans; /* Apply Outfit as default font */
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
     font-family: "Outfit", sans-serif;
   }
 }
