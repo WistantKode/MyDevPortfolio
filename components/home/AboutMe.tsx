@@ -2,75 +2,13 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Terminal, { TerminalCommand } from '../terminal/Terminal';
+import CodeEditor from '../terminal/CodeEditor';
 import TextMode from '../terminal/TextMode';
 import ModeToggle from '../terminal/ModeToggle';
 import GridBackground from "@/components/ui/GridBackground";
 
 const AboutMe = () => {
     const [mode, setMode] = useState<'terminal' | 'text'>('terminal');
-
-    const terminalCommands: TerminalCommand[] = [
-        {
-            id: '1',
-            command: 'whoami',
-            output: 'Wistant Kode - Fullstack Developer',
-        },
-        {
-            id: '2',
-            command: 'cat about.txt',
-            output: [
-                'Passionate developer with 5+ years of experience',
-                'Specializing in building scalable web applications',
-                'Transforming complex ideas into elegant digital solutions',
-            ],
-        },
-        {
-            id: '3',
-            command: 'ls -la ~/skills',
-            output: [
-                'drwxr-xr-x  frontend/',
-                '  ├── React.js',
-                '  ├── Next.js', 
-                '  ├── TypeScript',
-                '  └── Tailwind CSS',
-                '',
-                'drwxr-xr-x  backend/',
-                '  ├── NestJS',
-                '  ├── Node.js',
-                '  ├── PostgreSQL',
-                '  └── Prisma ORM',
-            ],
-        },
-        {
-            id: '4',
-            command: 'cat experience.json',
-            output: [
-                '{',
-                '  "years": "5+",',
-                '  "specialization": "Fullstack Development",',
-                '  "focus": ["Scalability", "Performance", "Security"],',
-                '  "passion": "Building elegant solutions"',
-                '}',
-            ],
-        },
-        {
-            id: '5',
-            command: 'echo $AVAILABILITY',
-            output: '✅ Available for freelance projects and collaborations',
-        },
-        {
-            id: '6',
-            command: './start_project.sh',
-            output: [
-                '🚀 Initializing new project...',
-                '📦 Installing dependencies...',
-                '✨ Ready to build something amazing!',  
-                '',
-                '👉 Contact me to get started: wistantkode@protonmail.com',
-            ],
-        },
-    ];
 
     return (
         <section className="py-20 bg-background relative overflow-hidden">
@@ -90,13 +28,13 @@ const AboutMe = () => {
                     >
                         <h2 className="text-4xl md:text-5xl font-bold mb-4">
                             <span className="bg-gradient-primary bg-clip-text text-transparent">
-                                {mode === 'terminal' ? '$ whoami' : 'About Me'}
+                                {mode === 'terminal' ? '< CodeAbout />' : 'About Me'}
                             </span>
                         </h2>
                         <p className="text-muted-foreground text-lg mb-6">
                             {mode === 'terminal' 
-                                ? 'Explore my profile through terminal commands' 
-                                : 'Get to know me and my skills'
+                                ? 'Watch React code write itself and compile in real-time' 
+                                : 'Get to know me and my journey'
                             }
                         </p>
                     </motion.div>
@@ -111,18 +49,18 @@ const AboutMe = () => {
                     </motion.div>
                 </div>
 
-                {/* Content - Terminal or Text */}
-                <div className="max-w-5xl mx-auto">
+                {/* Content - CodeEditor or Text */}
+                <div className="w-full">
                     <AnimatePresence mode="wait">
                         {mode === 'terminal' ? (
                             <motion.div
-                                key="terminal"
+                                key="code-editor"
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.95 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                <Terminal commands={terminalCommands} autoPlay={true} />
+                                <CodeEditor />
                             </motion.div>
                         ) : (
                             <TextMode key="text" />

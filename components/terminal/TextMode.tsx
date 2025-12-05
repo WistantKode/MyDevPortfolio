@@ -2,100 +2,117 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code2, Database, Zap, Download, Mail, Terminal as TerminalIcon } from 'lucide-react';
+import { Mail, Download, MapPin, Calendar } from 'lucide-react';
+import Image from 'next/image';
 
 interface TextModeProps {
   className?: string;
 }
 
 const TextMode: React.FC<TextModeProps> = ({ className = '' }) => {
-  const skills = [
-    { icon: Code2, name: 'Frontend', items: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'] },
-    { icon: Database, name: 'Backend', items: ['NestJS', 'Node.js', 'PostgreSQL', 'Prisma'] },
-    { icon: Zap, name: 'Tools', items: ['Git', 'Docker', 'VSCode', 'Linux'] },
-  ];
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
-      className={`space-y-8 ${className}`}
+      className={`max-w-4xl mx-auto ${className}`}
     >
-      {/* Intro */}
-      <div className="space-y-4">
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-3xl md:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent"
-        >
-          About Me
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
+      <div className="flex flex-col md:flex-row gap-8 items-start">
+        {/* Photo */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.1 }}
-          className="text-lg text-muted-foreground leading-relaxed"
+          className="flex-shrink-0"
         >
-          Passionate fullstack developer with <span className="text-primary font-semibold">5+ years</span> of experience building scalable web applications. 
-          I specialize in creating elegant solutions that transform complex problems into intuitive digital experiences.
-        </motion.p>
-      </div>
+          <div className="relative w-48 h-48 md:w-64 md:h-64 mx-auto md:mx-0">
+            <div className="absolute inset-0 bg-gradient-primary rounded-2xl blur-xl opacity-30"></div>
+            <div className="relative w-full h-full rounded-2xl overflow-hidden border-4 border-primary/20 shadow-2xl">
+              <Image
+                src="/images/profile.jpg"
+                alt="Wistant Kode"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          </div>
+        </motion.div>
 
-      {/* Skills Grid */}
-      <div className="grid md:grid-cols-3 gap-6">
-        {skills.map((skill, index) => {
-          const Icon = skill.icon;
-          return (
-            <motion.div
-              key={skill.name}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 + index * 0.1 }}
-              className="p-6 rounded-xl bg-gradient-card border border-border-light shadow-card hover:shadow-glow transition-shadow"
+        {/* Text Content */}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.2 }}
+          className="flex-1 space-y-6"
+        >
+          {/* Name & Title */}
+          <div>
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2">
+              Wistant Kode
+            </h2>
+            <p className="text-xl text-muted-foreground">Fullstack Developer</p>
+          </div>
+
+          {/* Bio */}
+          <div className="space-y-3 text-muted-foreground leading-relaxed">
+            <p>
+              Passionate developer with <span className="text-primary font-semibold">5+ years</span> of experience 
+              building scalable web applications.
+            </p>
+            <p>
+              I specialize in creating elegant solutions that transform complex problems into intuitive digital experiences, 
+              with a focus on performance, security, and user satisfaction.
+            </p>
+          </div>
+
+          {/* Quick Info */}
+          <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <MapPin className="w-4 h-4 text-primary" />
+              <span>Yaoundé, Cameroon</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Calendar className="w-4 h-4 text-primary" />
+              <span>5+ Years Experience</span>
+            </div>
+          </div>
+
+          {/* Skills Summary */}
+          <div>
+            <h3 className="text-lg font-semibold text-foreground mb-3">Core Skills</h3>
+            <div className="flex flex-wrap gap-2">
+              {['React', 'Next.js', 'TypeScript', 'NestJS', 'Node.js', 'PostgreSQL', 'Tailwind CSS', 'Docker'].map((skill) => (
+                <span
+                  key={skill}
+                  className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm border border-primary/20"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="flex flex-wrap gap-3 pt-2">
+            <a
+              href="/contact"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-primary text-primary-foreground rounded-lg font-medium hover:shadow-glow transition-all"
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-gradient-primary flex items-center justify-center">
-                  <Icon className="w-5 h-5 text-primary-foreground" />
-                </div>
-                <h3 className="text-xl font-semibold text-foreground">{skill.name}</h3>
-              </div>
-              <ul className="space-y-2">
-                {skill.items.map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-muted-foreground">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          );
-        })}
+              <Mail className="w-4 h-4" />
+              Get In Touch
+            </a>
+            <a
+              href="#"
+              className="inline-flex items-center gap-2 px-5 py-2.5 border border-border-light rounded-lg font-medium hover:border-primary hover:bg-primary/10 transition-all"
+            >
+              <Download className="w-4 h-4" />
+              Resume
+            </a>
+          </div>
+        </motion.div>
       </div>
-
-      {/* CTA */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5 }}
-        className="flex flex-wrap gap-4 pt-4"
-      >
-        <a
-          href="/contact"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-primary text-primary-foreground rounded-lg font-medium hover:shadow-glow transition-all group"
-        >
-          <Mail className="w-4 h-4" />
-          Get In Touch
-        </a>
-        <a
-          href="#"
-          className="inline-flex items-center gap-2 px-6 py-3 border border-border-light rounded-lg font-medium hover:border-primary hover:bg-primary/10 transition-all group"
-        >
-          <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
-          Download Resume
-        </a>
-      </motion.div>
     </motion.div>
   );
 };
