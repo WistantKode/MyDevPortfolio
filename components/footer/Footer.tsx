@@ -1,5 +1,4 @@
 "use client";
-
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -54,14 +53,19 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-background border-t border-border/50 overflow-hidden">
-      {/* Background Grid Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] opacity-50"></div>
-      
-      {/* Gradient Accent */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
-
-      <div className="container mx-auto px-4 relative z-10">
+    <footer className="relative mt-20">
+      {/* Spacer for floating effect */}
+      <div className="container mx-auto px-4">
+        <div className="relative bg-gradient-to-br from-background via-background to-muted/30 border border-border/50 rounded-t-[2.5rem] md:rounded-t-[3rem] overflow-hidden shadow-2xl">
+          {/* Background Grid Pattern */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] opacity-50"></div>
+          
+          {/* Gradient Accent on top border */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent"></div>
+          
+          {/* Subtle glow effect */}
+          <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-1/2 h-40 bg-primary/5 blur-3xl rounded-full pointer-events-none"></div>
+      <div className="relative z-10 px-4 md:px-8 lg:px-12">
         {/* Main Footer Content */}
         <div className="py-12 md:py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
@@ -195,6 +199,16 @@ const Footer = () => {
                 <MapPin className="w-4 h-4" />
                 Cameroon
               </span>
+                <div className="flex items-center gap-2">
+                  <span>Made with</span>
+                  <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" />
+                  <span>in</span>
+                  <span className="inline-flex items-center gap-1 font-medium text-foreground">
+                    <MapPin className="w-4 h-4" />
+                    Cameroon
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -204,3 +218,4 @@ const Footer = () => {
 };
 
 export default Footer;
+```
