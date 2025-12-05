@@ -3,7 +3,7 @@ import ServicesSection from "@/components/home/ServicesSection";
 import AboutMe from "@/components/home/AboutMe";
 import MyExperience from "@/components/MyExperience";
 import MyStack from "@/components/MyStack";
-import ContactForm from "@/components/contact/ContactForm";
+// import ContactForm from "@/components/contact/ContactForm";
 
 export default function HomePage() {
   return (
@@ -13,7 +13,7 @@ export default function HomePage() {
       <ServicesSection/>
       <MyStack />
       <MyExperience/>
-      <ContactForm/>
+      {/* <ContactForm/> */}
       </>
   );
 }
