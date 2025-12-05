@@ -74,9 +74,8 @@ const ServicesSection = () => {
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <AppearOnScroll>
+              <AppearOnScroll key={index}>
                 <Card
-                  key={index}
                   className="bg-gradient-card border-border-light hover:border-primary/50 transition-smooth shadow-card hover:shadow-glow group"
                 >
                   <CardContent className="p-8">
