@@ -1,5 +1,5 @@
 import {Metadata} from 'next';
-import ContactClient from './ContactClient';
+import ContactClient from "@/components/ui/toast";
 import {Metacontact} from "@/lib/metaData";
 
 // --- STATIC METADATA ---
