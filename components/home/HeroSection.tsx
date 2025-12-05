@@ -6,7 +6,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
 import { FaWhatsapp, FaReact, FaJava, FaGitAlt } from "react-icons/fa";
 import {SiSpringboot, SiTypescript, SiNextdotjs, SiJavascript, SiNestjs, SiGithub} from "react-icons/si";
-import { TypeAnimation } from 'react-type-animation'; // Import the library
+import { TypeAnimation } from 'react-type-animation';
+import GridBackground from "@/components/ui/GridBackground";
 
 // --- Data Configuration --- //
 interface SocialLink {
@@ -112,7 +113,7 @@ const HeroSection = () => {
             {/* Modern Decorative Background */}
             <div className="absolute inset-0 z-0">
                 {/* Grid Background for consistency */}
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] opacity-50"></div>
+                <GridBackground variant="default" withFade={false} />
                 
                 <div className="absolute top-0 left-0 w-1/3 h-2/3 bg-primary/5 blur-3xl rounded-full animate-pulse-glow"></div>
                 <div className="absolute bottom-0 right-0 w-1/4 h-1/2 bg-primary-glow/5 blur-3xl rounded-full animate-float"></div>
