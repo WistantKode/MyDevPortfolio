@@ -93,41 +93,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ className = '' }) => {
     }
   }, [currentLineIndex, currentCharIndex, codeLines, isCompiling, showPreview]);
 
-  // Simple syntax coloring - returns JSX with colored spans
-  const renderCodeLine = (line: string) => {
-    const parts: JSX.Element[] = [];
-    let buffer = line;
-    let key = 0;
 
-    // Keywords
-    const keywords = ['import', 'from', 'const', 'return', 'export', 'default'];
-    keywords.forEach(kw => {
-      const regex = new RegExp(`\\b${kw}\\b`, 'g');
-      if (regex.test(buffer)) {
-        buffer = buffer.replace(regex, `|KEYWORD:${kw}|`);
-      }
-    });
-
-    // Strings
-    buffer = buffer.replace(/'([^']*)'/g, "|STRING:'$1'|");
-    buffer = buffer.replace(/"([^"]*)"/g, '|STRING:"$1"|');
-
-    // Split and render
-    const segments = buffer.split('|');
-    segments.forEach((seg, i) => {
-      if (seg.startsWith('KEYWORD:')) {
-        const word = seg.substring(8);
-        parts.push(<span key={key++} className="text-purple-400">{word}</span>);
-      } else if (seg.startsWith('STRING:')) {
-        const str = seg.substring(7);
-        parts. className="text-green-400">{str}</span>);
-      } else if (seg.trim()) {
-        parts.push(<span key={key++} className="text-gray-300">{seg}</span>);
-      }
-    });
-
-    return <>{parts}</>;
-  };
 
   return (
     <div className={`w-full ${className}`}>
