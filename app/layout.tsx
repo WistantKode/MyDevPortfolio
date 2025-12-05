@@ -3,6 +3,7 @@ import type {Metadata, Viewport} from "next";
 import "./globals.css";
 import {Providers} from "./providers";
 import Navigation from "@/components/home/navigation";
+import Footer from "@/components/footer/Footer";
 import React from "react"; // Import de votre composant Navigation
 
 // const outfit = Outfit({
@@ -85,6 +86,7 @@ export default function RootLayout({
         <Providers>
             <Navigation/>
           <main>{children}</main>
+          <Footer />
         </Providers>
       </body>
     </html>
