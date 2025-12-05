@@ -4,7 +4,6 @@ import AboutMe from "@/components/home/AboutMe";
 import MyExperience from "@/components/MyExperience";
 import MyStack from "@/components/MyStack";
 import ContactForm from "@/components/contact/ContactForm";
-// import Footer from "@/components/footer/Footer";
 
 export default function HomePage() {
   return (
@@ -15,7 +14,6 @@ export default function HomePage() {
       <MyStack />
       <MyExperience/>
       <ContactForm/>
-      {/* <Footer/> */}
       </>
   );
 }
