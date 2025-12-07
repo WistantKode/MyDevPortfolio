@@ -9,27 +9,32 @@ const faqs = [
   {
     question: 'What services do you offer?',
     answer:
-      'I provide end-to-end development services: from UI/UX design and frontend development (React, Next.js) to robust backend architecture (Node.js, NestJS) and mobile apps (React Native). I can build your MVP, landing page, or complex SaaS platform.',
+      'I specialize in building modern web applications from scratch. This includes UI/UX design, frontend development with React/Next.js, and robust backend systems using NestJS. I focus on creating clean, useful, and scalable digital experiences.',
   },
   {
     question: 'What is your preferred Tech Stack?',
     answer:
-      'My core stack includes React, Next.js, TypeScript, and Tailwind CSS for the frontend. For the backend, I use Node.js, NestJS, and PostgreSQL or MongoDB. I also have extensive experience with cloud services like AWS and Vercel.',
+      'My go-to stack is Next.js and React for the frontend, styled with Tailwind CSS for a premium look. For the backend, I rely on NestJS and Node.js to build modular and scalable architectures, often paired with PostgreSQL or MongoDB.',
+  },
+  {
+    question: 'Do you handle UI/UX Design?',
+    answer:
+      'Yes! I have a strong vision for modern UI/UX. I prioritize simplicity, coherence, and attention to detail to ensure your users have an intuitive and enjoyable experience.',
   },
   {
     question: 'How do you structure your pricing?',
     answer:
-      'I offer both fixed-price quotes for well-defined projects and hourly rates for ongoing support or consultancy. I believe in transparent pricing with no hidden costs.',
+      'I offer flexible options: fixed-price quotes for well-scoped projects (like MVPs or landing pages) and hourly rates for ongoing consultancy or complex feature development. Transparency is key—no hidden costs.',
   },
   {
-    question: 'What is the typical timeline for a project?',
+    question: 'What is your typical timeline?',
     answer:
-      'Timelines vary based on complexity. A standard landing page might take 3-5 days, while a full MVP usually takes 2-4 weeks. I prioritize delivering high-quality code within agreed deadlines.',
+      'I work with a "fast & determined" energy. A standard landing page can be ready in a few days, while a full-stack MVP typically takes 2-4 weeks. I adapt quickly to project needs without compromising quality.',
   },
   {
-    question: 'Do you provide support after launch?',
+    question: 'How do we communicate during the project?',
     answer:
-      'Yes! I offer post-launch support and maintenance packages to ensure your application runs smoothly. I can also help with future feature updates and scaling.',
+      'I believe in a collaborative approach. We will have regular check-ins to track progress. I am honest, responsive, and always open to feedback to ensure we are building exactly what you envision.',
   },
 ];
 
@@ -37,28 +42,24 @@ export default function Faqs() {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   return (
-    <section id="faq" className="relative overflow-hidden py-24">
-      {/* Decorative elements matching the theme */}
-      <div className="bg-primary/10 absolute top-1/2 -right-20 z-[-1] h-64 w-64 rounded-full blur-3xl select-none pointer-events-none"></div>
-      <div className="bg-primary/10 absolute top-1/2 -left-20 z-[-1] h-64 w-64 rounded-full blur-3xl select-none pointer-events-none"></div>
-      
-      <div className="z-10 container mx-auto px-4">
+    <section id="faq" className="relative overflow-hidden pb-24">
+      <div className="bg-primary/20 absolute top-1/2 -right-20 z-[-1] h-64 w-64 rounded-full opacity-80 blur-3xl select-none"></div>
+      <div className="bg-primary/20 absolute top-1/2 -left-20 z-[-1] h-64 w-64 rounded-full opacity-80 blur-3xl select-none"></div>
+      <div className="z-10 container">
         <div className="flex justify-center">
-          <div className="border-primary/40 text-primary bg-primary/5 inline-flex items-center gap-2 rounded-full border px-3 py-1 uppercase tracking-wider">
-            <span className="text-xs font-bold">FAQ</span>
+          <div className="border-primary/40 text-primary inline-flex items-center gap-2 rounded-full border px-3 py-1 uppercase">
+            <span>✶</span>
+            <span className="text-sm">Faqs</span>
           </div>
         </div>
-        <h2 className="mx-auto mt-6 max-w-xl text-center text-4xl font-bold md:text-5xl tracking-tighter text-foreground">
-          Common{' '}
-          <span className="bg-gradient-to-r from-primary to-green-400 bg-clip-text text-transparent">
-            Questions
+        <h2 className="mx-auto mt-6 max-w-xl text-center text-4xl font-medium md:text-[54px] md:leading-[60px]">
+          Questions? We&apos;ve got{' '}
+          <span className="bg-primary from-foreground to-primary via-rose-200 bg-clip-text text-transparent dark:bg-gradient-to-b">
+            answers
           </span>
         </h2>
-        <p className="mx-auto mt-4 max-w-lg text-center text-muted-foreground text-lg">
-            Everything you need to know about working with me.
-        </p>
 
-        <div className="mx-auto mt-12 flex max-w-2xl flex-col gap-4">
+        <div className="mx-auto mt-12 flex max-w-xl flex-col gap-6">
           {faqs.map((faq, faqIndex) => (
             <div
               key={faq.question}
@@ -67,24 +68,14 @@ export default function Faqs() {
                   ? setSelectedIndex(-1)
                   : setSelectedIndex(faqIndex)
               }
-              className={cn(
-                "group cursor-pointer rounded-2xl border p-6 transition-all duration-300",
-                selectedIndex === faqIndex 
-                    ? "border-primary/50 bg-primary/5 shadow-lg shadow-primary/5" 
-                    : "border-border/50 bg-card/50 hover:border-primary/30 hover:bg-card"
-              )}
+              className="from-secondary/40 to-secondary/10 rounded-2xl border border-white/10 bg-gradient-to-b p-6 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset]"
             >
-              <div className="flex items-start justify-between gap-4">
-                <h3 className={cn(
-                    "m-0 font-medium text-lg transition-colors duration-300",
-                    selectedIndex === faqIndex ? "text-primary" : "text-foreground"
-                )}>
-                    {faq.question}
-                </h3>
+              <div className="flex items-start justify-between">
+                <h3 className="m-0 font-medium">{faq.question}</h3>
                 <Plus
-                  size={24}
+                  size={30}
                   className={cn(
-                    'text-primary flex-shrink-0 transition-transform duration-300',
+                    'text-primary flex-shrink-0 transition duration-300',
                     selectedIndex === faqIndex && 'rotate-45',
                   )}
                 />
@@ -95,22 +86,19 @@ export default function Faqs() {
                   <motion.div
                     initial={{
                       height: 0,
-                      opacity: 0,
                       marginTop: 0,
                     }}
                     animate={{
                       height: 'auto',
-                      opacity: 1,
-                      marginTop: 16,
+                      marginTop: 24,
                     }}
                     exit={{
                       height: 0,
-                      opacity: 0,
                       marginTop: 0,
                     }}
                     className="overflow-hidden"
                   >
-                    <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
+                    <p className="text-zinc-500">{faq.answer}</p>
                   </motion.div>
                 )}
               </AnimatePresence>
