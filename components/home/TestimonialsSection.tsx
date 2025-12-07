@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 import { Marquee } from '@/components/ui/marquee';
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 export function Highlight({
   children,
@@ -65,13 +66,10 @@ export function TestimonialCard({
       </div>
 
       <div className="flex w-full items-center justify-start gap-5 select-none">
-        <img
-          width={40}
-          height={40}
-          src={img || ''}
-          alt={name}
-          className="size-10 rounded-full ring-1 ring-primary/20 ring-offset-2 object-cover"
-        />
+        <Avatar className="size-10 ring-1 ring-primary/20 ring-offset-2">
+            <AvatarImage src={img} alt={name} className="object-cover" />
+            <AvatarFallback>{name.charAt(0)}</AvatarFallback>
+        </Avatar>
 
         <div>
           <p className="text-foreground font-medium">{name}</p>
@@ -167,6 +165,90 @@ const testimonials = [
       </p>
     ),
   },
+  {
+    name: 'Thomas Anderson',
+    role: 'Security Specialist',
+    img: 'https://randomuser.me/api/portraits/men/11.jpg',
+    description: (
+      <p>
+        Security is often an afterthought, but not for Wistant.
+        <Highlight>
+          He implements robust security practices by default.
+        </Highlight>{' '}
+        Our audit found zero critical vulnerabilities in his code.
+      </p>
+    ),
+  },
+  {
+    name: 'Jessica Lee',
+    role: 'Marketing Director',
+    img: 'https://randomuser.me/api/portraits/women/28.jpg',
+    description: (
+      <p>
+        Our SEO rankings skyrocketed after the rebuild.
+        <Highlight>
+          The site is blazing fast and perfectly optimized.
+        </Highlight>{' '}
+        He understands the technical side of marketing better than anyone.
+      </p>
+    ),
+  },
+  {
+    name: 'Robert Taylor',
+    role: 'SaaS Founder',
+    img: 'https://randomuser.me/api/portraits/men/45.jpg',
+    description: (
+      <p>
+        We needed a scalable solution for our growing user base.
+        <Highlight>
+          The architecture he designed handled our 10x growth
+        </Highlight>{' '}
+        without a single hiccup. Truly enterprise-grade work.
+      </p>
+    ),
+  },
+  {
+    name: 'Emily White',
+    role: 'QA Lead',
+    img: 'https://randomuser.me/api/portraits/women/33.jpg',
+    description: (
+      <p>
+        It's a pleasure testing his releases.
+        <Highlight>
+          His code is clean, well-tested, and reliable.
+        </Highlight>{' '}
+        The number of bugs we find is consistently lower than with other devs.
+      </p>
+    ),
+  },
+  {
+    name: 'Daniel Brown',
+    role: 'DevOps Engineer',
+    img: 'https://randomuser.me/api/portraits/men/76.jpg',
+    description: (
+      <p>
+        He knows his way around CI/CD pipelines.
+        <Highlight>
+          Automated deployments and containerization were set up perfectly.
+        </Highlight>{' '}
+        Makes my job so much easier.
+      </p>
+    ),
+  },
+  {
+    name: 'Lisa Garcia',
+    role: 'Mobile Product Owner',
+    img: 'https://randomuser.me/api/portraits/women/90.jpg',
+    description: (
+      <p>
+        The mobile experience is flawless.
+        <Highlight>
+          Responsive design that actually feels native.
+        </Highlight>{' '}
+        Our mobile engagement metrics have never been better.
+      </p>
+    ),
+  },
 ];
 
 export default function TestimonialsSection() {
@@ -197,8 +279,8 @@ export default function TestimonialsSection() {
       </motion.div>
 
       <div className="relative mt-6 max-h-[600px] overflow-hidden z-10">
-        <div className="gap-4 md:columns-2 xl:columns-3">
-          {Array(Math.ceil(testimonials.length / 3))
+        <div className="gap-4 md:columns-2 lg:columns-3 xl:columns-4">
+          {Array(Math.ceil(testimonials.length / 4))
             .fill(0)
             .map((_, i) => (
               <Marquee
@@ -208,9 +290,10 @@ export default function TestimonialsSection() {
                   '[--duration:60s]': i === 1,
                   '[--duration:30s]': i === 2,
                   '[--duration:70s]': i === 3,
+                  '[--duration:45s]': i === 0,
                 })}
               >
-                {testimonials.slice(i * 3, (i + 1) * 3).map((card, idx) => (
+                {testimonials.slice(i * 4, (i + 1) * 4).map((card, idx) => (
                   <motion.div
                     key={idx}
                     initial={{ opacity: 0 }}
