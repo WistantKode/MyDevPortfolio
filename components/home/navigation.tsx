@@ -6,7 +6,7 @@ import {usePathname} from 'next/navigation';
 import {Button} from "@/components/ui/button";
 import {Menu, X} from "lucide-react";
 import {cn} from "@/lib/utils";
-import {ThemeToggleButton} from "@/components/ThemeToggleButton";
+import { ThemeToggleButton } from "../themeproviders/ThemeToggleButton";
 import {navItems} from "@/lib/navigationRoutes";
 import Logo from "@/components/home/Logo";
 
