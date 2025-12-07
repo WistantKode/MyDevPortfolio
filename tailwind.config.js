@@ -70,6 +70,7 @@ module.exports = {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)'
       },
+      animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         marquee: 'marquee var(--duration) linear infinite',
@@ -100,7 +101,7 @@ module.exports = {
           from: { transform: 'translateY(0)' },
           to: { transform: 'translateY(calc(-100% - var(--gap)))' },
         },
-    }
+      }
   },
   plugins: [require("tailwindcss-animate")],
 };
