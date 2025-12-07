@@ -39,53 +39,53 @@ const actionButtons: ActionButton[] = [
 // --- Dynamic Decorative Icons Data --- //
 interface DynamicIcon {
     icon: React.ElementType;
-    size: number;
+    fontSize: number;  // Changed from 'size' to 'fontSize'
     color: string;
     position: { top?: string; bottom?: string; left?: string; right?: string; };
     animate: TargetAndTransition; 
     transition: Transition; 
-    whileHover?: TargetAndTransition; // Add whileHover to the interface
+    whileHover?: TargetAndTransition;
 }
 
 const dynamicIcons: DynamicIcon[] = [
     { 
-        icon: FaReact, size: 60, color: "#61DAFB", position: { top: "15%", left: "15%" },
+        icon: FaReact, fontSize: 60, color: "#61DAFB", position: { top: "15%", left: "15%" },
         animate: { y: [0, -25, 0], rotate: [0, 15, -15, 0] }, 
         transition: { duration: 2.5, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.5 },
         whileHover: { scale: 1.3, rotate: 360, transition: { duration: 0.3, ease: "easeOut" } }
     },
     { 
-        icon: SiNestjs, size: 35, color: "#ED8B00", position: { bottom: "20%", right: "18%" },
+        icon: SiNestjs, fontSize: 35, color: "#ED8B00", position: { bottom: "20%", right: "18%" },
         animate: { y: [0, 20, 0], rotate: [0, -10, 10, 0] }, 
         transition: { duration: 2.8, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1 },
         whileHover: { scale: 1.3, rotate: 360, transition: { duration: 0.3, ease: "easeOut" } }
     },
     { 
-        icon: SiJavascript, size: 45, color: "#6DB33F", position: { top: "25%", right: "25%" },
+        icon: SiJavascript, fontSize: 45, color: "#6DB33F", position: { top: "25%", right: "25%" },
         animate: { x: [0, 20, 0], rotate: [0, 20, -20, 0] }, 
         transition: { duration: 3.2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1.5 },
         whileHover: { scale: 1.3, rotate: 360, transition: { duration: 0.3, ease: "easeOut" } }
     },
     { 
-        icon: SiTypescript, size: 30, color: "#3178C6", position: { bottom: "10%", left: "20%" }, 
+        icon: SiTypescript, fontSize: 30, color: "#3178C6", position: { bottom: "10%", left: "20%" }, 
         animate: { y: [0, -20, 0], rotate: [0, 12, -12, 0] }, 
         transition: { duration: 2.2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 2 },
         whileHover: { scale: 1.3, rotate: 360, transition: { duration: 0.3, ease: "easeOut" } }
     },
     { 
-        icon: FaGitAlt, size: 38, color: "#F05032", position: { top: "55%", left: "10%" }, 
+        icon: FaGitAlt, fontSize: 38, color: "#F05032", position: { top: "55%", left: "10%" }, 
         animate: { x: [0, -20, 0], rotate: [0, 15, -15, 0] }, 
         transition: { duration: 3.0, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 2.5 },
         whileHover: { scale: 1.3, rotate: 360, transition: { duration: 0.3, ease: "easeOut" } }
     },
     {
-        icon: SiGithub, size: 46, color: "#F7DF1E", position: { bottom: "35%", right: "10%" },
+        icon: SiGithub, fontSize: 46, color: "#F7DF1E", position: { bottom: "35%", right: "10%" },
         animate: { y: [0, 25, 0], rotate: [0, -15, 15, 0] },
         transition: { duration: 2.7, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 3 },
-        whileHover: { scale: 1.3, rotate: 360, transition: { duration: 0.3, ease: "easeOut" } }
+        whileHover: { scale: 1.3, rotate:360, transition: { duration: 0.3, ease: "easeOut" } }
     },
     { 
-        icon: SiNextdotjs, size: 32, color: "#FFFFFF", position: { top: "65%", right: "20%" }, 
+        icon: SiNextdotjs, fontSize: 32, color: "#FFFFFF", position: { top: "65%", right: "20%" }, 
         animate: { x: [0, 20, 0], rotate: [0, -10, 10, 0] }, 
         transition: { duration: 2.9, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 3.5 },
         whileHover: { scale: 1.3, rotate: 360, transition: { duration: 0.3, ease: "easeOut" } }
@@ -130,7 +130,7 @@ const HeroSection = () => {
                             transition={item.transition}
                             whileHover={item.whileHover}
                         >
-                            <IconComponent style={{ fontSize: item.size, color: item.color }} />
+                            <IconComponent style={{ fontSize: item.fontSize, color: item.color }} />
                         </motion.div>
                     );
                 })}
