@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import { cn } from '@/lib/utils';
 
 export default function AboutCodeBlock() {
   const [copied, setCopied] = useState(false);
@@ -15,7 +16,6 @@ const AboutWistant = () => {
     title: 'Fullstack Developer',
     experience: '5+ years',
     location: 'Yaoundé, Cameroon',
-    passion: 'Building scalable solutions',
   };
 
   const skills = {
@@ -31,16 +31,6 @@ const AboutWistant = () => {
         <p>{developer.title} • {developer.experience}</p>
         <span>📍 {developer.location}</span>
       </div>
-
-      <div className="grid grid-cols-3 gap-4">
-        {Object.entries(skills).map(([category, items]) => (
-          <div key={category}>
-            <h3>{category}</h3>
-            {items.map(item => <div key={item}>{item}</div>)}
-          </div>
-        ))}
-      </div>
-
       <p className="text-green-500">
         ✅ Available for projects
       </p>
@@ -57,27 +47,43 @@ export default AboutWistant;`;
 
   return (
     <>
-      <div 
-        className="flip-card-container w-full max-w-6xl mx-auto"
+      <div
+        className="group relative h-[520px] w-full max-w-6xl mx-auto [perspective:2000px]"
         onMouseEnter={() => setIsFlipped(true)}
         onMouseLeave={() => setIsFlipped(false)}
       >
-        <div className={`flip-card-inner ${isFlipped ? 'flipped' : ''}`}>
-          {/* Front - Code */}
-          <div className="flip-card-face flip-card-front">
-            <div className="relative w-full rounded-xl p-0.5">
+        <div
+          className={cn(
+            'relative h-full w-full',
+            '[transform-style:preserve-3d]',
+            'transition-all duration-700',
+            isFlipped
+              ? '[transform:rotateY(180deg)]'
+              : '[transform:rotateY(0deg)]',
+          )}
+        >
+          {/* Front - Code Block */}
+          <div
+            className={cn(
+              'absolute inset-0 h-full w-full',
+              '[transform:rotateY(0deg)] [backface-visibility:hidden]',
+              'overflow-hidden rounded-2xl',
+              isFlipped ? 'opacity-0' : 'opacity-100',
+            )}
+          >
+            <div className="relative w-full h-full rounded-xl p-0.5">
               <div className="code-border-anim" />
-              <div className="rounded-xl bg-[radial-gradient(at_88%_40%,#181925_0,transparent_85%),radial-gradient(at_49%_30%,#181925_0,transparent_85%),radial-gradient(at_14%_26%,#181925_0,transparent_85%),radial-gradient(at_0%_64%,#015c6e_0,transparent_85%),radial-gradient(at_41%_94%,#00b7e9_0,transparent_85%),radial-gradient(at_100%_99%,#103a42_0,transparent_85%)] p-4 shadow-[0px_-16px_24px_0px_rgba(255,255,255,0.25)_inset]">
+              <div className="h-full rounded-xl bg-[radial-gradient(at_88%_40%,#181925_0,transparent_85%),radial-gradient(at_49%_30%,#181925_0,transparent_85%),radial-gradient(at_14%_26%,#181925_0,transparent_85%),radial-gradient(at_0%_64%,#015c6e_0,transparent_85%),radial-gradient(at_41%_94%,#00b7e9_0,transparent_85%),radial-gradient(at_100%_99%,#103a42_0,transparent_85%)] p-4 shadow-[0px_-16px_24px_0px_rgba(255,255,255,0.25)_inset]">
                 <div className="flex items-center justify-between pb-3">
                   <span className="text-sm font-semibold text-white">AboutWistant.tsx</span>
                   <button 
                     onClick={handleCopy}
-                    className="rounded-full bg-[#1fcdfc] px-3 py-1.5 text-xs font-medium text-[#181925] transition hover:bg-[#00b7e9]"
+                    className="rounded-full bg-[#1fcdfc] px-3 py-1.5 text-xs font-medium text-[#181925] transition hover:bg-[#00b7e9] z-10"
                   >
                     {copied ? 'Copied!' : 'Copy'}
                   </button>
                 </div>
-                <pre className="m-0 overflow-x-auto rounded-lg bg-transparent p-0 text-xs leading-snug whitespace-pre text-blue-100 max-h-[450px]">
+                <pre className="m-0 overflow-y-auto rounded-lg bg-transparent p-0 text-xs leading-snug whitespace-pre text-blue-100 max-h-[450px]">
                   <code>
                     <span className="text-[#1fcdfc]">import</span>{' '}
                     <span className="text-[#e0e0e0]">React</span>{' '}
@@ -94,9 +100,9 @@ export default AboutWistant;`;
                     &nbsp;&nbsp;{'}'};<br />
                     <br />
                     &nbsp;&nbsp;<span className="text-[#1fcdfc]">const</span> skills = {'{'}<br />
-                    &nbsp;&nbsp;&nbsp;&nbsp;frontend: [<span className="text-[#f7b731]">&apos;React&apos;</span>, <span className="text-[#f7b731]">&apos;Next.js&apos;</span>, <span className="text-[#f7b731]">&apos;TypeScript&apos;</span>],<br />
-                    &nbsp;&nbsp;&nbsp;&nbsp;backend: [<span className="text-[#f7b731]">&apos;NestJS&apos;</span>, <span className="text-[#f7b731]">&apos;Node.js&apos;</span>, <span className="text-[#f7b731]">&apos;PostgreSQL&apos;</span>],<br />
-                    &nbsp;&nbsp;&nbsp;&nbsp;tools: [<span className="text-[#f7b731]">&apos;Git&apos;</span>, <span className="text-[#f7b731]">&apos;Docker&apos;</span>, <span className="text-[#f7b731]">&apos;VSCode&apos;</span>],<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;frontend: [<span className="text-[#f7b731]">&apos;React&apos;</span>, <span className="text-[#f7b731]">&apos;Next.js&apos;</span>, <span className="text-[#f7b731]">&apos;TypeScript&apos;</span>, <span className="text-[#f7b731]">&apos;Tailwind&apos;</span>],<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;backend: [<span className="text-[#f7b731]">&apos;NestJS&apos;</span>, <span className="text-[#f7b731]">&apos;Node.js&apos;</span>, <span className="text-[#f7b731]">&apos;PostgreSQL&apos;</span>, <span className="text-[#f7b731]">&apos;Prisma&apos;</span>],<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;tools: [<span className="text-[#f7b731]">&apos;Git&apos;</span>, <span className="text-[#f7b731]">&apos;Docker&apos;</span>, <span className="text-[#f7b731]">&apos;VSCode&apos;</span>, <span className="text-[#f7b731]">&apos;Linux&apos;</span>],<br />
                     &nbsp;&nbsp;{'}'};<br />
                     <br />
                     &nbsp;&nbsp;<span className="text-[#1fcdfc]">return</span> (<br />
@@ -112,6 +118,9 @@ export default AboutWistant;`;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#ffd60a]">&lt;p&gt;</span>
                     {'{'}developer.title{'}'} • {'{'}developer.experience{'}'}
                     <span className="text-[#ffd60a]">&lt;/p&gt;</span><br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#ffd60a]">&lt;span&gt;</span>
+                    📍 {'{'}developer.location{'}'}
+                    <span className="text-[#ffd60a]">&lt;/span&gt;</span><br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#ffd60a]">&lt;/div&gt;</span><br />
                     <br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#ffd60a]">&lt;p</span>{' '}
@@ -120,7 +129,7 @@ export default AboutWistant;`;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✅ Available for projects<br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#ffd60a]">&lt;/p&gt;</span><br />
                     &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#ffd60a]">&lt;/div&gt;</span><br />
-                    &nbsp;&nbsp; );<br />
+                    &nbsp;&nbsp;);<br />
                     {'}'};<br />
                     <br />
                     <span className="text-[#1fcdfc]">export</span>{' '}
@@ -131,36 +140,75 @@ export default AboutWistant;`;
             </div>
           </div>
 
-          {/* Back - Info */}
-          <div className="flip-card-face flip-card-back">
-            <div className="relative w-full h-full rounded-xl p-0.5">
-              <div className="code-border-anim" />
-              <div className="rounded-xl bg-gradient-to-br from-[#181925] via-[#015c6e] to-[#103a42] p-8 h-full flex items-center justify-center shadow-[0px_-16px_24px_0px_rgba(255,255,255,0.25)_inset]">
-                <div className="text-center space-y-6">
-                  <h2 className="text-4xl font-bold text-white mb-4">
-                    👋 Hi, I&apos;m Wistant!
-                  </h2>
-                  <p className="text-[#1fcdfc] text-lg">
-                    Fullstack Developer specializing in building scalable web applications
-                  </p>
-                  <div className="grid grid-cols-3 gap-4 mt-6 text-white">
-                    <div>
-                      <div className="text-2xl font-bold text-[#1fcdfc]">5+</div>
-                      <div className="text-sm">Years Exp</div>
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold text-[#1fcdfc]">20+</div>
-                      <div className="text-sm">Projects</div>
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold text-[#1fcdfc]">✅</div>
-                      <div className="text-sm">Available</div>
-                    </div>
-                  </div>
-                  <p className="text-gray-300 text-sm mt-6">
-                    📍 Based in Yaoundé, Cameroon
-                  </p>
+          {/* Back - Personal Info */}
+          <div
+            className={cn(
+              'absolute inset-0 h-full w-full',
+              '[transform:rotateY(180deg)] [backface-visibility:hidden]',
+              'rounded-2xl p-8',
+              'bg-gradient-to-br from-white via-slate-50 to-slate-100',
+              'dark:from-zinc-900 dark:via-zinc-900/95 dark:to-zinc-800',
+              'border border-slate-200 dark:border-zinc-800',
+              'shadow-lg dark:shadow-xl',
+              'flex flex-col justify-center',
+              !isFlipped ? 'opacity-0' : 'opacity-100',
+            )}
+          >
+            {/* Background gradient */}
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 via-transparent to-blue-500/5 dark:from-primary/10 dark:to-blue-500/10" />
+
+            <div className="relative z-10 text-center space-y-6">
+              <div
+                style={{
+                  opacity: isFlipped ? 1 : 0,
+                  transform: isFlipped ? 'translateY(0)' : 'translateY(10px)',
+                  transition: 'all 0.5s 0.2s',
+                }}
+              >
+                <h2 className="text-5xl font-bold text-zinc-900 dark:text-white mb-3">
+                  👋 Hi, I&apos;m Wistant!
+                </h2>
+                <p className="text-xl text-primary font-semibold">
+                  Fullstack Developer
+                </p>
+              </div>
+
+              <div 
+                className="grid grid-cols-3 gap-6 py-6"
+                style={{
+                  opacity: isFlipped ? 1 : 0,
+                  transform: isFlipped ? 'translateY(0)' : 'translateY(10px)',
+                  transition: 'all 0.5s 0.3s',
+                }}
+              >
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-1">5+</div>
+                  <div className="text-sm text-zinc-600 dark:text-zinc-400">Years Exp</div>
                 </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-1">50+</div>
+                  <div className="text-sm text-zinc-600 dark:text-zinc-400">Projects</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-green-500 mb-1">✅</div>
+                  <div className="text-sm text-zinc-600 dark:text-zinc-400">Available</div>
+                </div>
+              </div>
+
+              <div
+                style={{
+                  opacity: isFlipped ? 1 : 0,
+                  transform: isFlipped ? 'translateY(0)' : 'translateY(10px)',
+                  transition: 'all 0.5s 0.4s',
+                }}
+              >
+                <p className="text-zinc-700 dark:text-zinc-300 text-base">
+                  Specializing in building <span className="font-semibold text-primary">scalable web applications</span>
+                  <br />with modern technologies
+                </p>
+                <p className="text-zinc-600 dark:text-zinc-400 text-sm mt-4">
+                  📍 Based in Yaoundé, Cameroon
+                </p>
               </div>
             </div>
           </div>
@@ -168,35 +216,6 @@ export default AboutWistant;`;
       </div>
 
       <style>{`
-        .flip-card-container {
-          perspective: 1500px;
-          height: 500px;
-        }
-        
-        .flip-card-inner {
-          position: relative;
-          width: 100%;
-          height: 100%;
-          transition: transform 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
-          transform-style: preserve-3d;
-        }
-        
-        .flip-card-inner.flipped {
-          transform: rotateY(180deg);
-        }
-        
-        .flip-card-face {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          backface-visibility: hidden;
-          -webkit-backface-visibility: hidden;
-        }
-        
-        .flip-card-back {
-          transform: rotateY(180deg);
-        }
-
         .code-border-anim {
           position: absolute;
           z-index: -10;
