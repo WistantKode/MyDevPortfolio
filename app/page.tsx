@@ -4,6 +4,7 @@ import AboutMe from "@/components/home/AboutMe";
 import MyExperience from "@/components/MyExperience";
 import MyStack from "@/components/myskills/MyStack";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
+import FaqSection from "@/components/home/FaqSection";
 // import ContactForm from "@/components/contact/ContactForm";
 
 export default function HomePage() {
@@ -14,6 +15,8 @@ export default function HomePage() {
       <ServicesSection/>
       <MyStack />
       <MyExperience/>
+      <MyExperience/>
+      <FaqSection />
       <TestimonialsSection />
       {/* <ContactForm/> */}
       </>
