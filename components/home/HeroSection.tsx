@@ -130,7 +130,7 @@ const HeroSection = () => {
                             transition={item.transition}
                             whileHover={item.whileHover}
                         >
-                            <IconComponent size={item.size} style={{ color: item.color }} />
+                            <IconComponent style={{ fontSize: item.size, color: item.color }} />
                         </motion.div>
                     );
                 })}
