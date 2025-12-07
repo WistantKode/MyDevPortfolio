@@ -1,9 +1,8 @@
 "use client";
 
 import { cn } from '@/lib/utils';
-import { motion } from 'framer-motion';
 import { Code, Database, Globe, Monitor, Palette, Smartphone, ArrowRight } from "lucide-react";
-import { ScaleTextEffect } from "@/components/ScrollEffect";
+import { ScaleTextEffect, AppearOnScroll } from "@/components/ScrollEffect";
 import GridBackground from "@/components/ui/GridBackground";
 
 interface BentoGridItemProps {
@@ -21,18 +20,8 @@ const BentoGridItem = ({
   className,
   size = 'small',
 }: BentoGridItemProps) => {
-  const variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { type: 'spring' as const, damping: 25 },
-    },
-  };
-
   return (
-    <motion.div
-      variants={variants}
+    <div
       className={cn(
         'group border-primary/10 bg-background hover:border-primary/30 relative flex h-full cursor-pointer flex-col justify-between overflow-hidden rounded-xl border px-6 pt-6 pb-10 shadow-md transition-all duration-500',
         className,
@@ -58,7 +47,7 @@ const BentoGridItem = ({
         </div>
       </div>
       <div className="from-primary to-primary/30 absolute bottom-0 left-0 h-1 w-full bg-gradient-to-r blur-2xl transition-all duration-500 group-hover:blur-lg" />
-    </motion.div>
+    </div>
   );
 };
 
@@ -102,16 +91,6 @@ const ServicesSection = () => {
     },
   ];
 
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
   return (
     <section className="py-24 bg-background relative overflow-hidden">
       {/* Grid Background */}
@@ -133,20 +112,10 @@ const ServicesSection = () => {
         </div>
 
         <div className="mx-auto max-w-6xl">
-          <motion.div
-            className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-6 auto-rows-[minmax(280px,auto)]"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-          >
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-6 auto-rows-[minmax(280px,auto)]">
             {services.map((service, index) => (
-              <BentoGridItem
+              <div
                 key={index}
-                title={service.title}
-                description={service.description}
-                icon={service.icon}
-                size={service.size}
                 className={cn(
                   service.size === 'large'
                     ? 'md:col-span-4'
@@ -155,9 +124,19 @@ const ServicesSection = () => {
                       : 'md:col-span-2',
                   'h-full'
                 )}
-              />
+              >
+                <AppearOnScroll>
+                  <BentoGridItem
+                    title={service.title}
+                    description={service.description}
+                    icon={service.icon}
+                    size={service.size}
+                    className="h-full"
+                  />
+                </AppearOnScroll>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
