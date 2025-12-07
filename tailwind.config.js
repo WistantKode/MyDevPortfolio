@@ -102,6 +102,8 @@ module.exports = {
           to: { transform: 'translateY(calc(-100% - var(--gap)))' },
         },
       }
+    },
   },
   plugins: [require("tailwindcss-animate")],
 };
+```
