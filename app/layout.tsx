@@ -82,7 +82,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
           <title></title>
       </head>
-      <body className={`${outfit.variable} font-sans antialiased`}>
+      <body className={`${outfit.variable} font-sans antialiased`} suppressHydrationWarning>
         <Providers>
             <Navigation/>
           <main>{children}</main>
