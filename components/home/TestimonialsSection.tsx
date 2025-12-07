@@ -279,8 +279,8 @@ export default function TestimonialsSection() {
       </motion.div>
 
       <div className="relative mt-6 max-h-[600px] overflow-hidden z-10">
-        <div className="gap-4 md:columns-2 lg:columns-3 xl:columns-4">
-          {Array(Math.ceil(testimonials.length / 4))
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 max-w-7xl mx-auto">
+          {Array(4)
             .fill(0)
             .map((_, i) => (
               <Marquee
@@ -293,19 +293,8 @@ export default function TestimonialsSection() {
                   '[--duration:45s]': i === 0,
                 })}
               >
-                {testimonials.slice(i * 4, (i + 1) * 4).map((card, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      delay: Math.random() * 0.5,
-                      duration: 0.8,
-                    }}
-                  >
-                    <TestimonialCard {...card} />
-                  </motion.div>
+                {testimonials.slice(i * 3, (i + 1) * 3).map((card, idx) => (
+                  <TestimonialCard key={idx} {...card} />
                 ))}
               </Marquee>
             ))}
