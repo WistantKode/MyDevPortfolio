@@ -15,7 +15,7 @@ export default function HomePage() {
       <ServicesSection/>
       <MyStack />
       <MyExperience/>
-      <MyExperience/>
+ 
       <FaqSection />
       <TestimonialsSection />
       {/* <ContactForm/> */}
