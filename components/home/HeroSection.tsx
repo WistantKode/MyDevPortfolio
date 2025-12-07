@@ -120,7 +120,7 @@ const HeroSection = () => {
 
                 {/* Dynamic Decorative Icons */}
                 {dynamicIcons.map((item, index) => {
-                    const IconComponent = item.icon;
+                    const IconComponent = item.icon as any;
                     return (
                         <motion.div
                             key={index}
@@ -176,28 +176,34 @@ const HeroSection = () => {
 
                     {/* Action Buttons */}
                     <motion.div variants={itemVariants} className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12">
-                        {actionButtons.map((btn) => (
-                            <Button key={btn.text} asChild size="lg" variant={btn.variant} className={`group ${btn.variant === 'default' ? 'bg-gradient-primary border-0 shadow-primary hover:shadow-glow' : 'border-border-light hover:border-primary hover:bg-primary/10'}`}>
-                                <a 
-                                    href={btn.url} 
-                                    {...(btn.downloadName && { download: btn.downloadName })}
-                                    target={btn.downloadName ? undefined : "_blank"} 
-                                    rel="noopener noreferrer"
-                                >
-                                    {btn.text}
-                                    {btn.icon && <btn.icon className={`ml-2 w-5 h-5 transition-transform ${btn.variant === 'default' ? 'group-hover:translate-x-1' : 'group-hover:scale-110'}`} />}
-                                </a>
-                            </Button>
-                        ))}
+                        {actionButtons.map((btn) => {
+                            const BtnIcon = btn.icon as any;
+                            return (
+                                <Button key={btn.text} asChild size="lg" variant={btn.variant} className={`group ${btn.variant === 'default' ? 'bg-gradient-primary border-0 shadow-primary hover:shadow-glow' : 'border-border-light hover:border-primary hover:bg-primary/10'}`}>
+                                    <a 
+                                        href={btn.url} 
+                                        {...(btn.downloadName && { download: btn.downloadName })}
+                                        target={btn.downloadName ? undefined : "_blank"} 
+                                        rel="noopener noreferrer"
+                                    >
+                                        {btn.text}
+                                        {BtnIcon && <BtnIcon className={`ml-2 w-5 h-5 transition-transform ${btn.variant === 'default' ? 'group-hover:translate-x-1' : 'group-hover:scale-110'}`} />}
+                                    </a>
+                                </Button>
+                            );
+                        })}
                     </motion.div>
 
                     {/* Social Links */}
                     <motion.div variants={itemVariants} className="flex justify-center items-center gap-6">
-                        {socialLinks.map((link) => (
-                            <a key={link.name} href={link.url} target="_blank" rel="noopener noreferrer" aria-label={link.name} className="text-text-muted hover:text-primary transition-colors">
-                                <link.icon className="w-6 h-6" />
-                            </a>
-                        ))}
+                        {socialLinks.map((link) => {
+                            const LinkIcon = link.icon as any;
+                            return (
+                                <a key={link.name} href={link.url} target="_blank" rel="noopener noreferrer" aria-label={link.name} className="text-text-muted hover:text-primary transition-colors">
+                                    <LinkIcon className="w-6 h-6" />
+                                </a>
+                            );
+                        })}
                     </motion.div>
                 </motion.div>
             </div>

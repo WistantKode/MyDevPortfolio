@@ -3,14 +3,14 @@
 import { useState } from 'react';
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
 import { Users, Activity, DollarSign, Eye } from 'lucide-react';
-import { DashboardCard } from './ui/dashboard-card';
-import { RevenueChart } from './ui/revenue-chart';
-import { UsersTable } from './ui/users-table';
-import { QuickActions } from './ui/quick-actions';
-import { SystemStatus } from './ui/system-status';
-import { RecentActivity } from './ui/recent-activity';
-import { DashboardHeader } from './ui/dashboard-header';
-import { AdminSidebar } from './ui/admin-sidebar';
+import { DashboardCard } from '@/components/ui/dashboard-card';
+import { RevenueChart } from '@/components/ui/revenue-chart';
+import { UsersTable } from '@/components/ui/users-table';
+import { QuickActions } from '@/components/ui/quick-actions';
+import { SystemStatus } from '@/components/ui/system-status';
+import { RecentActivity } from '@/components/ui/recent-activity';
+import { DashboardHeader } from '@/components/ui/dashboard-header';
+import { AdminSidebar } from '@/components/ui/admin-sidebar';
 
 // Dashboard stats data
 const stats = [
