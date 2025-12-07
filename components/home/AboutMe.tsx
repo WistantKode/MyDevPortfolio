@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import CodeEditor from '../terminal/CodeEditor';
+import AboutCodeBlock from '../mvpblocks/AboutCodeBlock';
 import TextMode from '../terminal/TextMode';
 import ModeToggle from '../terminal/ModeToggle';
 import GridBackground from "@/components/ui/GridBackground";
@@ -28,12 +28,12 @@ const AboutMe = () => {
                     >
                         <h2 className="text-4xl md:text-5xl font-bold mb-4">
                             <span className="bg-gradient-primary bg-clip-text text-transparent">
-                                {mode === 'terminal' ? '< CodeAbout />' : 'About Me'}
+                                {mode === 'terminal' ? '< AboutWistant />' : 'About Me'}
                             </span>
                         </h2>
                         <p className="text-muted-foreground text-lg mb-6">
                             {mode === 'terminal' 
-                                ? 'Watch React code write itself and compile in real-time' 
+                                ? 'Discover me through React code with animated border' 
                                 : 'Get to know me and my journey'
                             }
                         </p>
@@ -49,18 +49,18 @@ const AboutMe = () => {
                     </motion.div>
                 </div>
 
-                {/* Content - CodeEditor or Text */}
+                {/* Content - Code Block or Text */}
                 <div className="w-full">
                     <AnimatePresence mode="wait">
                         {mode === 'terminal' ? (
                             <motion.div
-                                key="code-editor"
+                                key="code-block"
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.95 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                <CodeEditor />
+                                <AboutCodeBlock />
                             </motion.div>
                         ) : (
                             <TextMode key="text" />
