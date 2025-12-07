@@ -255,8 +255,8 @@ export default function TestimonialsSection() {
   return (
     <section className="relative container py-24 overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute top-20 -left-20 z-0 h-64 w-64 rounded-full bg-primary/5 blur-3xl" />
-      <div className="absolute -right-20 bottom-20 z-0 h-64 w-64 rounded-full bg-primary/5 blur-3xl" />
+      {/* <div className="absolute top-20 -left-20 z-0 h-64 w-64 rounded-full bg-primary/5 blur-3xl" /> */}
+      {/* <div className="absolute -right-20 bottom-20 z-0 h-64 w-64 rounded-full bg-primary/5 blur-3xl" /> */}
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -287,10 +287,10 @@ export default function TestimonialsSection() {
                 vertical
                 key={i}
                 className={cn({
-                  '[--duration:60s]': i === 1,
-                  '[--duration:30s]': i === 2,
-                  '[--duration:70s]': i === 3,
-                  '[--duration:45s]': i === 0,
+                  '[--duration:30s]': i === 1,
+                  '[--duration:25s]': i === 2,
+                  '[--duration:50s]': i === 3,
+                  '[--duration:35s]': i === 0,
                 })}
               >
                 {testimonials.slice(i * 3, (i + 1) * 3).map((card, idx) => (
