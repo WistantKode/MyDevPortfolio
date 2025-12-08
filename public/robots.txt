@@ -18,4 +18,4 @@ Allow: /
 
 
 
-Sitemap: https://modjovictor.vercel.app/sitemap.xml
+Sitemap: https://wistant.vercel.app/sitemap.xml
