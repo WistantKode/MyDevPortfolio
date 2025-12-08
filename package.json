@@ -75,8 +75,8 @@
   },
   "devDependencies": {
     "@types/node": "^24.10.1",
-    "@types/react": "npm:types-react@19.0.0-rc.1",
-    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
+    "@types/react": "npm:types-react@rc",
+    "@types/react-dom": "npm:types-react-dom@rc",
     "@types/three": "^0.181.0",
     "autoprefixer": "^10.4.22",
     "eslint": "^9.39.1",

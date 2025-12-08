@@ -11,7 +11,7 @@ build/
 next-env.d.ts
 
 # pnpm
-pnpm-lock.yaml
+
 
 # Environment variables
 .env*.local
