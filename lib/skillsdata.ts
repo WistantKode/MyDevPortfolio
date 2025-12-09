@@ -32,8 +32,8 @@ export const technologies: Technology[] = [
         proficiency: 60,
         size: 'large',
         animate: {
-            x: [-150, 50, -50, 50],
-            y: [150, 50, -50, 50],
+            x: [-50, 50, 0, 0],
+            y: [50, 50, -50, 50],
             rotate: [0, -22, 22, 0]
         },
         transition: {
@@ -52,8 +52,8 @@ export const technologies: Technology[] = [
         proficiency: 50,
         size: 'medium',
         animate: {
-            x: [150, 50, -50, 50],
-            y: [-150, 50, -50, 50],
+            x: [50, 50, -50, 50],
+            y: [50, 50, -50, 50],
             rotate: [0, -22, 22, 0]
         },
         transition: {duration: 2.35, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.1},
@@ -117,8 +117,8 @@ export const technologies: Technology[] = [
         color: "#FF6B6B",
         proficiency: 30,
         animate: {
-            x: [50, 50, -50, 50],
-            y: [150, 50, -50, 50],
+            x: [-50, 50, 0, 0],
+            y: [50, 50, -50, 50],
             rotate: [0, -22, 22, 0]
         },
         transition: {duration: 2.2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.35},
@@ -143,8 +143,8 @@ export const technologies: Technology[] = [
         color: "#0079BF",
         proficiency: 100,
         animate: {
-            x: [0, 50, -50, 50],
-            y: [150, 50, -50, 50],
+            x: [-50, 50, 0, 0],
+            y: [50, 50, -50, 50],
             rotate: [0, -22, 22, 0]
         },
         transition: {duration: 2.25, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.45},
@@ -156,8 +156,8 @@ export const technologies: Technology[] = [
         color: "#bfa600",
         proficiency: 50,
         animate: {
-            x: [0, 50, -50, 50],
-            y: [150, 50, -50, 50],
+            x: [-50, 50, 0, 0],
+            y: [50, 50, -50, 50],
             rotate: [0, -22, 22, 0]
         },
         transition: {duration: 2.25, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.45},
