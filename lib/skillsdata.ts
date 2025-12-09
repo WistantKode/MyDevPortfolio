@@ -4,6 +4,7 @@ import {
     SiMicrogenetics,
     SiNestjs,
     SiPostgresql,
+    SiPrisma,
     SiReact,
     SiSlack,
     SiTrello,
@@ -29,11 +30,11 @@ export const technologies: Technology[] = [
         name: "React",
         icon: SiReact,
         color: "#61DAFB",
-        proficiency: 60,
+        proficiency: 70,
         size: 'large',
         animate: {
-            x: [-50, 50, 0, 0],
-            y: [50, 50, -50, 50],
+            x: [0, 0, 0, 0],
+            y: [-100, -200, 250, 10],
             rotate: [0, -22, 22, 0]
         },
         transition: {
@@ -52,8 +53,8 @@ export const technologies: Technology[] = [
         proficiency: 50,
         size: 'medium',
         animate: {
-            x: [50, 50, -50, 50],
-            y: [50, 50, -50, 50],
+            x: [0, 0, 0, 0],
+            y: [10, 20, -20, 10],
             rotate: [0, -22, 22, 0]
         },
         transition: {duration: 2.35, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.1},
@@ -65,9 +66,9 @@ export const technologies: Technology[] = [
         color: "#3178C6",
         proficiency: 50,
         animate: {
-            x: [0, 18, -18, 0],
-            y: [0, -22, 22, 0],
-            rotate: [0, 16, -16, 0]
+            x: [0, 0, 0, 0],
+            y: [-100, -120, 200, -100],
+            rotate: [0, -22, 22, 0]
         },
         transition: {duration: 2.15, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.15},
         whileHover: {scale: 1.3, rotate: 18, zIndex: 10}
@@ -78,9 +79,9 @@ export const technologies: Technology[] = [
         color: "#F05032",
         proficiency: 95,
         animate: {
-            x: [0, -20, 20, 0],
-            y: [0, 22, -22, 0],
-            rotate: [0, -20, 20, 0]
+            x: [0, 0, 0, 0],
+            y: [100, 120, -200, 100],
+            rotate: [0, -22, 22, 0]
         },
         transition: {duration: 2.25, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.2},
         whileHover: {scale: 1.3, rotate: -20, zIndex: 10}
@@ -89,11 +90,11 @@ export const technologies: Technology[] = [
         name: "GitHub",
         icon: SiGithub,
         color: "#FFFFFF",
-        proficiency: 70,
+        proficiency: 95,
         animate: {
-            x: [0, 22, -22, 0],
-            y: [0, 18, -18, 0],
-            rotate: [0, 18, -18, 0]
+            x: [0, 0, 0, 0],
+            y: [100, 120, -200, 100],
+            rotate: [0, -22, 22, 0]
         },
         transition: {duration: 2.3, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.25},
         whileHover: {scale: 1.3, rotate: 22, zIndex: 10}
@@ -104,8 +105,8 @@ export const technologies: Technology[] = [
         color: "#E0234E",
         proficiency: 40,
         animate: {
-            x: [0, 18, -18, 0],
-            y: [0, 20, -20, 0],
+            x: [0, 0, 0, 0],
+            y: [10, 20, -20, 10],
             rotate: [0, -22, 22, 0]
         },
         transition: {duration: 2.4, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.3},
@@ -117,8 +118,8 @@ export const technologies: Technology[] = [
         color: "#FF6B6B",
         proficiency: 30,
         animate: {
-            x: [-50, 50, 0, 0],
-            y: [50, 50, -50, 50],
+            x: [0, 0, 0, 0],
+            y: [10, 20, -20, 10],
             rotate: [0, -22, 22, 0]
         },
         transition: {duration: 2.2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.35},
@@ -128,10 +129,23 @@ export const technologies: Technology[] = [
         name: "PostgreSQL",
         icon: SiPostgresql,
         color: "#336791",
-        proficiency: 40,
+        proficiency: 50,
         animate: {
-            x: [50, 50, -50, 50],
-            y: [150, 50, -50, 50],
+            x: [0, 0, 0, 0],
+            y: [10, 20, -20, 10],
+            rotate: [0, -22, 22, 0]
+        },
+        transition: {duration: 2.3, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.4},
+        whileHover: {scale: 1.3, rotate: -20, zIndex: 10}
+    },
+     {
+        name: "Prisma",
+        icon: SiPrisma,
+        color: "#336791",
+        proficiency: 50,
+        animate: {
+            x: [0, 0, 0, 0],
+            y: [100, 0, 200, 100],
             rotate: [0, -22, 22, 0]
         },
         transition: {duration: 2.3, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.4},
@@ -143,8 +157,8 @@ export const technologies: Technology[] = [
         color: "#0079BF",
         proficiency: 100,
         animate: {
-            x: [-50, 50, 0, 0],
-            y: [50, 50, -50, 50],
+           x: [0, 0, 0, 0],
+            y: [10, 20, -20, 10],
             rotate: [0, -22, 22, 0]
         },
         transition: {duration: 2.25, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.45},
@@ -154,11 +168,11 @@ export const technologies: Technology[] = [
         name: "Slack",
         icon: SiSlack,
         color: "#bfa600",
-        proficiency: 50,
+        proficiency: 100,
         animate: {
-            x: [-50, 50, 0, 0],
-            y: [50, 50, -50, 50],
-            rotate: [0, -22, 22, 0]
+            x: [0, 0, 0, 0],
+            y: [5, 5, 5, 5],
+            rotate: [0, 0, 0, 0]
         },
         transition: {duration: 2.25, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.45},
         whileHover: {scale: 1.3, rotate: 28, zIndex: 10}
