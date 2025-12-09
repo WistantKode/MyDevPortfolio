@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://wistantkode.com/sitemap.xml',
+    sitemap: 'https://wistant.vercel.app/sitemap.xml',
   }
 }
