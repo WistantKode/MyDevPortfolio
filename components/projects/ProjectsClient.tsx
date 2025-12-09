@@ -1,19 +1,19 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { motion } from "framer-motion";
-import { ProjectCategory } from "@/lib/projet";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Search, Code, Globe, Server, Smartphone, X } from "lucide-react";
-import { projectsData } from "@/lib/projectsData";
-import { IconType } from "react-icons";
-import { Badge } from "@/components/ui/badge";
-import { ProjectCard } from "@/components/projects/ProjectCard";
-import { ProjectModal } from "@/components/projects/ProjectModal";
-import { ProjectStats } from "@/components/projects/ProjectStats";
-import { ImageLightbox } from "@/components/ui/ImageLightbox";
-import { Project } from "@/lib/projet";
+import {useMemo, useState} from "react";
+import {motion} from "framer-motion";
+// Helper import that was missing
+import {Project, projectCategories, ProjectCategory} from "@/lib/projet";
+import {Button} from "@/components/ui/button";
+import {Input} from "@/components/ui/input";
+import {Code, Globe, Search, Server, Smartphone, X} from "lucide-react";
+import {projectsData} from "@/lib/projectsData";
+import {IconType} from "react-icons";
+import {Badge} from "@/components/ui/badge";
+import {ProjectCard} from "@/components/projects/ProjectCard";
+import {ProjectModal} from "@/components/projects/ProjectModal";
+import {ProjectStats} from "@/components/projects/ProjectStats";
+import {ImageLightbox} from "@/components/ui/ImageLightbox";
 import GridBackground from "@/components/ui/GridBackground";
 
 const filterConfig: { name: string; category: ProjectCategory; icon: IconType }[] = [
@@ -23,7 +23,7 @@ const filterConfig: { name: string; category: ProjectCategory; icon: IconType }[
   { name: "Mobile", category: "mobile", icon: Smartphone },
 ];
 
-const PROJECTS_PER_PAGE = 9;
+const PROJECTS_PER_PAGE = 15;
 
 export default function ProjectsClient() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -286,5 +286,3 @@ export default function ProjectsClient() {
   );
 }
 
-// Helper import that was missing
-import { projectCategories } from "@/lib/projet";

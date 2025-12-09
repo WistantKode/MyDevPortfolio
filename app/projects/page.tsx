@@ -1,5 +1,5 @@
 import {Metadata} from 'next';
-import ProjectsClient from './ProjectsClient';
+import ProjectsClient from '../../components/projects/ProjectsClient';
 import {MetaProjects} from "@/lib/metaData";
 
 // --- STATIC METADATA ---

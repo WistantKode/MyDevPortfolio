@@ -7,7 +7,7 @@ import {Input} from "@/components/ui/input";
 import {Textarea} from "@/components/ui/textarea";
 import {Clock, Globe, Mail, MapPin, MessageCircle, Phone, Send,} from "lucide-react";
 import {useToast} from "@/hooks/use-toast";
-import {AppearOnScroll} from "@/components/ScrollEffect";
+import {AppearOnScroll} from "@/components/ScrollEffects/ScrollEffect";
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({

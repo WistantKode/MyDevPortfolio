@@ -3,7 +3,7 @@ import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {Button} from "@/components/ui/button";
 import {ArrowRight, CheckCircle} from "lucide-react";
 import MyStack from '@/components/myskills/MyStack';
-import {AppearOnScroll} from "@/components/ScrollEffect";
+import {AppearOnScroll} from "@/components/ScrollEffects/ScrollEffect";
 import {MetaServices} from "@/lib/metaData";
 import {processSteps, services} from "@/lib/servicesData";
 import GridBackground from "@/components/ui/GridBackground";

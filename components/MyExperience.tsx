@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {Briefcase, GraduationCap} from "lucide-react";
-import {AppearOnScroll} from "@/components/ScrollEffect";
+import {AppearOnScroll} from "@/components/ScrollEffects/ScrollEffect";
 
 interface ExperienceItem {
     title: string;

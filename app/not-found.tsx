@@ -1,5 +1,5 @@
-import { Metadata } from 'next';
-import NotFoundClient from './NotFoundClient';
+import {Metadata} from 'next';
+import NotFoundClient from '../components/notfound/NotFoundClient';
 
 export const metadata: Metadata = {
   title: "404 - Page non trouvée | Wistant Kode",
