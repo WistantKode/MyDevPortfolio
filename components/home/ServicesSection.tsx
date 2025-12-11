@@ -19,7 +19,6 @@ const BentoGridItem = ({
   description,
   icon,
   className,
-  size = 'small',
 }: BentoGridItemProps) => {
   return (
     <div

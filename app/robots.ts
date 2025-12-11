@@ -1,4 +1,4 @@
-import { MetadataRoute } from 'next'
+import {MetadataRoute} from 'next'
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -7,6 +7,10 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://wistant.vercel.app/sitemap.xml',
+      sitemap: [
+          'https://wistant.vercel.app/sitemap.xml',
+          'https://wistant.dev/sitemap.xml',
+          'https://wistantkode.vercel.app/sitemap.xml'
+      ],
   }
 }

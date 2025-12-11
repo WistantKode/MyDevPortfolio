@@ -14,8 +14,8 @@ const outfit = Outfit({
 
 const siteConfig = {
     title: "Wistant - Fullstack Developer",
-    description: "Je suis Wistant, développeur fullstack freelance spécialisé dans la création d'applications web performantes avec TypeScript, Next.js et NestJS. Construisons quelque chose d'incroyable ensemble.",
-    author: "Wistant (Kode)",
+    description: "Je suis Wistant, développeur fullstack spécialisé dans la création d'applications web performantes avec TypeScript, Next.js et NestJS. Construisons quelque chose d'incroyable ensemble.",
+    author: "Wistant Kode",
     url: "https://wistant.vercel.app",
     ogImage: "/og-image.png",
 };
@@ -74,8 +74,8 @@ export const metadata: Metadata = {
     ],
     openGraph: {
         type: "website",
-        locale: "fr_FR",
-        alternateLocale: "en_US",
+        locale: "en_US",
+        alternateLocale: "fr_FR",
         url: siteConfig.url,
         title: siteConfig.title,
         description: siteConfig.description,
@@ -109,9 +109,9 @@ export const metadata: Metadata = {
         },
     },
     icons: {
-        icon: "/favicon.ico",
-        shortcut: "/favicon-16x16.png",
-        apple: "/apple-touch-icon.png",
+        icon: "/og-image.png",
+        shortcut: "/og-image.png",
+        apple: "/og-image",
     },
     manifest: `${siteConfig.url}/site.webmanifest`,
     verification: {
@@ -140,7 +140,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="fr" suppressHydrationWarning>
+        <html lang="en" suppressHydrationWarning>
         <head>
             <link rel="preconnect" href="https://fonts.googleapis.com"/>
             <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous"/>
