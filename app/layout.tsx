@@ -16,7 +16,7 @@ const siteConfig = {
     title: "Wistant - Fullstack Developer",
     description: "Je suis Wistant, développeur fullstack freelance spécialisé dans la création d'applications web performantes avec TypeScript, Next.js et NestJS. Construisons quelque chose d'incroyable ensemble.",
     author: "Wistant (Kode)",
-    url: "https://wistantkode.com",
+    url: "https://wistant.vercel.app",
     ogImage: "/og-image.png",
 };
 

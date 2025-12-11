@@ -1,13 +1,24 @@
 "use client";
 
-import { Project } from "@/lib/projet";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Eye, Code2, X, CheckCircle2, Calendar, Users, Briefcase, Activity, Sparkles, FileText, Download, Layers, ArrowRight } from "lucide-react";
+import {Project} from "@/lib/projet";
+import {Dialog, DialogContent} from "@/components/ui/dialog";
+import {Button} from "@/components/ui/button";
+import {
+    Activity,
+    Briefcase,
+    Calendar,
+    CheckCircle2,
+    Code2,
+    Download,
+    Eye,
+    FileText,
+    Layers,
+    Sparkles,
+    Users,
+    X,
+} from "lucide-react";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+
 
 interface ProjectModalProps {
   project: Project | null;
