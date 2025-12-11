@@ -18,7 +18,7 @@ export function ProjectStats({
     {
       icon: Folder,
       label: "Projets",
-        ts",
+        // Removed unclosed string literal "ts"
       value: totalProjects,
       delay: 0,
     },
@@ -30,7 +30,7 @@ export function ProjectStats({
     },
     {
       icon: Layers,
-        label: "Caté      label: "Catégories",
+        label: "Catégories",
       value: totalCategories,
       delay: 0.2,
     },
