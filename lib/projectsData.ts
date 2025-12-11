@@ -1,3 +1,13 @@
+/**
+ * @file Ce fichier contient les données brutes de tous les projets du portfolio.
+ * @description Chaque objet du tableau `projectsData` est une instance de l'interface `Project`.
+ *              Ces données sont utilisées pour peupler dynamiquement la page des projets,
+ *              les cartes de projet individuelles et les modales d'étude de cas.
+ *              Pour modifier les informations d'un projet, c'est ici qu'il faut intervenir.
+ *
+ * @see /lib/projet.ts pour la définition de la structure `Project`.
+ */
+
 import {Project} from "./projet";
 import {FaReact} from "react-icons/fa";
 import {SiCss3, SiFramework, SiHtml5, SiJavascript, SiNestjs, SiTailwindcss, SiTypescript} from "react-icons/si";
