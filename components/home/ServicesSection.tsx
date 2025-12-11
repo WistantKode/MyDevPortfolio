@@ -4,6 +4,7 @@ import {cn} from '@/lib/utils';
 import {ArrowRight, Code, Database, Globe, Monitor, Palette, Smartphone} from "lucide-react";
 import {AppearOnScroll, ScaleTextEffect} from "@/components/ScrollEffects/ScrollEffect";
 import GridBackground from "@/components/ui/GridBackground";
+import React from "react";
 
 interface BentoGridItemProps {
   title: string;
