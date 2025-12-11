@@ -14,17 +14,35 @@ import {RiNextjsFill} from "react-icons/ri";
 import {IconType} from "react-icons";
 import {TargetAndTransition, Transition} from "framer-motion";
 
+/**
+ * @interface Technology
+ * @description Représente une compétence technologique avec ses propriétés pour l'affichage.
+ *              Utilisé pour générer dynamiquement la section "My Stack".
+ */
 interface Technology {
+    /** Nom de la technologie (ex: "React"). */
     name: string;
+    /** Composant d'icône pour représenter la technologie. */
     icon: IconType;
+    /** Couleur associée à la technologie, pour le style de l'icône. */
     color: string;
+    /** Niveau de maîtrise de la technologie, sur une échelle de 0 à 100. */
     proficiency: number;
+    /** Taille de la carte de technologie (non utilisé actuellement). */
     size?: 'small' | 'medium' | 'large';
+    /** Propriétés d'animation pour Framer Motion. */
     animate?: TargetAndTransition;
+    /** Propriétés de transition pour l'animation Framer Motion. */
     transition?: Transition;
+    /** Effets au survol de la souris pour Framer Motion. */
     whileHover?: TargetAndTransition;
 }
 
+/**
+ * @description Liste des technologies et compétences à afficher dans la section "My Stack".
+ *              Chaque objet contient les informations nécessaires pour afficher une carte de compétence,
+ *              y compris les paramètres d'animation.
+ */
 export const technologies: Technology[] = [
     {
         name: "React",
