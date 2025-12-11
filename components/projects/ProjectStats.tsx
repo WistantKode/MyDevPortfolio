@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Code, Layers, Folder } from "lucide-react";
+import {motion} from "framer-motion";
+import {Code, Folder, Layers} from "lucide-react";
 
 interface ProjectStatsProps {
   totalProjects: number;
@@ -18,6 +18,7 @@ export function ProjectStats({
     {
       icon: Folder,
       label: "Projets",
+        ts",
       value: totalProjects,
       delay: 0,
     },
@@ -29,7 +30,7 @@ export function ProjectStats({
     },
     {
       icon: Layers,
-      label: "Catégories",
+        label: "Caté      label: "Catégories",
       value: totalCategories,
       delay: 0.2,
     },

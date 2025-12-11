@@ -25,8 +25,8 @@ export const projectsData: Project[] = [
         completionDate: "2024",
         clientType: "personal",
         role: "Lead Full Stack Developer",
-        timeline: "2 mois",
-        team: "Projet Solo",
+        timeline: "2 months",
+        team: "Solo Project",
         docsUrl: "/docs/shopdo-specs.pdf", // Placeholder
         gallery: [
             `${PROJECT_IMAGE_BASE_PATH}shopdo.png`,
@@ -34,23 +34,26 @@ export const projectsData: Project[] = [
             `${PROJECT_IMAGE_BASE_PATH}car-rental.png`   // Placeholder for demo
         ],
         detailedDescription: {
-            overview: "ShopDO est une plateforme e-commerce complète conçue pour démontrer la puissance de l'architecture Next.js 15 App Router. L'objectif était de créer une expérience d'achat fluide, rapide et sécurisée, rivalisant avec les standards de l'industrie.",
+            overview: "ShopDO is a complete e-commerce platform designed to demonstrate the power of the Next.js 15 App Router architecture. The goal was to create a seamless, fast, and secure shopping experience that rivals industry standards.",
             features: [
-                "Authentification sécurisée (NextAuth.js)",
-                "Panier et Checkout (Stripe)",
-                "Dashboard Admin complet",
-                "Recherche et Filtrage avancés",
-                "Optimisation SEO & Performance"
+                "Secure authentication (NextAuth.js)",
+                "Shopping Cart and Checkout (Stripe)",
+                "Comprehensive Admin Dashboard",
+                "Advanced Search and Filtering",
+                "SEO & Performance Optimization"
             ],
-            challenges: "La gestion de l'état global entre les composants serveur (RSC) et client a été le défi principal. L'implémentation d'un panier synchronisé en temps réel tout en maintenant le rendu côté serveur pour le SEO a nécessité une architecture hybride soignée.",
+            challenges: "Managing global state between server components (RSC) and client components was the main challenge. Implementing a real-time synchronized shopping cart while maintaining server-side rendering for SEO required a carefully designed hybrid architecture.",
             process: [
-                { title: "Frontend & UI", description: "Intégration des composants avec Tailwind CSS et Framer Motion pour les interactions." },
-                { title: "Optimisation", description: "Audit Lighthouse et mise en place du caching pour réduire le TTFB." }
+                {
+                    title: "Frontend & UI",
+                    description: "Integration of components with Tailwind CSS and Framer Motion for interactions."
+                },
+                {title: "Optimization", description: "Lighthouse audit and implementation of caching to reduce TTFB."}
             ],
             keyTakeaways: [
-                "Maîtrise approfondie des Server Actions de Next.js 15",
-                "Importance de la validation des données avec Zod à tous les niveaux",
-                "Gestion complexe des formulaires avec React Hook Form"
+                "In-depth mastery of Next.js 15 Server Actions",
+                "Importance of data validation with Zod at all levels",
+                "Complex form management with React Hook Form"
             ]
         }
     },
@@ -71,13 +74,13 @@ export const projectsData: Project[] = [
         completionDate: "2024",
         clientType: "open-source",
         detailedDescription: {
-            overview: "Microservice d'authentification sécurisé utilisant NestJS et JWT, conçu pour une intégration facile dans des architectures modernes.",
+            overview: "Secure authentication microservice using NestJS and JWT, designed for easy integration into modern architectures.",
             features: [
-                "Authentification JWT avec refresh tokens",
-                "Sécurité renforcée avec bcrypt",
-                "Guards et decorators personnalisés",
-                "Documentation API Swagger",
-                "Architecture modulaire et scalable"
+                "JWT authentication with refresh tokens",
+                "Enhanced security with bcrypt",
+                "Custom guards and decorators",
+                "Swagger API documentation",
+                "Modular and scalable architecture"
             ]
         }
     },
