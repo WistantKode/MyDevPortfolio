@@ -1,9 +1,10 @@
 "use client";
 
-import { cn } from '@/lib/utils';
-import { Code, Database, Globe, Monitor, Palette, Smartphone, ArrowRight } from "lucide-react";
-import { ScaleTextEffect, AppearOnScroll } from "@/components/ScrollEffect";
+import {cn} from '@/lib/utils';
+import {ArrowRight, Code, Database, Globe, Monitor, Palette, Smartphone} from "lucide-react";
+import {AppearOnScroll, ScaleTextEffect} from "@/components/ScrollEffects/ScrollEffect";
 import GridBackground from "@/components/ui/GridBackground";
+import React from "react";
 
 interface BentoGridItemProps {
   title: string;
@@ -18,7 +19,6 @@ const BentoGridItem = ({
   description,
   icon,
   className,
-  size = 'small',
 }: BentoGridItemProps) => {
   return (
     <div

@@ -3,86 +3,86 @@ import {Code, Database, Globe, Monitor, Palette, Smartphone} from "lucide-react"
 export const services = [
     {
         icon: Database,
-        title: "Systèmes Backend & APIs",
-        description: "Implémentation de systèmes robustes et scalables avec NestJS et des architectures microservices résilientes.",
+        title: "Backend Systems & APIs",
+        description: "Implementation of robust and scalable systems with NestJS and resilient microservices architectures.",
         features: [
-            "APIs REST/GraphQL sécurisées",
-            "Authentification & Gestion des utilisateurs (JWT, OAuth)",
-            "Déploiement de microservices",
-            "Architecture système scalable",
+            "Secure REST/GraphQL APIs",
+            "Authentication & User Management (JWT, OAuth)",
+            "Microservices Deployment",
+            "Scalable System Architecture",
         ],
-        price: "Solutions sur mesure adaptées aux besoins de l'entreprise",
+        price: "Custom solutions tailored to business needs",
     },
     {
         icon: Code,
-        title: "Développement Web Full-Stack",
-        description: "Création d'applications web modernes et performantes avec des technologies de pointe.",
+        title: "Full-Stack Web Development",
+        description: "Creation of modern and high-performance web applications with cutting-edge technologies.",
         features: [
-            "Plateformes web responsives",
+            "Responsive Web Platforms",
             "Progressive Web Apps (PWAs)",
-            "Solutions E-commerce",
-            "Intégration & orchestration d'APIs",
-            "Tableaux de bord administratifs",
+            "E-commerce Solutions",
+            "API Integration & Orchestration",
+            "Admin Dashboards",
         ],
-        price: "Tarification adaptée à la portée – Devis gratuit fourni",
+        price: "Pricing adapted to scope – Free quote provided",
     },
     {
         icon: Smartphone,
-        title: "Applications Mobiles Multiplateformes",
-        description: "Développement d'applications mobiles multiplateformes offrant une expérience quasi-native avec React Native.",
+        title: "Cross-Platform Mobile Apps",
+        description: "Development of cross-platform mobile applications offering a near-native experience with React Native.",
         features: [
-            "Développement d'applications iOS/Android",
-            "Interface optimisée quasi-native",
-            "Optimisation des performances et des ressources",
+            "iOS/Android App Development",
+            "Near-Native Optimized Interface",
+            "Performance and Resource Optimization",
         ],
-        price: "Tarification adaptée à la portée",
+        price: "Pricing adapted to scope",
     },
     {
         icon: Globe,
-        title: "Optimisation & Performance",
-        description: "Amélioration de la performance, de la stabilité et du classement des sites web dans les moteurs de recherche.",
+        title: "Optimization & Performance",
+        description: "Improvement of website performance, stability, and search engine rankings.",
         features: [
-            "Optimisation SEO technique",
-            "Métriques de performance web (Core Web Vitals)",
-            "Implémentation & reporting d'analytics",
-            "Maintenance & surveillance continues",
+            "Technical SEO Optimization",
+            "Core Web Vitals Performance Metrics",
+            "Analytics Implementation & Reporting",
+            "Continuous Maintenance & Monitoring",
         ],
         price: "",
     },
     {
         icon: Monitor,
-        title: "Applications de Bureau sur Mesure",
-        description: "Développement de solutions logicielles de bureau sur mesure avec JavaFX et une intégration de base de données robuste.",
+        title: "Custom Desktop Applications",
+        description: "Development of custom desktop software solutions with JavaFX and robust database integration.",
         features: [
-            "Interfaces modernes et intuitives",
-            "Connectivité de base de données sécurisée",
-            "Fonctionnalités de gestion de données et de reporting",
-            "Solutions conçues pour les PME",
+            "Modern and Intuitive Interfaces",
+            "Secure Database Connectivity",
+            "Data Management and Reporting Features",
+            "Solutions designed for SMEs",
         ],
-        price: "Chaque projet est chiffré en fonction de sa complexité technique",
+        price: "Each project is quoted based on its technical complexity",
     },
 ];
 
 export const processSteps = [
     {
         step: "01",
-        title: "Consultation & Cadrage",
-        description: "Définition des besoins et des objectifs du projet pour établir une feuille de route claire."
+        title: "Consultation & Scoping",
+        description: "Defining the project needs and objectives to establish a clear roadmap."
     },
     {
         step: "02",
-        title: "Architecture & Conception",
-        description: "Création des plans, des wireframes et planification de l'architecture technique du système."
+        title: "Architecture & Design",
+        description: "Creating blueprints, wireframes, and planning the system's technical architecture."
     },
     {
         step: "03",
-        title: "Développement & Tests",
-        description: "Implémentation du système avec un codage structuré et des points de validation réguliers."
+        title: "Development & Testing",
+        description: "Implementing the system with structured coding and regular validation points."
     },
     {
         step: "04",
-        title: "Déploiement & Support",
-        description: "Déploiement final, formation nécessaire et support de maintenance post-lancement."
+        title: "Deployment & Support",
+        description: "Final deployment, necessary training, and post-launch maintenance support."
     },
 ];
 

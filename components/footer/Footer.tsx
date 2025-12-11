@@ -2,16 +2,9 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { 
-  Github, 
-  Linkedin, 
-  Mail, 
-  ArrowRight,
-  Heart,
-  MapPin
-} from 'lucide-react';
-import { FaWhatsapp } from 'react-icons/fa';
+import {motion} from 'framer-motion';
+import {ArrowRight, Github, Heart, Linkedin, Mail, MapPin} from 'lucide-react';
+import {FaWhatsapp} from 'react-icons/fa';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -165,7 +158,7 @@ const Footer = () => {
                   </div>
                 </motion.div>
 
-                {/* Column 4: CTA */}
+                  {/* Column 4: CallToAction */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}

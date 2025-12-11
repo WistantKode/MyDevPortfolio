@@ -1,15 +1,10 @@
 'use client';
-import { useState } from 'react';
-import { motion, AnimatePresence, easeInOut } from 'framer-motion';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
-import { Webhook } from 'lucide-react';
+import {useState} from 'react';
+import {AnimatePresence, easeInOut, motion} from 'framer-motion';
+import {Accordion, AccordionContent, AccordionItem, AccordionTrigger,} from '@/components/ui/accordion';
+import {Webhook} from 'lucide-react';
 import Image from 'next/image';
-import { BorderBeam } from '@/components/ui/border-beam';
+import {BorderBeam} from '@/components/ui/border-beam';
 
 const data = [
   {
@@ -223,7 +218,7 @@ export default function Faq4() {
           </Accordion>
         </motion.div>
 
-        {/* CTA Section */}
+          {/* CallToAction Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

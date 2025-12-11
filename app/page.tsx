@@ -4,7 +4,7 @@ import AboutMe from "@/components/home/AboutMe";
 import MyExperience from "@/components/MyExperience";
 import MyStack from "@/components/myskills/MyStack";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
-import FaqSection from "@/components/home/FaqSection";
+import FaqSection from "@/components/faq/FaqSection";
 // import ContactForm from "@/components/contact/ContactForm";
 
 export default function HomePage() {

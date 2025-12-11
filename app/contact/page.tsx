@@ -1,5 +1,5 @@
 import {Metadata} from 'next';
-import ContactClient from "@/app/contact/ContactClient";
+import ContactClient from "@/components/contact/ContactClient";
 import {Metacontact} from "@/lib/metaData";
 
 // --- STATIC METADATA ---

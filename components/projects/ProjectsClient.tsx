@@ -1,19 +1,19 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { motion } from "framer-motion";
-import { ProjectCategory } from "@/lib/projet";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Search, Code, Globe, Server, Smartphone, X } from "lucide-react";
-import { projectsData } from "@/lib/projectsData";
-import { IconType } from "react-icons";
-import { Badge } from "@/components/ui/badge";
-import { ProjectCard } from "@/components/projects/ProjectCard";
-import { ProjectModal } from "@/components/projects/ProjectModal";
-import { ProjectStats } from "@/components/projects/ProjectStats";
-import { ImageLightbox } from "@/components/ui/ImageLightbox";
-import { Project } from "@/lib/projet";
+import {useMemo, useState} from "react";
+import {motion} from "framer-motion";
+// Helper import that was missing
+import {Project, projectCategories, ProjectCategory} from "@/lib/projet";
+import {Button} from "@/components/ui/button";
+import {Input} from "@/components/ui/input";
+import {Code, Globe, Search, Server, Smartphone, X} from "lucide-react";
+import {projectsData} from "@/lib/projectsData";
+import {IconType} from "react-icons";
+import {Badge} from "@/components/ui/badge";
+import {ProjectCard} from "@/components/projects/ProjectCard";
+import {ProjectModal} from "@/components/projects/ProjectModal";
+import {ProjectStats} from "@/components/projects/ProjectStats";
+import {ImageLightbox} from "@/components/ui/ImageLightbox";
 import GridBackground from "@/components/ui/GridBackground";
 
 const filterConfig: { name: string; category: ProjectCategory; icon: IconType }[] = [
@@ -23,7 +23,7 @@ const filterConfig: { name: string; category: ProjectCategory; icon: IconType }[
   { name: "Mobile", category: "mobile", icon: Smartphone },
 ];
 
-const PROJECTS_PER_PAGE = 9;
+const PROJECTS_PER_PAGE = 15;
 
 export default function ProjectsClient() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -93,8 +93,8 @@ export default function ProjectsClient() {
               transition={{ duration: 0.5 }}
               className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
             >
-              <span className="text-text-primary">Mes </span>
-              <span className="gradient-text">Projets</span>
+                <span className="text-text-primary">My </span>
+                <span className="gradient-text">Projects</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: -10 }}
@@ -102,9 +102,8 @@ export default function ProjectsClient() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-text-secondary text-lg md:text-xl max-w-3xl mx-auto mb-12 leading-relaxed"
             >
-              Explorez une sélection de mes travaux, allant des applications web
-              interactives aux systèmes backend robustes, conçus avec un accent sur la
-              performance, la sécurité et la scalabilité.
+                Explore a selection of my work, ranging from interactive web applications to robust backend systems,
+                designed with a focus on performance, security, and scalability.
             </motion.p>
 
             {/* Project Stats */}
@@ -122,7 +121,7 @@ export default function ProjectsClient() {
               <div className="relative flex-1 max-w-2xl mx-auto w-full">
                 <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-text-muted w-5 h-5" />
                 <Input
-                  placeholder="Rechercher par titre, description ou technologie..."
+                    placeholder="Search by title, description, or technology..."
                   value={searchTerm}
                   onChange={(e) => {
                     setSearchTerm(e.target.value);
@@ -163,7 +162,7 @@ export default function ProjectsClient() {
                     className="text-text-muted hover:text-primary"
                   >
                     <X className="w-4 h-4 mr-1" />
-                    Réinitialiser
+                      Reset
                   </Button>
                 )}
               </div>
@@ -173,16 +172,16 @@ export default function ProjectsClient() {
                 <div className="flex flex-wrap items-center gap-2 justify-center">
                   {searchTerm && (
                     <Badge variant="secondary" className="text-sm">
-                      Recherche: {searchTerm}
+                        Search: {searchTerm}
                     </Badge>
                   )}
                   {selectedCategory !== "all" && (
                     <Badge variant="secondary" className="text-sm">
-                      Catégorie: {filterConfig.find((f) => f.category === selectedCategory)?.name}
+                        Category: {filterConfig.find((f) => f.category === selectedCategory)?.name}
                     </Badge>
                   )}
                   <span className="text-text-muted text-sm">
-                    ({filteredAndSortedProjects.length} projet
+                    ({filteredAndSortedProjects.length} project
                     {filteredAndSortedProjects.length > 1 ? "s" : ""})
                   </span>
                 </div>
@@ -211,14 +210,14 @@ export default function ProjectsClient() {
             >
               <div className="text-6xl mb-4">🔍</div>
               <p className="text-text-muted text-lg mb-2">
-                Aucun projet ne correspond à vos critères.
+                  No projects match your criteria.
               </p>
               <Button
                 variant="outline"
                 onClick={handleClearFilters}
                 className="mt-4 border-border-light hover:border-primary"
               >
-                Réinitialiser les filtres
+                  Reset filters
               </Button>
             </motion.div>
           )}
@@ -233,7 +232,7 @@ export default function ProjectsClient() {
                 disabled={currentPage === 1}
                 className="border-border-light hover:border-primary disabled:opacity-50"
               >
-                Précédent
+                  Previous
               </Button>
               <div className="flex gap-2">
                 {[...Array(totalPages)].map((_, i) => (
@@ -259,7 +258,7 @@ export default function ProjectsClient() {
                 disabled={currentPage === totalPages}
                 className="border-border-light hover:border-primary disabled:opacity-50"
               >
-                Suivant
+                  Next
               </Button>
             </div>
           )}
@@ -285,6 +284,3 @@ export default function ProjectsClient() {
     </>
   );
 }
-
-// Helper import that was missing
-import { projectCategories } from "@/lib/projet";

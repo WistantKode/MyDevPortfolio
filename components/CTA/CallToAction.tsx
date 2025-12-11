@@ -1,12 +1,12 @@
 import {Button} from "@/components/ui/button";
 
-const CTA = () => {
+const CallToAction = () => {
   return (
       <>
       <section className="pb-1 bg-background">
         <div className="container mx-auto px-4">
 
-          {/* CTA Section */}
+            {/* CallToAction Section */}
           <div className="text-center bg-gradient-card rounded-2xl p-12 border border-border-light shadow-card">
             <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
               Prêt à Démarrer Votre Projet ?
@@ -46,4 +46,4 @@ const CTA = () => {
   );
 };
 
-export default CTA;
+export default CallToAction;

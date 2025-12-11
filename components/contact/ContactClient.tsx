@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Clock, Mail, MapPin, Phone, Send } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
-import { AppearOnScroll } from "@/components/ScrollEffect";
+import React, {useState} from "react";
+import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
+import {Button} from "@/components/ui/button";
+import {Input} from "@/components/ui/input";
+import {Textarea} from "@/components/ui/textarea";
+import {Clock, Mail, MapPin, Phone, Send} from "lucide-react";
+import {useToast} from "@/hooks/use-toast";
+import {AppearOnScroll} from "@/components/ScrollEffects/ScrollEffect";
 import GridBackground from "@/components/ui/GridBackground";
 
 const ContactClient = () => {
@@ -67,7 +67,9 @@ const ContactClient = () => {
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
                     <h1 className="text-4xl md:text-6xl font-bold text-text-primary mb-6">Initier le Contact</h1>
-                    <p className="text-text-secondary text-lg max-w-2xl mx-auto">Vous avez un projet nécessitant une architecture Backend solide ? Discutons des spécifications techniques et construisons ensemble un système fiable.</p>
+                    <p className="text-text-secondary text-lg max-w-2xl mx-auto">Vous avez un projet nécessitant une
+                        architecture Backend solide ? Un frontend moderne et puissant ? Discutons des spécifications
+                        techniques et construisons ensemble un système fiable.</p>
                 </div>
 
                 <div className="grid lg:grid-cols-2 gap-16">
