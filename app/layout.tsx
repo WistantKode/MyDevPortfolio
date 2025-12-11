@@ -111,7 +111,7 @@ export const metadata: Metadata = {
     icons: {
         icon: "/og-image.png",
         shortcut: "/og-image.png",
-        apple: "/og-image",
+        apple: "/og-image.png",
     },
     manifest: `${siteConfig.url}/site.webmanifest`,
     verification: {
